@@ -78,7 +78,7 @@ const SignIn = () => {
                     {/* Login Form */}
                     <form onSubmit={handleLogin}>
                       {/* Name Field */}
-                      <div className="mb-4">
+                      {/* <div className="mb-4">
                         <label htmlFor="name" className="form-label">
                           Name *
                         </label>
@@ -89,7 +89,7 @@ const SignIn = () => {
                           value={input.name}
                           onChange={handleChange}
                         />
-                      </div>
+                      </div> */}
 
                       {/* Email Field */}
                       <div className="mb-4">
