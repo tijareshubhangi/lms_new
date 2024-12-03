@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Counter from './Counter'
 import PopularCourses from './PopularCourses'
 import Review from './Review'
@@ -8,7 +8,7 @@ import Nav from './Nav'
 import Cart from './Cart'
 import AdminLogin from './AdminLogin'
 import Footer from './Footer';
- 
+
 
 const Home = () => {
   const [cart, setCart] = useState([]);
@@ -82,14 +82,11 @@ const Home = () => {
   {/* =======================
 Main Banner START */}
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-  <section className="position-relative overflow-hidden pt-5 pt-lg-3">
+<br/>
+<br/>
+  <section className="position-relative overflow-hidden pt-5 pt-lg-3 mt-5">
     {/* SVG START */}
-    <figure className="position-absolute top-50 start-0 translate-middle-y ms-n7 d-none d-xxl-block">
+    <figure className="position-absolute top-100 start-0 translate-middle-y ms-n7 d-none d-xxl-block">
       <svg className="rotate-74 fill-danger opacity-1">
         <circle cx="180.4" cy="15.5" r="7.7" />
         <path d="m159.9 22.4c-3.8 0-6.9-3.1-6.9-6.9s3.1-6.9 6.9-6.9 6.9 3.1 6.9 6.9-3.1 6.9-6.9 6.9z" />
@@ -248,7 +245,7 @@ Main Banner START */}
            </div>
           <div className="d-sm-flex align-items-center justify-content-center justify-content-lg-start">
             {/* Button */}
-            <a href="#" className="btn btn-lg btn-danger-soft me-2 mb-4 mb-sm-0">Get Started</a>
+            <Link href="#" className="btn btn-lg btn-danger-soft me-2 mb-4 mb-sm-0">Get Started</Link>
             {/* Video button */}
             <div className="d-flex align-items-center justify-content-center py-2 ms-0 ms-sm-4">
               <a data-glightbox data-gallery="office-tour" href="https://www.youtube.com/embed/tXHviS-4ygo" className="btn btn-round btn-primary-shadow mb-0 overflow-visible me-7"> 
@@ -321,16 +318,16 @@ Main Banner START */}
             {/* Avatar group */}
             <ul className="avatar-group mb-0">
               <li className="avatar avatar-sm">
-                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/01.jpg" alt="avatar" />
+                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/01.jpg" alt="" />
               </li>
               <li className="avatar avatar-sm">
-                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/02.jpg" alt="avatar" />
+                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/02.jpg" alt="" />
               </li>
               <li className="avatar avatar-sm">
-                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/03.jpg" alt="avatar" />
+                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/03.jpg" alt="" />
               </li>
               <li className="avatar avatar-sm">
-                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/04.jpg" alt="avatar" />
+                <img className="avatar-img rounded-circle border-white" src="assets/images/avatar/04.jpg" alt="" />
               </li>
               <li className="avatar avatar-sm">
                 <div className="avatar-img rounded-circle border-white bg-primary">

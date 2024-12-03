@@ -33,7 +33,7 @@ if (!fs.existsSync(folderPath)) {
 
 // Serve Static Files
 app.use('/public', express.static(path.join(path.resolve(), 'Public')));
-app.use('/videos', express.static(path.join(__dirname, 'videos'))); // Serve static videos
+app.use('/Videos', express.static(path.join(__dirname, 'videos'))); // Serve static videos
 
 // Video and Purchase Data Storage (In-Memory for simplicity)
 const videos = [];

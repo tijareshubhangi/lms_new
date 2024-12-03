@@ -1,5 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -58,12 +60,12 @@ const CourseCard = ({ course }) => {
             <div className="card-body pb-0">
                 <div className="d-flex justify-content-between mb-3">
                     <span className="hstack gap-2">
-                        <a href="#" className="badge bg-primary bg-opacity-10 text-primary">{course.category}</a>
-                        <a href="#" className="badge text-bg-dark">{course.level}</a>
+                        <Link to="#" className="badge bg-primary bg-opacity-10 text-primary">{course.category}</Link>
+                        <Link to="#" className="badge text-bg-dark">{course.level}</Link>
                     </span>
-                    <a href="#" className="h6 fw-light mb-0"><i className="far fa-bookmark"></i></a>
+                    <Link to="#" className="h6 fw-light mb-0"><i className="far fa-bookmark"></i></Link>
                 </div>
-                <h5 className="card-title"><a href="#">{course.title}</a></h5>
+                <h5 className="card-title"><Link to="#">{course.title}</Link></h5>
                 <div className="d-flex justify-content-between mb-2">
                     <div className="hstack gap-2">
                         <p className="text-warning m-0">{course.rating}<i className="fas fa-star text-warning ms-1"></i></p>
@@ -86,11 +88,11 @@ const CourseCard = ({ course }) => {
                         <div className="avatar avatar-sm">
                             <img className="avatar-img rounded-1" src={course.instructor.image} alt="avatar" />
                         </div>
-                        <p className="mb-0 ms-2"><a href="#" className="h6 fw-light mb-0">{course.instructor.name}</a></p>
+                        <p className="mb-0 ms-2"><Link to="#" className="h6 fw-light mb-0">{course.instructor.name}</Link></p>
                     </div>
                     <div>
                         <h4 className="text-success mb-0 item-show">{course.isFree ? "Free" : `$${course.price}`}</h4>
-                        <a href="#" className="btn btn-sm btn-success-soft item-show-hover"><i className="fas fa-shopping-cart me-2"></i>Add to cart</a>
+                        <Link to="#" className="btn btn-sm btn-success-soft item-show-hover"><i className="fas fa-shopping-cart me-2"></i>Add to cart</Link>
                     </div>
                 </div>
             </div>
@@ -129,7 +131,6 @@ const TrendingCourses = () => {
             isFree: false,
             price: 255
         },
-        // Add more courses here
     ];
 
     const sliderSettings = {
@@ -157,6 +158,11 @@ const TrendingCourses = () => {
         ]
     };
 
+    // Smooth scroll to section
+    const handleScroll = () => {
+        scroll.scrollTo(700, { duration: 800, smooth: "easeInOutQuad" });
+    };
+
     return (
         <section className="pb-5 pt-0 pt-lg-5">
             <div className="container">
@@ -164,6 +170,7 @@ const TrendingCourses = () => {
                     <div className="col-lg-8 mx-auto text-center">
                         <h2 className="fs-1">Our Trending Courses</h2>
                         <p className="mb-0">Check out most 🔥 courses in the market</p>
+                        <button onClick={handleScroll} className="btn btn-primary mt-3">Scroll to Courses</button>
                     </div>
                 </div>
                 <div className="row">

@@ -30,12 +30,7 @@ const Sign_UP = () => {
   
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <main>
+         <main>
         <section className="p-0 d-flex align-items-center position-relative overflow-hidden">
           <div className="container-fluid">
             <div className="row">
