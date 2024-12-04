@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
 import { useUser } from '../context/UserContext'; // Importing UserContext
-import StudentEditProfile from "./StudentEditProfile";
-
 
 const Nav = ({ cartCount }) => {
   const navigate = useNavigate();
@@ -11,10 +9,6 @@ const Nav = ({ cartCount }) => {
   const [profileImage, setProfileImage] = useState(null); // Default profile image
   const dropdownRef = useRef(null);
   const { user, logout } = useUser(); // Access user and logout from context
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-
 
   useEffect(() => {
     // Fetch the profile image from localStorage
@@ -143,12 +137,8 @@ const Nav = ({ cartCount }) => {
                   {dropdownOpen && (
                     <ul className="dropdown-menu dropdown-menu-end show mt-3">
                       <li className="dropdown-item-text">
-                           <strong>{`Welcome, ${firstName} ${lastName}`}</strong>
-                                <StudentEditProfile 
-                        setFirstName={setFirstName} 
-                               setLastName={setLastName} 
-                           />                      
-                             <p className="small mb-0">{` ${email}`}</p>  
+                        <strong>{`Welcome, ${name}`}</strong>    
+                        <p className="small mb-0">{` ${email}`}</p>  
                       </li>
                       <div className="dropdown-divider"></div>
                       <li>

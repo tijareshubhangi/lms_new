@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "../Components/Services/axiosInterceptor";
 
-const StudentEditProfile = ({ setFirstName, setLastName }) => {
+const StudentEditProfile = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null); // Default image
   const [profileImage, setProfileImage] = useState(null);
