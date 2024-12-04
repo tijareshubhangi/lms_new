@@ -23,7 +23,7 @@ const Instructor_studentlist = () => {
               {/* Avatar */}
               <div className="col-auto mt-4 mt-md-0">
                 <div className="avatar avatar-xxl mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="" />
                 </div>
               </div>
               {/* Profile info */}
@@ -48,7 +48,7 @@ const Instructor_studentlist = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" to="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -156,11 +156,11 @@ const Instructor_studentlist = () => {
                         <div className="d-flex align-items-center position-relative">
                           {/* Image */}
                           <div className="avatar avatar-md mb-2 mb-md-0">
-                            <img src="assets/images/avatar/01.jpg" className="rounded" alt />
+                            <img src="assets/images/avatar/01.jpg" className="rounded" alt="" />
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a href="#" className="stretched-link">Lori Stevens</a></h6>
+                            <h6 className="mb-0"><a to="#" className="stretched-link">Lori Stevens</a></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Mumbai</span>
                           </div>
@@ -182,7 +182,7 @@ const Instructor_studentlist = () => {
                       <td>4/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a href="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -193,11 +193,11 @@ const Instructor_studentlist = () => {
                         <div className="d-flex align-items-center position-relative">
                           {/* Image */}
                           <div className="avatar avatar-md mb-2 mb-md-0">
-                            <img src="assets/images/avatar/03.jpg" className="rounded" alt />
+                            <img src="assets/images/avatar/03.jpg" className="rounded" alt="" />
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a href="#" className="stretched-link">Dennis Barrett</a></h6>
+                            <h6 className="mb-0"><a to="#" className="stretched-link">Dennis Barrett</a></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />New york</span>
                           </div>
@@ -219,7 +219,7 @@ const Instructor_studentlist = () => {
                       <td>9/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a href="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
                         <button className="btn btn-danger btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Unblock"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -230,11 +230,11 @@ const Instructor_studentlist = () => {
                         <div className="d-flex align-items-center position-relative">
                           {/* Image */}
                           <div className="avatar avatar-md mb-2 mb-md-0">
-                            <img src="assets/images/avatar/04.jpg" className="rounded" alt />
+                            <img src="assets/images/avatar/04.jpg" className="rounded" alt="" />
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a href="#" className="stretched-link">Billy Vasquez</a></h6>
+                            <h6 className="mb-0"><a to="#" className="stretched-link">Billy Vasquez</a></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Paris</span>
                           </div>
@@ -256,7 +256,7 @@ const Instructor_studentlist = () => {
                       <td>10/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a href="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -267,11 +267,11 @@ const Instructor_studentlist = () => {
                         <div className="d-flex align-items-center position-relative">
                           {/* Image */}
                           <div className="avatar avatar-md mb-2 mb-md-0">
-                            <img src="assets/images/avatar/09.jpg" className="rounded" alt />
+                            <img src="assets/images/avatar/09.jpg" className="rounded" alt="" />
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a href="#" className="stretched-link">Carolyn Ortiz</a></h6>
+                            <h6 className="mb-0"><a to="#" className="stretched-link">Carolyn Ortiz</a></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Delhi</span>
                           </div>
@@ -293,7 +293,7 @@ const Instructor_studentlist = () => {
                       <td>20/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a href="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -304,11 +304,11 @@ const Instructor_studentlist = () => {
                         <div className="d-flex align-items-center position-relative">
                           {/* Image */}
                           <div className="avatar avatar-md mb-2 mb-md-0">
-                            <img src="assets/images/avatar/07.jpg" className="rounded" alt />
+                            <img src="assets/images/avatar/07.jpg" className="rounded" alt="" />
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a href="#" className="stretched-link">Larry Lawson</a></h6>
+                            <h6 className="mb-0"><a to="#" className="stretched-link">Larry Lawson</a></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />London</span>
                           </div>
@@ -330,7 +330,7 @@ const Instructor_studentlist = () => {
                       <td>12/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a href="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -341,11 +341,11 @@ const Instructor_studentlist = () => {
                         <div className="d-flex align-items-center position-relative">
                           {/* Image */}
                           <div className="avatar avatar-md mb-2 mb-md-0">
-                            <img src="assets/images/avatar/06.jpg" className="rounded" alt />
+                            <img src="assets/images/avatar/06.jpg" className="rounded" alt="" />
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a href="#" className="stretched-link">Frances Guerrero</a></h6>
+                            <h6 className="mb-0"><a to="#" className="stretched-link">Frances Guerrero</a></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Pune</span>
                           </div>
@@ -367,7 +367,7 @@ const Instructor_studentlist = () => {
                       <td>8/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a href="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -383,11 +383,11 @@ const Instructor_studentlist = () => {
                 {/* Pagination */}
                 <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
                   <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                    <li className="page-item mb-0"><a className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item mb-0 active"><a className="page-link" href="#">2</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">3</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#"><i className="fas fa-angle-right" /></a></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#">1</Link></li>
+                    <li className="page-item mb-0 active"><Link className="page-link" to="#">2</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#">3</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#"><i className="fas fa-angle-right" /></Link></li>
                   </ul>
                 </nav>
               </div>

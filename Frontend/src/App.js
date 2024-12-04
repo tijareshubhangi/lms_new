@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import Nav from "./Components/Nav";
+// import Nav from "./Components/Nav";
 import Home from "./Components/Home";
 import CourseCategory1 from "./Components/CourseCategory1";
 import Sign_UP from "./Components/Sign_UP";
@@ -10,7 +10,7 @@ import Cart from "./Components/Cart";
 import { UserProvider } from "./context/UserContext";
 
 import CourseCategory from './Components/CourseCategory';
-import Footer from './Components/Footer';
+// import Footer from './Components/Footer';
 
 import Instructor_Dashboard from './Components/Instructor_Dashboard';
 import Instructor_Courses from './Components/Instructor_Courses';
@@ -25,8 +25,8 @@ import Instructor_setting from './Components/Instructor_setting';
 import Instructor_Deleteprofile from './Components/Instructor_Deleteprofile';
 
 import Instructor_createCourse from './Components/Instructor_createCourse';
-import Instructor_Single from './Components/Instructor_Single';
-import Instructor_List from './Components/Instructor_List';
+// import Instructor_Single from './Components/Instructor_Single';
+// import Instructor_List from './Components/Instructor_List';
 
 import StudentDashboard from './Components/StudentDashboard';
 
@@ -55,8 +55,8 @@ import StudentDeleteAccount from './Components/StudentDeleteAccount';
 
 import AdminDashboard from './Components/AdminDashboard';
 import AdminCourceList from './Components/AdminCourceList';
-import AdminSideNavbar from './Components/AdminSideNavbar';
-import AdminTopNavBar from './Components/AdminTopNavBar';
+// import AdminSideNavbar from './Components/AdminSideNavbar';
+// import AdminTopNavBar from './Components/AdminTopNavBar';
 import AdminCourseCategory from './Components/AdminCourseCategory';
 import AdminCourseDetail from './Components/AdminCourseDetail';
 import AdminEditCourseDetals from './Components/AdminEditCourseDetals';
@@ -71,7 +71,7 @@ import AdminSeating from './Components/AdminSeating';
 import AdminError404 from './Components/AdminError404'
 
 import BackToTop from './Components/BacktoTop';
-import PaymentPage from './Components/PaymentPage';
+// import PaymentPage from './Components/PaymentPage';
 import CoursePayment from './Components/CoursePayment';
 
 import AdminLogin from './Components/AdminLogin';
