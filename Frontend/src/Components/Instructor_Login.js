@@ -45,10 +45,10 @@ const Instructor_Login = () => {
           </form>
           <p className="terms-text">
             By continuing, you agree to LMS's{' '}
-            <LInk href="#" className="terms-link">Conditions of Use</LInk> and{' '}
-            <LInk href="#" className="terms-link">Privacy Notice</LInk>.
+            <Link href="#" className="terms-Link">Conditions of Use</Link> and{' '}
+            <Link href="#" className="terms-Link">Privacy Notice</Link>.
           </p>
-          <LInk href="#" className="help-link">Need help?</LInk>
+          <Link href="#" className="help-Link">Need help?</Link>
         </div>
         <div className="divider">
           <span className="divider-text">New to LMS?</span>
@@ -58,10 +58,10 @@ const Instructor_Login = () => {
        </button>
       </div>
       <footer className="footer">
-        <div className="footer-links">
-          <LInk href="#" className="footer-link">Conditions of Use</LInk>
-          <LInk href="#" className="footer-link">Privacy Notice</LInk>
-          <LInk href="#" className="footer-link">Help</LInk>
+        <div className="footer-Links">
+          <Link href="#" className="footer-Link">Conditions of Use</Link>
+          <Link href="#" className="footer-Link">Privacy Notice</Link>
+          <Link href="#" className="footer-Link">Help</Link>
         </div>
         <div className="footer-text">© 1996-2024, Amazon.com, Inc. or its affiliates</div>
       </footer>
