@@ -19,7 +19,7 @@ Page content START */}
               <div className="card shadow p-2 mb-4 text-center">
                 <div className="rounded-3">
                   {/* Image */}
-                  <img src="assets/images/instructor/07.jpg" className="card-img" alt="course image" />
+                  <img src="assets/images/instructor/07.jpg" className="card-img" alt="" />
                 </div>
                 {/* Card body */}
                 <div className="card-body px-3">
@@ -34,10 +34,10 @@ Page content START */}
                   </ul>
                   {/* Social media button */}
                   <ul className="list-inline mb-0">
-                    <li className="list-inline-item"> <a className="btn px-2 btn-sm bg-facebook" href="#"><i className="fab fa-fw fa-facebook-f" /></a> </li>
-                    <li className="list-inline-item"> <a className="btn px-2 btn-sm bg-instagram-gradient" href="#"><i className="fab fa-fw fa-instagram" /></a> </li>
-                    <li className="list-inline-item"> <a className="btn px-2 btn-sm bg-twitter" href="#"><i className="fab fa-fw fa-twitter" /></a> </li>
-                    <li className="list-inline-item"> <a className="btn px-2 btn-sm bg-linkedin" href="#"><i className="fab fa-fw fa-linkedin-in" /></a> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-facebook" href="#"><i className="fab fa-fw fa-facebook-f" /></Link> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-instagram-gradient" href="#"><i className="fab fa-fw fa-instagram" /></Link> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-twitter" href="#"><i className="fab fa-fw fa-twitter" /></Link> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-linkedin" href="#"><i className="fab fa-fw fa-linkedin-in" /></Link> </li>
                   </ul>
                 </div>
               </div>
@@ -197,16 +197,16 @@ Page content START */}
             <div className="col-sm-6">
               <div className="card shadow h-100">
                 {/* Image */}
-                <img src="assets/images/courses/4by3/08.jpg" className="card-img-top" alt="course image" />
+                <img src="assets/images/courses/4by3/08.jpg" className="card-img-top" alt="" />
                 {/* Card body */}
                 <div className="card-body pb-0">
                   {/* Badge and favorite */}
                   <div className="d-flex justify-content-between mb-2">
-                    <a href="#" className="badge bg-purple bg-opacity-10 text-purple">All level</a>
-                    <a href="#" className="h6 fw-light mb-0"><i className="far fa-heart" /></a>
+                    <Link to="#" className="badge bg-purple bg-opacity-10 text-purple">All level</Link>
+                    <Link to="#" className="h6 fw-light mb-0"><i className="far fa-heart" /></Link>
                   </div>
                   {/* Title */}
-                  <h5 className="card-title fw-normal"><a href="#">Sketch from A to Z: for app designer</a></h5>
+                  <h5 className="card-title fw-normal"><Link to="#">Sketch from A to Z: for app designer</Link></h5>
                   <p className="mb-2 text-truncate-2">Proposal indulged no do sociable he throwing settling</p>
                   {/* Rating star */}
                   <ul className="list-inline mb-0">
@@ -233,15 +233,15 @@ Page content START */}
             <div className="col-sm-6">
               <div className="card shadow h-100">
                 {/* Image */}
-                <img src="assets/images/courses/4by3/02.jpg" className="card-img-top" alt="course image" />
+                <img src="assets/images/courses/4by3/02.jpg" className="card-img-top" alt="" />
                 <div className="card-body pb-0">
                   {/* Badge and favorite */}
                   <div className="d-flex justify-content-between mb-2">
-                    <a href="#" className="badge bg-info bg-opacity-10 text-info">Intermediate</a>
-                    <a href="#" className="text-danger"><i className="fas fa-heart" /></a>
+                    <Link to="#" className="badge bg-info bg-opacity-10 text-info">Intermediate</Link>
+                    <Link to="#" className="text-danger"><i className="fas fa-heart" /></Link>
                   </div>
                   {/* Title */}
-                  <h5 className="card-title fw-normal"><a href="#">Graphic Design Masterclass</a></h5>
+                  <h5 className="card-title fw-normal"><Link to="#">Graphic Design Masterclass</Link></h5>
                   <p className="mb-2 text-truncate-2">Rooms oh fully taken by worse do Points afraid but may end Rooms
                     Points afraid but may end Rooms</p>
                   {/* Rating star */}
@@ -269,15 +269,15 @@ Page content START */}
             <div className="col-sm-6">
               <div className="card shadow h-100">
                 {/* Image */}
-                <img src="assets/images/courses/4by3/03.jpg" className="card-img-top" alt="course image" />
+                <img src="assets/images/courses/4by3/03.jpg" className="card-img-top" alt="" />
                 <div className="card-body pb-0">
                   {/* Badge and favorite */}
                   <div className="d-flex justify-content-between mb-2">
-                    <a href="#" className="badge bg-success bg-opacity-10 text-success">Beginner</a>
-                    <a href="#" className="h6 fw-light mb-0"><i className="far fa-heart" /></a>
+                    <Link to="#" className="badge bg-success bg-opacity-10 text-success">Beginner</Link>
+                    <Link to="#" className="h6 fw-light mb-0"><i className="far fa-heart" /></Link>
                   </div>
                   {/* Title */}
-                  <h5 className="card-title fw-normal"><a href="#">Create a Design System in Figma</a></h5>
+                  <h5 className="card-title fw-normal"><Link to="#">Create a Design System in Figma</Link></h5>
                   <p className="mb-2 text-truncate-2">Rooms oh fully taken by worse do. Points afraid but may end afraid
                     but may end.</p>
                   {/* Rating star */}
@@ -305,15 +305,15 @@ Page content START */}
             <div className="col-sm-6">
               <div className="card shadow h-100">
                 {/* Image */}
-                <img src="assets/images/courses/4by3/07.jpg" className="card-img-top" alt="course image" />
+                <img src="assets/images/courses/4by3/07.jpg" className="card-img-top" alt="" />
                 <div className="card-body pb-0">
                   {/* Badge and favorite */}
                   <div className="d-flex justify-content-between mb-2">
-                    <a href="#" className="badge bg-success bg-opacity-10 text-success">Beginner</a>
-                    <a href="#" className="text-danger"><i className="fas fa-heart" /></a>
+                    <Link to="#" className="badge bg-success bg-opacity-10 text-success">Beginner</Link>
+                    <Link to="#" className="text-danger"><i className="fas fa-heart" /></Link>
                   </div>
                   {/* Title */}
-                  <h5 className="card-title fw-normal"><a href="#">Deep Learning with React-Native </a></h5>
+                  <h5 className="card-title fw-normal"><Link to="#">Deep Learning with React-Native </Link></h5>
                   <p className="mb-2 text-truncate-2">Far advanced settling say finished raillery. Offered chiefly
                     farther..</p>
                   {/* Rating star */}
@@ -361,20 +361,20 @@ Related instructor START */}
           <div className="card bg-transparent">
             <div className="position-relative">
               {/* Image */}
-              <img src="assets/images/instructor/02.jpg" className="card-img" alt="course image" />
+              <img src="assets/images/instructor/02.jpg" className="card-img" alt="" />
               {/* Overlay */}
               <div className="card-img-overlay d-flex flex-column p-3">
                 <div className="w-100 mt-auto text-end">
                   {/* Card category */}
-                  <a href="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />25</a>
-                  <a href="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />15</a>
+                  <Link to="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />25</Link>
+                  <Link to="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />15</Link>
                 </div>
               </div>
             </div>
             {/* Card body */}
             <div className="card-body text-center">
               {/* Title */}
-              <h5 className="card-title"><a href="#">Jacqueline Miller</a></h5>
+              <h5 className="card-title"><Link to="#">Jacqueline Miller</Link></h5>
               <p className="mb-2">Web Developer</p>
               {/* Rating */}
               <ul className="list-inline hstack justify-content-center">
@@ -392,20 +392,20 @@ Related instructor START */}
           <div className="card bg-transparent">
             <div className="position-relative">
               {/* Image */}
-              <img src="assets/images/instructor/01.jpg" className="card-img" alt="course image" />
+              <img src="assets/images/instructor/01.jpg" className="card-img" alt="" />
               {/* Overlay */}
               <div className="card-img-overlay d-flex flex-column p-3">
                 <div className="w-100 mt-auto text-end">
                   {/* Card category */}
-                  <a href="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />118</a>
-                  <a href="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />09</a>
+                  <Link to="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />118</Link>
+                  <Link to="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />09</Link>
                 </div>
               </div>
             </div>
             {/* Card body */}
             <div className="card-body text-center">
               {/* Title */}
-              <h5 className="card-title"><a href="#">Samuel Bishop</a></h5>
+              <h5 className="card-title"><Link to="#">Samuel Bishop</Link></h5>
               <p className="mb-2">Marketing Instructor</p>
               {/* Rating */}
               <ul className="list-inline hstack justify-content-center">
@@ -423,20 +423,20 @@ Related instructor START */}
           <div className="card bg-transparent">
             <div className="position-relative">
               {/* Image */}
-              <img src="assets/images/instructor/08.jpg" className="card-img" alt="course image" />
+              <img src="assets/images/instructor/08.jpg" className="card-img" alt="" />
               {/* Overlay */}
               <div className="card-img-overlay d-flex flex-column p-3">
                 <div className="w-100 mt-auto text-end">
                   {/* Card category */}
-                  <a href="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />92</a>
-                  <a href="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />38</a>
+                  <Link to="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />92</Link>
+                  <Link to="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />38</Link>
                 </div>
               </div>
             </div>
             {/* Card body */}
             <div className="card-body text-center">
               {/* Title */}
-              <h5 className="card-title"><a href="#">Dennis Barrett</a></h5>
+              <h5 className="card-title"><Link to="#">Dennis Barrett</Link></h5>
               <p className="mb-2">Maths Instructor</p>
               {/* Rating */}
               <ul className="list-inline hstack justify-content-center">
@@ -454,20 +454,20 @@ Related instructor START */}
           <div className="card bg-transparent">
             <div className="position-relative">
               {/* Image */}
-              <img src="assets/images/instructor/04.jpg" className="card-img" alt="course image" />
+              <img src="assets/images/instructor/04.jpg" className="card-img" alt="" />
               {/* Overlay */}
               <div className="card-img-overlay d-flex flex-column p-3">
                 <div className="w-100 mt-auto text-end">
                   {/* Card category */}
-                  <a href="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />82</a>
-                  <a href="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />05</a>
+                  <Link to="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />82</Link>
+                  <Link to="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />05</Link>
                 </div>
               </div>
             </div>
             {/* Card body */}
             <div className="card-body text-center">
               {/* Title */}
-              <h5 className="card-title"><a href="#">Carolyn Ortiz</a></h5>
+              <h5 className="card-title"><Link to="#">Carolyn Ortiz</Link></h5>
               <p className="mb-2">Economics Teacher</p>
               {/* Rating */}
               <ul className="list-inline hstack justify-content-center">
@@ -485,20 +485,20 @@ Related instructor START */}
           <div className="card bg-transparent">
             <div className="position-relative">
               {/* Image */}
-              <img src="assets/images/instructor/03.jpg" className="card-img" alt="course image" />
+              <img src="assets/images/instructor/03.jpg" className="card-img" alt="" />
               {/* Overlay */}
               <div className="card-img-overlay d-flex flex-column p-3">
                 <div className="w-100 mt-auto text-end">
                   {/* Card category */}
-                  <a href="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />50</a>
-                  <a href="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />10</a>
+                  <Link to="#" className="badge text-bg-info rounded-1"><i className="fas fa-user-graduate me-2" />50</Link>
+                  <Link to="#" className="badge text-bg-orange rounded-1"><i className="fas fa-clipboard-list me-2" />10</Link>
                 </div>
               </div>
             </div>
             {/* Card body */}
             <div className="card-body text-center">
               {/* Title */}
-              <h5 className="card-title"><a href="#">Billy Vasquez</a></h5>
+              <h5 className="card-title"><Link to="#">Billy Vasquez</Link></h5>
               <p className="mb-2">UI/UX Designer</p>
               {/* Rating */}
               <ul className="list-inline hstack justify-content-center">

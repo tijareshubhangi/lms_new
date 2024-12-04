@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-const Internal_Footer = () => {
+const IFooter = () => {
   return (
     <div>
       <div>
@@ -40,4 +39,4 @@ Footer END */}
   )
 }
 
-export default Internal_Footer
+export default IFooter

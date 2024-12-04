@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Internal_Footer from './Internal_Footer';
 import style from "../Components/Css/style.module.css";
-import Footer from './Footer';
+import IFooter from './IFooter';
 
 const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
   const [videoList, setVideoList] = useState([]); 
@@ -147,7 +146,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
               {/* Avatar */}
               <div className="col-auto mt-4 mt-md-0">
                 <div className="avatar avatar-xxl mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="" />
                 </div>
               </div>
               {/* Profile info */}
@@ -172,7 +171,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -375,11 +374,11 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
                 {/* Pagination */}
                 <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
                   <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                    <li className="page-item mb-0"><a className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item mb-0 active"><a className="page-link" href="#">2</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">3</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#"><i className="fas fa-angle-right" /></a></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#">1</Link></li>
+                    <li className="page-item mb-0 active"><Link className="page-link" href="#">2</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#">3</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#"><i className="fas fa-angle-right" /></Link></li>
                   </ul>
                 </nav>
               </div>
@@ -397,7 +396,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
     Inner part END */}
 </main>
 
-<Footer />
+<IFooter/>
     </div>
   );
 };

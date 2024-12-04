@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import usertxt from "../Components/Css/usertxt.css"; // Import CSS without assigning it to a variable
 
@@ -33,7 +33,7 @@ const StudentDashboard = () => {
               {/* Avatar */}
               <div className="col-auto">
                 <div className="avatar avatar-xxl position-relative mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/09.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/09.jpg" alt="" />
                   <span className="badge text-bg-success rounded-pill position-absolute top-50 start-100 translate-middle mt-4 mt-md-5 ms-n3 px-md-3">Pro</span>
                 </div>
               </div>
@@ -67,7 +67,7 @@ const StudentDashboard = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" to="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -117,8 +117,8 @@ const StudentDashboard = () => {
                   </Link>
                   {/* Submenu */}
                   <ul className="nav collapse flex-column" id="collapseauthentication" data-bs-parent="#navbar-sidebar">
-                    <li className="nav-item"> <a className="nav-link" href="#">Dropdown item</a></li>
-                    <li className="nav-item"> <a className="nav-link" href="#">Dropdown item</a></li>
+                    <li className="nav-item"> <Link className="nav-link"to="#">Dropdown item</Link></li>
+                    <li className="nav-item"> <Link className="nav-link"to="#">Dropdown item</Link></li>
                   </ul>
                 </div>
               </div>
@@ -233,11 +233,11 @@ const StudentDashboard = () => {
                 {/* Pagination */}
                 <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
                   <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                    <li className="page-item mb-0"><a className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item mb-0 active"><a className="page-link" href="#">2</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">3</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#"><i className="fas fa-angle-right" /></a></li>
+                    <li className="page-item mb-0"><Link className="page-link"to="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link"to="#">1</Link></li>
+                    <li className="page-item mb-0 active"><Link className="page-link"to="#">2</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link"to="#">3</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link"to="#"><i className="fas fa-angle-right" /></Link></li>
                   </ul>
                 </nav>
               </div>
