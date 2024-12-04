@@ -1,5 +1,5 @@
 import React from 'react'
-import Internal_Footer from './Internal_Footer'
+import IFooter from "./IFooter"
 import { Link } from 'react-router-dom'
 
 const Instructor_studentlist = () => {
@@ -404,7 +404,7 @@ const Instructor_studentlist = () => {
   {/* =======================
     Inner part END */}
 </main>
-<Internal_Footer/>
+<IFooter/>
     </div>
   )
 }
