@@ -1,7 +1,6 @@
 import React from 'react'
-import Internal_Footer from './Internal_Footer'
 import { Link } from 'react-router-dom'
-
+import IFooter from "./IFooter"
 const Instructor_setting = () => {
   return (
     <div>
@@ -163,7 +162,7 @@ const Instructor_setting = () => {
   {/* =======================
     Page content END */}
 </main>
-<Internal_Footer/>
+<IFooter/>
     </div>
   )
 }

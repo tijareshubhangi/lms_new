@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import IFooter from "./IFooter"
 
 
 const Instructor_PayOuts = () => {
@@ -430,7 +430,7 @@ const Instructor_PayOuts = () => {
   {/* =======================
     Page content END */}
 </main>
-<Internal_Footer/>
+<IFooter/>
 {/* Add course modal START */}
 <div className="modal fade" id="addQuiz" tabIndex={-1} aria-labelledby="addQuizLabel" aria-hidden="true">
   <div className="modal-dialog">

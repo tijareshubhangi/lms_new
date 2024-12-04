@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from './Footer'
+import IFooter from "./IFooter"
 
 const Instructor_Single = () => {
   return (
@@ -34,10 +34,10 @@ Page content START */}
                   </ul>
                   {/* Social media button */}
                   <ul className="list-inline mb-0">
-                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-facebook" href="#"><i className="fab fa-fw fa-facebook-f" /></Link> </li>
-                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-instagram-gradient" href="#"><i className="fab fa-fw fa-instagram" /></Link> </li>
-                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-twitter" href="#"><i className="fab fa-fw fa-twitter" /></Link> </li>
-                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-linkedin" href="#"><i className="fab fa-fw fa-linkedin-in" /></Link> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-facebook" to="#"><i className="fab fa-fw fa-facebook-f" /></Link> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-instagram-gradient" to="#"><i className="fab fa-fw fa-instagram" /></Link> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-twitter" to="#"><i className="fab fa-fw fa-twitter" /></Link> </li>
+                    <li className="list-inline-item"> <Link className="btn px-2 btn-sm bg-linkedin" to="#"><i className="fab fa-fw fa-linkedin-in" /></Link> </li>
                   </ul>
                 </div>
               </div>
@@ -520,7 +520,7 @@ Related instructor START */}
   {/* =======================
 Related instructor END */}
 </main>
-<Footer/>
+<IFooter/>
     </div>
   )
 }

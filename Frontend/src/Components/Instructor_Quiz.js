@@ -1,7 +1,7 @@
-import React from 'react'
-import Internal_Footer from './Internal_Footer'
+import React from 'react';
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import IFooter from "./IFooter"
 
 const Instructor_Quiz = () => {
    // State for question and answer options
@@ -68,7 +68,7 @@ const Instructor_Quiz = () => {
                 </div>
                 {/* Button */}
                 <div className="d-flex align-items-center mt-2 mt-md-0">
-                  <Link href="#" className="btn btn-sm btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#addQuiz">Add New Quiz</Link>
+                  <Link to="#" className="btn btn-sm btn-primary mb-0" data-bs-toggle="modal" data-bs-target="#addQuiz">Add New Quiz</Link>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ const Instructor_Quiz = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
+            <Link className="h6 mb-0 fw-bold d-xl-none" to="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -140,7 +140,7 @@ const Instructor_Quiz = () => {
                 </div>
                 <div className="col-md-10">
                   {/* Title */}
-                  <h3 className="card-title mb-0"><Link href="#">The Complete Digital Marketing Course - 12 Courses in 1</Link></h3>
+                  <h3 className="card-title mb-0"><Link to="#">The Complete Digital Marketing Course - 12 Courses in 1</Link></h3>
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ const Instructor_Quiz = () => {
                       <p className="mb-3"><b className="text-dark">C</b> We give regular training for best practices</p>
                       <p className="mb-3"><b className="text-dark">D</b> Third-party vendor protection</p>
                       {/* Button */}
-                      <Link href="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
+                      <Link to="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
                       <button className="btn btn-danger-soft btn-sm mb-0">Delete</button>
                     </div>
                   </div>
@@ -186,7 +186,7 @@ const Instructor_Quiz = () => {
                       <p className="mb-3"><b className="text-dark">C</b> We give regular training for best practices</p>
                       <p className="mb-3"><b className="text-dark">D</b> Third-party vendor protection</p>
                       {/* Button */}
-                      <Link href="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
+                      <Link to="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
                       <button className="btn btn-danger-soft btn-sm mb-0">Delete</button>
                     </div>
                   </div>
@@ -207,7 +207,7 @@ const Instructor_Quiz = () => {
                       <p className="mb-3"><b className="text-dark">C</b> We give regular training for best practices</p>
                       <p className="mb-3"><b className="text-dark">D</b> Third-party vendor protection</p>
                       {/* Button */}
-                      <Link href="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
+                      <Link to="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
                       <button className="btn btn-danger-soft btn-sm mb-0">Delete</button>
                     </div>
                   </div>
@@ -228,7 +228,7 @@ const Instructor_Quiz = () => {
                       <p className="mb-3"><b className="text-dark">C</b> We give regular training for best practices</p>
                       <p className="mb-3"><b className="text-dark">D</b> Third-party vendor protection</p>
                       {/* Button */}
-                      <Link href="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
+                      <Link to="#" className="btn btn-sm btn-success-soft mb-0" data-bs-toggle="modal" data-bs-target="#editQuestion">Edit</Link>
                       <button className="btn btn-danger-soft btn-sm mb-0">Delete</button>
                     </div>
                   </div>
@@ -299,13 +299,13 @@ const Instructor_Quiz = () => {
                           </div>
                           <div>
                             {/* Title */}
-                            <h6 className="mb-0"><Link href="#">Lori Stevens</Link></h6>
+                            <h6 className="mb-0"><Link to="#">Lori Stevens</Link></h6>
                           </div>
                         </div>
                       </td>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link href="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
+                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link to="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>7/1/2023</td>
@@ -313,7 +313,7 @@ const Instructor_Quiz = () => {
                       <td>450/500</td>
                       {/* Table data */}
                       <td>
-                        <Link href="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
+                        <Link to="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                       </td>
                     </tr>
                     {/* Table item */}
@@ -327,13 +327,13 @@ const Instructor_Quiz = () => {
                           </div>
                           <div>
                             {/* Title */}
-                            <h6 className="mb-0"><Link href="#">Dennis Barrett</Link></h6>
+                            <h6 className="mb-0"><Link to="#">Dennis Barrett</Link></h6>
                           </div>
                         </div>
                       </td>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link href="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
+                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link to="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>6/1/2023</td>
@@ -341,7 +341,7 @@ const Instructor_Quiz = () => {
                       <td>425/500</td>
                       {/* Table data */}
                       <td>
-                        <Link href="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
+                        <Link to="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                       </td>
                     </tr>
                     {/* Table item */}
@@ -355,13 +355,13 @@ const Instructor_Quiz = () => {
                           </div>
                           <div>
                             {/* Title */}
-                            <h6 className="mb-0"><Link href="#">Billy Vasquez</Link></h6>
+                            <h6 className="mb-0"><Link to="#">Billy Vasquez</Link></h6>
                           </div>
                         </div>
                       </td>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link href="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
+                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link to="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>5/1/2023</td>
@@ -369,7 +369,7 @@ const Instructor_Quiz = () => {
                       <td>385/500</td>
                       {/* Table data */}
                       <td>
-                        <Link href="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
+                        <Link to="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                       </td>
                     </tr>
                     {/* Table item */}
@@ -383,13 +383,13 @@ const Instructor_Quiz = () => {
                           </div>
                           <div>
                             {/* Title */}
-                            <h6 className="mb-0"><Link href="#">Carolyn Ortiz</Link></h6>
+                            <h6 className="mb-0"><Link to="#">Carolyn Ortiz</Link></h6>
                           </div>
                         </div>
                       </td>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link href="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
+                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link to="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>5/1/2023</td>
@@ -397,7 +397,7 @@ const Instructor_Quiz = () => {
                       <td>398/500</td>
                       {/* Table data */}
                       <td>
-                        <Link href="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
+                        <Link to="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                       </td>
                     </tr>
                     {/* Table item */}
@@ -411,13 +411,13 @@ const Instructor_Quiz = () => {
                           </div>
                           <div>
                             {/* Title */}
-                            <h6 className="mb-0"><Link href="#">Larry Lawson</Link></h6>
+                            <h6 className="mb-0"><Link to="#">Larry Lawson</Link></h6>
                           </div>
                         </div>
                       </td>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link href="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
+                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link to="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>4/1/2023</td>
@@ -425,7 +425,7 @@ const Instructor_Quiz = () => {
                       <td>428/500</td>
                       {/* Table data */}
                       <td>
-                        <Link href="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
+                        <Link to="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                       </td>
                     </tr>
                     {/* Table item */}
@@ -439,13 +439,13 @@ const Instructor_Quiz = () => {
                           </div>
                           <div>
                             {/* Title */}
-                            <h6 className="mb-0"><Link href="#">Frances Guerrero</Link></h6>
+                            <h6 className="mb-0"><Link to="#">Frances Guerrero</Link></h6>
                           </div>
                         </div>
                       </td>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link href="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
+                        <h6 className="table-responsive-title mt-2 mt-md-0 mb-0"><Link to="#">The complete Digital Marketing Courses - 12 Course in 1</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>4/1/2023</td>
@@ -453,7 +453,7 @@ const Instructor_Quiz = () => {
                       <td>486/500</td>
                       {/* Table data */}
                       <td>
-                        <Link href="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
+                        <Link to="#" className="btn btn-success-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                       </td>
                     </tr>
                   </tbody>
@@ -468,11 +468,11 @@ const Instructor_Quiz = () => {
                 {/* Pagination */}
                 <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
                   <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                    <li className="page-item mb-0"><Link className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
-                    <li className="page-item mb-0"><Link className="page-link" href="#">1</Link></li>
-                    <li className="page-item mb-0 active"><Link className="page-link" href="#">2</Link></li>
-                    <li className="page-item mb-0"><Link className="page-link" href="#">3</Link></li>
-                    <li className="page-item mb-0"><Link className="page-link" href="#"><i className="fas fa-angle-right" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#">1</Link></li>
+                    <li className="page-item mb-0 active"><Link className="page-link" to="#">2</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#">3</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#"><i className="fas fa-angle-right" /></Link></li>
                   </ul>
                 </nav>
               </div>
@@ -490,7 +490,7 @@ const Instructor_Quiz = () => {
     Inner part END */}
 
 </main>
-<Internal_Footer/>
+<IFooter/>
    {/* Add course modal START */}
       <div className="modal fade" id="addQuiz" tabIndex="-1" aria-labelledby="addQuizLabel" aria-hidden="true">
         <div className="modal-dialog">
