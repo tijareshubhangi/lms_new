@@ -69,7 +69,7 @@ function StudentCourseList() {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
+            <Link className="h6 mb-0 fw-bold d-xl-none" to="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -115,8 +115,8 @@ function StudentCourseList() {
                   </Link>
                   {/* Submenu */}
                   <ul className="nav collapse flex-column" id="collapseauthentication" data-bs-parent="#navbar-sidebar">
-                    <li className="nav-item"> <Link className="nav-link" href="#">Dropdown item</Link></li>
-                    <li className="nav-item"> <Link className="nav-link" href="#">Dropdown item</Link></li>
+                    <li className="nav-item"> <Link className="nav-link" to="#">Dropdown item</Link></li>
+                    <li className="nav-item"> <Link className="nav-link" to="#">Dropdown item</Link></li>
                   </ul>
                 </div>
               </div>
@@ -192,11 +192,11 @@ function StudentCourseList() {
                 {/* Pagination */}
                 <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
                   <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                    <li className="page-item mb-0"><Link className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
-                    <li className="page-item mb-0"><Link className="page-link" href="#">1</Link></li>
-                    <li className="page-item mb-0 active"><Link className="page-link" href="#">2</Link></li>
-                    <li className="page-item mb-0"><Link className="page-link" href="#">3</Link></li>
-                    <li className="page-item mb-0"><Link className="page-link" href="#"><i className="fas fa-angle-right" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#">1</Link></li>
+                    <li className="page-item mb-0 active"><Link className="page-link" to="#">2</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#">3</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" to="#"><i className="fas fa-angle-right" /></Link></li>
                   </ul>
                 </nav>
               </div>
