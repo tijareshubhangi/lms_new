@@ -24,7 +24,7 @@ const Instructor_setting = () => {
               {/* Avatar */}
               <div className="col-auto mt-4 mt-md-0">
                 <div className="avatar avatar-xxl mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="" />
                 </div>
               </div>
               {/* Profile info */}
@@ -49,7 +49,7 @@ const Instructor_setting = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
