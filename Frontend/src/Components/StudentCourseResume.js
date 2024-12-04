@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 function StudentCourseResume() {
   return (
     <div>
@@ -20,7 +19,7 @@ Page Banner START */}
               {/* Avatar */}
               <div className="col-auto">
                 <div className="avatar avatar-xxl position-relative mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/09.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/09.jpg" alt="" />
                   <span className="badge text-bg-success rounded-pill position-absolute top-50 start-100 translate-middle mt-4 mt-md-5 ms-n3 px-md-3">Pro</span>
                 </div>
               </div>
@@ -54,7 +53,7 @@ Page Banner START */}
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" to="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -98,13 +97,13 @@ Page content START */}
                   <Link className="list-group-item" to="/studentdeleteaccount"><i className="bi bi-trash fa-fw me-2" />Delete Profile</Link>
                   <Link className="list-group-item text-danger bg-danger-soft-hover" to="/signout"><i className="fas fa-sign-out-alt fa-fw me-2" />Sign Out</Link>
                   {/* Collapse menu */}
-                  <a className="list-group-item" data-bs-toggle="collapse" href="#collapseauthentication" role="button" aria-expanded="false" aria-controls="collapseauthentication">
+                  <Link className="list-group-item" data-bs-toggle="collapse" href="#collapseauthentication" role="button" aria-expanded="false" aria-controls="collapseauthentication">
                     <i className="bi bi-lock fa-fw me-2" />Dropdown level
-                  </a>
+                  </Link>
                   {/* Submenu */}
                   <ul className="nav collapse flex-column" id="collapseauthentication" data-bs-parent="#navbar-sidebar">
-                    <li className="nav-item"> <a className="nav-link" href="#">Dropdown item</a></li>
-                    <li className="nav-item"> <a className="nav-link" href="#">Dropdown item</a></li>
+                    <li className="nav-item"> <Link className="nav-link" to="#">Dropdown item</Link></li>
+                    <li className="nav-item"> <Link className="nav-link" to="#">Dropdown item</Link></li>
                   </ul>
                 </div>
               </div>
@@ -122,12 +121,12 @@ Page content START */}
               <div className="card">
                 <div className="row g-0">
                   <div className="col-md-3">
-                    <img src="assets/images/courses/4by3/01.jpg" className="rounded-2" alt="Card image" />
+                    <img src="assets/images/courses/4by3/01.jpg" className="rounded-2" alt="" />
                   </div>
                   <div className="col-md-9">
                     <div className="card-body">
                       {/* Title */}
-                      <h3 className="card-title"><a href="#">The Complete Digital Marketing Course - 12 Courses in 1</a></h3>
+                      <h3 className="card-title"><Link to="#">The Complete Digital Marketing Course - 12 Courses in 1</Link></h3>
                       {/* Info */}
                       <ul className="list-inline mb-2">
                         <li className="list-inline-item h6 fw-light mb-1 mb-sm-0"><i className="far fa-clock text-danger me-2" />6h 56m</li>
@@ -135,7 +134,7 @@ Page content START */}
                         <li className="list-inline-item h6 fw-light"><i className="fas fa-signal text-success me-2" />Beginner</li>
                       </ul>
                       {/* button */}
-                      <a href="#" className="btn btn-primary-soft btn-sm mb-0">Resume course</a>
+                      <Link to="#" className="btn btn-primary-soft btn-sm mb-0">Resume course</Link>
                     </div>
                   </div>
                 </div>
@@ -150,10 +149,10 @@ Page content START */}
                 {/* Item */}
                 <div className="accordion-item mb-3">
                   <h6 className="accordion-header font-base" id="heading-1">
-                    <a className="accordion-button fw-bold rounded collapsed d-block pe-4" href="#collapse-1" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                    <Link className="accordion-button fw-bold rounded collapsed d-block pe-4" href="#collapse-1" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
                       <span className="mb-0">Introduction of Digital Marketing</span> 
                       <span className="small d-block mt-1">(3 Lectures)</span> 
-                    </a>
+                    </Link>
                   </h6>
                   <div id="collapse-1" className="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordionExample2">
                     <div className="accordion-body mt-3">
@@ -173,18 +172,18 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-success btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-success btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-200px">Introduction</span>
                             </div>
                             <p className="mb-0 text-truncate">2m 10s</p>
                           </div>
                           {/* Add note button */}
-                          <a className="btn btn-xs btn-warning mb-0" data-bs-toggle="collapse" href="#addnote-1" role="button" aria-expanded="false" aria-controls="addnote-1">
+                          <Link className="btn btn-xs btn-warning mb-0" data-bs-toggle="collapse" href="#addnote-1" role="button" aria-expanded="false" aria-controls="addnote-1">
                             <i className="bi fa-fw bi-pencil-square me-2" />Note
-                          </a>&nbsp;
-                          <a href="#" className="btn btn-xs btn-dark mb-0">Play again</a>
+                          </Link>&nbsp;
+                          <Link to="#" className="btn btn-xs btn-dark mb-0">Play again</Link>
                           {/* Notes START */}
                           <div className="collapse" id="addnote-1">
                             <div className="card card-body p-0 mt-2">
@@ -197,8 +196,8 @@ Page content START */}
                                 </div>
                                 {/* Button */}
                                 <div className="d-flex">
-                                  <a href="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></a>
-                                  <a href="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></a>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></Link>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></Link>
                                 </div>
                               </div>
                               {/* Note item */}
@@ -210,8 +209,8 @@ Page content START */}
                                 </div>
                                 {/* Button */}
                                 <div className="d-flex">
-                                  <a href="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></a>
-                                  <a href="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></a>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></Link>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></Link>
                                 </div>
                               </div>
                             </div>
@@ -223,18 +222,18 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-success btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-success btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px"> What is Digital Marketing What is Digital Marketing</span>
                             </div>
                             <p className="mb-0 text-truncate">15m 10s</p>
                           </div>
                           {/* Add note button */}
-                          <a className="btn btn-xs btn-warning mb-0" data-bs-toggle="collapse" href="#addnote-2" role="button" aria-expanded="false" aria-controls="addnote-2">
+                          <Link className="btn btn-xs btn-warning mb-0" data-bs-toggle="collapse" href="#addnote-2" role="button" aria-expanded="false" aria-controls="addnote-2">
                             <i className="bi fa-fw bi-pencil-square me-2" />Note
-                          </a>&nbsp;
-                          <a href="#" className="btn btn-xs btn-dark mb-0">Play again</a>
+                          </Link>&nbsp;
+                          <Link to="#" className="btn btn-xs btn-dark mb-0">Play again</Link>
                           {/* Notes START */}
                           <div className="collapse" id="addnote-2">
                             <div className="card card-body p-0 mt-2">
@@ -247,8 +246,8 @@ Page content START */}
                                 </div>
                                 {/* Button */}
                                 <div className="d-flex">
-                                  <a href="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></a>
-                                  <a href="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></a>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></Link>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></Link>
                                 </div>
                               </div>
                               {/* Note item */}
@@ -260,8 +259,8 @@ Page content START */}
                                 </div>
                                 {/* Button */}
                                 <div className="d-flex">
-                                  <a href="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></a>
-                                  <a href="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></a>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></Link>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></Link>
                                 </div>
                               </div>
                             </div>
@@ -272,9 +271,9 @@ Page content START */}
                         {/* Course lecture */}
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="position-relative d-flex align-items-center">
-                            <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                            <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                               <i className="fas fa-play me-0" />
-                            </a>
+                            </Link>
                             <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Type of Digital Marketing</span>
                           </div>
                           <p className="mb-0 text-truncate">18m 10s</p>
@@ -286,10 +285,10 @@ Page content START */}
                 {/* Item */}
                 <div className="accordion-item mb-3">
                   <h6 className="accordion-header font-base" id="heading-2">
-                    <a className="accordion-button fw-bold collapsed rounded d-block pe-4" href="#collapse-2" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                    <Link className="accordion-button fw-bold collapsed rounded d-block pe-4" href="#collapse-2" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
                       <span className="mb-0">Customer Life cycle</span> 
                       <span className="small d-block mt-1">(3 Lectures)</span> 
-                    </a>
+                    </Link>
                   </h6>
                   <div id="collapse-2" className="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#accordionExample2">
                     {/* Accordion body START */}
@@ -310,9 +309,9 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-sm-400px">Introduction</span>
                             </div>
                             <p className="mb-0 text-truncate">2m 10s</p>
@@ -323,9 +322,9 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px"> What is Digital Marketing What is Digital Marketing</span>
                             </div>
                             <p className="mb-0 text-truncate">15m 10s</p>
@@ -335,9 +334,9 @@ Page content START */}
                         {/* Course lecture */}
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="position-relative d-flex align-items-center">
-                            <a href="#" className="btn btn-light btn-round btn-sm mb-0 stretched-link position-static" data-bs-toggle="modal" data-bs-target="#coursePremium">
+                            <Link to="#" className="btn btn-light btn-round btn-sm mb-0 stretched-link position-static" data-bs-toggle="modal" data-bs-target="#coursePremium">
                               <i className="bi bi-lock-fill" />
-                            </a>
+                            </Link>
                             <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Type of Digital Marketing</span>
                           </div>
                           <p className="mb-0 text-truncate">18m 10s</p>
@@ -359,12 +358,12 @@ Page content START */}
               <div className="card">
                 <div className="row g-0">
                   <div className="col-md-3">
-                    <img src="assets/images/courses/4by3/08.jpg" className="rounded-2" alt="Card image" />
+                    <img src="assets/images/courses/4by3/08.jpg" className="rounded-2" alt="" />
                   </div>
                   <div className="col-md-9">
                     <div className="card-body">
                       {/* Title */}
-                      <h3 className="card-title"><a href="#">Sketch from A to Z: for app designer</a></h3>
+                      <h3 className="card-title"><Link to="#">Sketch from A to Z: for app designer</Link></h3>
                       {/* Info */}
                       <ul className="list-inline mb-2">
                         <li className="list-inline-item h6 fw-light mb-1 mb-sm-0"><i className="far fa-clock text-danger me-2" />8h 56m</li>
@@ -372,7 +371,7 @@ Page content START */}
                         <li className="list-inline-item h6 fw-light"><i className="fas fa-signal text-success me-2" />All level</li>
                       </ul>
                       {/* Button */}
-                      <a href="#" className="btn btn-primary-soft btn-sm mb-0">Resume course</a>
+                      <Link to="#" className="btn btn-primary-soft btn-sm mb-0">Resume course</Link>
                     </div>
                   </div>
                 </div>
@@ -387,10 +386,10 @@ Page content START */}
                 {/* Item */}
                 <div className="accordion-item mb-3">
                   <h6 className="accordion-header font-base" id="heading-1-1">
-                    <a className="accordion-button fw-bold rounded collapsed d-block pe-4" href="#collapse-1-1" data-bs-toggle="collapse" data-bs-target="#collapse-1-1" aria-expanded="false" aria-controls="collapse-1-1">
+                    <Link className="accordion-button fw-bold rounded collapsed d-block pe-4" href="#collapse-1-1" data-bs-toggle="collapse" data-bs-target="#collapse-1-1" aria-expanded="false" aria-controls="collapse-1-1">
                       <span className="mb-0">Introduction of Sketch</span> 
                       <span className="small d-block mt-1">(3 Lectures)</span> 
-                    </a>
+                    </Link>
                   </h6>
                   <div id="collapse-1-1" className="accordion-collapse collapse" aria-labelledby="heading-1-1" data-bs-parent="#accordionExample4">
                     <div className="accordion-body mt-3">
@@ -410,18 +409,18 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-success btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-success btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Introduction</span>
                             </div>
                             <p className="mb-0 text-truncate">2m 10s</p>
                           </div>
                           {/* Add note button */}
-                          <a className="btn btn-xs btn-warning mb-0" data-bs-toggle="collapse" href="#addnote-3" role="button" aria-expanded="false" aria-controls="addnote-3">
+                          <Link className="btn btn-xs btn-warning mb-0" data-bs-toggle="collapse" href="#addnote-3" role="button" aria-expanded="false" aria-controls="addnote-3">
                             <i className="bi fa-fw bi-pencil-square me-2" />Note
-                          </a>&nbsp;&nbsp;&nbsp;
-                          <a href="#" className="btn btn-xs btn-dark mb-0">Play again</a>
+                          </Link>&nbsp;&nbsp;&nbsp;
+                          <Link to="#" className="btn btn-xs btn-dark mb-0">Play again</Link>
                           {/* Notes START */}
                           <div className="collapse" id="addnote-3">
                             <div className="card card-body p-0 mt-2">
@@ -434,8 +433,8 @@ Page content START */}
                                 </div>
                                 {/* Button */}
                                 <div className="d-flex">
-                                  <a href="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></a>
-                                  <a href="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></a>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></Link>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></Link>
                                 </div>
                               </div>
                               {/* Note item */}
@@ -447,8 +446,8 @@ Page content START */}
                                 </div>
                                 {/* Button */}
                                 <div className="d-flex">
-                                  <a href="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></a>
-                                  <a href="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></a>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round me-2 mb-0"><i className="bi fa-fw bi-play-fill" /></Link>
+                                  <Link to="#" className="btn btn-sm btn-light btn-round mb-0"><i className="bi fa-fw bi-trash-fill" /></Link>
                                 </div>
                               </div>
                             </div>
@@ -460,9 +459,9 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px"> What is Digital Marketing What is Digital Marketing</span>
                             </div>
                             <p className="mb-0 text-truncate">15m 10s</p>
@@ -472,9 +471,9 @@ Page content START */}
                         {/* Course lecture */}
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="position-relative d-flex align-items-center">
-                            <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                            <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                               <i className="fas fa-play me-0" />
-                            </a>
+                            </Link>
                             <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Type of Digital Marketing</span>
                           </div>
                           <p className="mb-0 text-truncate">18m 10s</p>
@@ -486,10 +485,10 @@ Page content START */}
                 {/* Item */}
                 <div className="accordion-item mb-3">
                   <h6 className="accordion-header font-base" id="heading-1-4">
-                    <a className="accordion-button fw-bold collapsed rounded d-block pe-4" href="#collapse-1-4" data-bs-toggle="collapse" data-bs-target="#collapse-1-4" aria-expanded="false" aria-controls="collapse-1-4">
+                    <Link className="accordion-button fw-bold collapsed rounded d-block pe-4" href="#collapse-1-4" data-bs-toggle="collapse" data-bs-target="#collapse-1-4" aria-expanded="false" aria-controls="collapse-1-4">
                       <span className="mb-0">YouTube Marketing</span> 
                       <span className="small d-block mt-1">(5 Lectures)</span>
-                    </a>
+                    </Link>
                   </h6>
                   <div id="collapse-1-4" className="accordion-collapse collapse" aria-labelledby="heading-1-4" data-bs-parent="#accordionExample4">
                     {/* Accordion body START */}
@@ -510,9 +509,9 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Video Flow</span>
                             </div>
                             <p className="mb-0 text-truncate">25m 5s</p>
@@ -523,9 +522,9 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Webmaster Tool</span>
                             </div>
                             <p className="mb-0 text-truncate">15m 20s</p>
@@ -536,9 +535,9 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
+                              <Link to="#" className="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
                                 <i className="fas fa-play me-0" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Featured Contents on Channel</span>
                             </div>
                             <p className="mb-0 text-truncate">32m 20s</p>
@@ -549,9 +548,9 @@ Page content START */}
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
                             <div className="position-relative d-flex align-items-center">
-                              <a href="#" className="btn btn-light btn-round btn-sm mb-0 stretched-link position-static" data-bs-toggle="modal" data-bs-target="#coursePremium">
+                              <Link to="#" className="btn btn-light btn-round btn-sm mb-0 stretched-link position-static" data-bs-toggle="modal" data-bs-target="#coursePremium">
                                 <i className="bi bi-lock-fill" />
-                              </a>
+                              </Link>
                               <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Managing Comments</span>
                             </div>
                             <p className="mb-0 text-truncate">20m 20s</p>
@@ -561,9 +560,9 @@ Page content START */}
                         {/* Course lecture */}
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="position-relative d-flex align-items-center">
-                            <a href="#" className="btn btn-light btn-round btn-sm mb-0 stretched-link position-static" data-bs-toggle="modal" data-bs-target="#coursePremium">
+                            <Link to="#" className="btn btn-light btn-round btn-sm mb-0 stretched-link position-static" data-bs-toggle="modal" data-bs-target="#coursePremium">
                               <i className="bi bi-lock-fill" />
-                            </a>
+                            </Link>
                             <span className="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-150px w-sm-400px">Channel Analytics</span>
                           </div>
                           <p className="mb-0 text-truncate">18m 20s</p>
