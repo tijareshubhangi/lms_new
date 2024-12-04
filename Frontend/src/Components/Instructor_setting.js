@@ -49,7 +49,7 @@ const Instructor_setting = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
+            <Link className="h6 mb-0 fw-bold d-xl-none" to="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -145,7 +145,7 @@ const Instructor_setting = () => {
                     {/* Buttons */}
                     <div className="d-sm-flex justify-content-end">
                       <button type="button" className="btn btn-sm btn-primary me-2 mb-0">Save changes</button>
-                      <a href="#" className="btn btn-sm btn-outline-secondary mb-0">Cancel</a>
+                      <Link to="#" className="btn btn-sm btn-outline-secondary mb-0">Cancel</Link>
                     </div>
                   </div>
                   {/* Card body END */}

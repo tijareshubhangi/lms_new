@@ -160,7 +160,7 @@ const Instructor_studentlist = () => {
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a to="#" className="stretched-link">Lori Stevens</a></h6>
+                            <h6 className="mb-0"><Link to="#" className="stretched-link">Lori Stevens</Link></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Mumbai</span>
                           </div>
@@ -182,7 +182,7 @@ const Instructor_studentlist = () => {
                       <td>4/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <Link to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -197,7 +197,7 @@ const Instructor_studentlist = () => {
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a to="#" className="stretched-link">Dennis Barrett</a></h6>
+                            <h6 className="mb-0"><Link to="#" className="stretched-link">Dennis Barrett</Link></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />New york</span>
                           </div>
@@ -219,7 +219,7 @@ const Instructor_studentlist = () => {
                       <td>9/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <Link to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                         <button className="btn btn-danger btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Unblock"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -234,7 +234,7 @@ const Instructor_studentlist = () => {
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a to="#" className="stretched-link">Billy Vasquez</a></h6>
+                            <h6 className="mb-0"><Link to="#" className="stretched-link">Billy Vasquez</Link></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Paris</span>
                           </div>
@@ -256,7 +256,7 @@ const Instructor_studentlist = () => {
                       <td>10/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <Link to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -271,7 +271,7 @@ const Instructor_studentlist = () => {
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a to="#" className="stretched-link">Carolyn Ortiz</a></h6>
+                            <h6 className="mb-0"><Link to="#" className="stretched-link">Carolyn Ortiz</Link></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Delhi</span>
                           </div>
@@ -293,7 +293,7 @@ const Instructor_studentlist = () => {
                       <td>20/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <Link to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -308,7 +308,7 @@ const Instructor_studentlist = () => {
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a to="#" className="stretched-link">Larry Lawson</a></h6>
+                            <h6 className="mb-0"><Link to="#" className="stretched-link">Larry Lawson</Link></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />London</span>
                           </div>
@@ -330,7 +330,7 @@ const Instructor_studentlist = () => {
                       <td>12/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <Link to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
@@ -345,7 +345,7 @@ const Instructor_studentlist = () => {
                           </div>
                           <div className="mb-0 ms-2">
                             {/* Title */}
-                            <h6 className="mb-0"><a to="#" className="stretched-link">Frances Guerrero</a></h6>
+                            <h6 className="mb-0"><Link to="#" className="stretched-link">Frances Guerrero</Link></h6>
                             {/* Address */}
                             <span className="text-body small"><i className="fas fa-fw fa-map-marker-alt me-1 mt-1" />Pune</span>
                           </div>
@@ -367,7 +367,7 @@ const Instructor_studentlist = () => {
                       <td>8/1/2023</td>
                       {/* Table data */}
                       <td>
-                        <a to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></a>
+                        <Link to="#" className="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i className="far fa-envelope" /></Link>
                         <button className="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i className="fas fa-ban" /></button>
                       </td>
                     </tr>
