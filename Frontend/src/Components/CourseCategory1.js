@@ -4,7 +4,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import { Modal, Button } from "react-bootstrap";
 
-const CourseCategory1 = () => {
+const CourseCategory1 = ({onAddToCart}) => {
   const [cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [purchasedCourses, setPurchasedCourses] = useState([]);
@@ -26,14 +26,14 @@ const CourseCategory1 = () => {
     setShowModal(true);
   };
 
-  const handleAddToCart = () => {
-    setCart([...cart, selectedCourse]);
-    setShowModal(false);
-  };
+  // const handleAddToCart = () => {
+  //   setCart([...cart, selectedCourse]);
+  //   setShowModal(false);
+  // };
 
   const handleProceedToCart = () => {
     setShowModal(false);
-    navigate("/cart");
+    navigate("/productdetals");
   };
 
   const handleLogout = () => {
@@ -45,6 +45,16 @@ const CourseCategory1 = () => {
   useEffect(() => {
     setCartCount(cart.length);
   }, [cart]);
+  const handleAddToCart = () => {
+    if (selectedCourse) {
+      setCart((prevCart) => [...prevCart, selectedCourse]); // Add selected course to cart
+      onAddToCart(selectedCourse); // Notify parent component (if applicable)
+      setShowModal(false); // Close the modal
+    } else {
+      alert("No course selected to add to cart.");
+    }
+  };
+  
 
   return (
     <div>
@@ -154,11 +164,15 @@ const CourseCategory1 = () => {
           <Button variant="secondary" onClick={() => setShowModal(false)}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleAddToCart}>
-            Add to Cart
-          </Button>
+          <button
+      className="btn btn-primary mt-3"
+      onClick={handleAddToCart}
+      style={{ cursor: "pointer" }} // Pointer style for the button
+    >
+      Add to Cart
+    </button>
           <Button variant="success" onClick={handleProceedToCart}>
-            Proceed to Cart
+            Product Review
           </Button>
         </Modal.Footer>
       </Modal>
