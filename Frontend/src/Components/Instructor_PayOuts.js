@@ -1,5 +1,4 @@
 import React from 'react'
-import Internal_Footer from './Internal_Footer'
 import { Link } from 'react-router-dom'
 
 
@@ -26,7 +25,7 @@ const Instructor_PayOuts = () => {
               {/* Avatar */}
               <div className="col-auto mt-4 mt-md-0">
                 <div className="avatar avatar-xxl mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="" />
                 </div>
               </div>
               {/* Profile info */}
@@ -51,7 +50,7 @@ const Instructor_PayOuts = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -113,7 +112,7 @@ const Instructor_PayOuts = () => {
                   <span className="badge bg-success bg-opacity-10 text-success ms-2 mb-0">Paid</span>
                 </div>
                 <h2 className="mb-2 mt-2">$12,825</h2>
-                <a href="#">View transaction</a>
+                <Link href="#">View transaction</Link>
               </div>
             </div>
             {/* Box item */}
@@ -129,7 +128,7 @@ const Instructor_PayOuts = () => {
               <div className="bg-primary bg-opacity-10 h-100 p-3 rounded-3">
                 <h6 className="mb-0">Balance</h6>
                 <h2 className="mb-2 mt-2">$8,485</h2>
-                <a href="#" className="btn btn-sm btn-primary mb-0">Withdraw Earning</a>
+                <Link href="#" className="btn btn-sm btn-primary mb-0">Withdraw Earning</Link>
               </div>
             </div>
           </div>
@@ -185,14 +184,14 @@ const Instructor_PayOuts = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #102356</a></h6>
+                        <h6 className="mt-2 mt-lg-0 mb-0"><Link href="#">Successful payout #102356</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>$3,999
                         {/* Drop down with id */}
-                        <a href="#" className="h6 mb-0" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link href="#" className="h6 mb-0" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
                           <i className="bi bi-info-circle-fill" />
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
                           <li>
                             <div className="d-flex justify-content-between">
@@ -229,14 +228,14 @@ const Instructor_PayOuts = () => {
                       {/* Table data */}
                       <td>
                         {/* Title */}
-                        <h6 className="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #102589</a></h6>
+                        <h6 className="mt-2 mt-lg-0 mb-0"><Link href="#">Successful payout #102589</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>$4,875
                         {/* Drop down with id */}
-                        <a href="#" className="h6 mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link href="#" className="h6 mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
                           <i className="bi bi-info-circle-fill" />
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
                           <li>
                             <div className="d-flex justify-content-between">
@@ -272,14 +271,14 @@ const Instructor_PayOuts = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #108645</a></h6>
+                        <h6 className="mt-2 mt-lg-0 mb-0"><Link href="#">Successful payout #108645</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>$1,800
                         {/* Drop down with id */}
-                        <a href="#" className="h6 mb-0" role="button" id="dropdownShare2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link href="#" className="h6 mb-0" role="button" id="dropdownShare2" data-bs-toggle="dropdown" aria-expanded="false">
                           <i className="bi bi-info-circle-fill" />
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare2">
                           <li>
                             <div className="d-flex justify-content-between">
@@ -315,14 +314,14 @@ const Instructor_PayOuts = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #108645</a></h6>
+                        <h6 className="mt-2 mt-lg-0 mb-0"><Link href="#">Successful payout #108645</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>$6,800
                         {/* Drop down with id */}
-                        <a href="#" className="h6 mb-0" role="button" id="dropdownShare3" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link href="#" className="h6 mb-0" role="button" id="dropdownShare3" data-bs-toggle="dropdown" aria-expanded="false">
                           <i className="bi bi-info-circle-fill" />
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare3">
                           <li>
                             <div className="d-flex justify-content-between">
@@ -359,14 +358,14 @@ const Instructor_PayOuts = () => {
                       {/* Table data */}
                       <td>
                         {/* Title */}
-                        <h6 className="mt-2 mt-lg-0 mb-0"><a href="#">Successful payout #108645</a></h6>
+                        <h6 className="mt-2 mt-lg-0 mb-0"><Link href="#">Successful payout #108645</Link></h6>
                       </td>
                       {/* Table data */}
                       <td>$3,576
                         {/* Drop down with id */}
-                        <a href="#" className="h6 mb-0" role="button" id="dropdownShare4" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link href="#" className="h6 mb-0" role="button" id="dropdownShare4" data-bs-toggle="dropdown" aria-expanded="false">
                           <i className="bi bi-info-circle-fill" />
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare4">
                           <li>
                             <div className="d-flex justify-content-between">
@@ -410,11 +409,11 @@ const Instructor_PayOuts = () => {
                 {/* Pagination */}
                 <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
                   <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                    <li className="page-item mb-0"><a className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item mb-0 active"><a className="page-link" href="#">2</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">3</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#"><i className="fas fa-angle-right" /></a></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#">1</Link></li>
+                    <li className="page-item mb-0 active"><Link className="page-link" href="#">2</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#">3</Link></li>
+                    <li className="page-item mb-0"><Link className="page-link" href="#"><i className="fas fa-angle-right" /></Link></li>
                   </ul>
                 </nav>
               </div>

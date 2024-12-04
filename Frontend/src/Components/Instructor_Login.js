@@ -2,11 +2,10 @@
 import React, { useState } from 'react';  // Import React and useState
 import { Link } from 'react-router-dom';
 
-
 const Instructor_Login = () => {
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {  // Now React.FormEvent is recognized
+  const handleSubmit = (e) => {  // Now React.FormEvent is recognized
     e.preventDefault();
     console.log('Form submitted with email:', email);
   };
@@ -46,10 +45,10 @@ const Instructor_Login = () => {
           </form>
           <p className="terms-text">
             By continuing, you agree to LMS's{' '}
-            <a href="#" className="terms-link">Conditions of Use</a> and{' '}
-            <a href="#" className="terms-link">Privacy Notice</a>.
+            <LInk href="#" className="terms-link">Conditions of Use</LInk> and{' '}
+            <LInk href="#" className="terms-link">Privacy Notice</LInk>.
           </p>
-          <a href="#" className="help-link">Need help?</a>
+          <LInk href="#" className="help-link">Need help?</LInk>
         </div>
         <div className="divider">
           <span className="divider-text">New to LMS?</span>
@@ -60,9 +59,9 @@ const Instructor_Login = () => {
       </div>
       <footer className="footer">
         <div className="footer-links">
-          <a href="#" className="footer-link">Conditions of Use</a>
-          <a href="#" className="footer-link">Privacy Notice</a>
-          <a href="#" className="footer-link">Help</a>
+          <LInk href="#" className="footer-link">Conditions of Use</LInk>
+          <LInk href="#" className="footer-link">Privacy Notice</LInk>
+          <LInk href="#" className="footer-link">Help</LInk>
         </div>
         <div className="footer-text">© 1996-2024, Amazon.com, Inc. or its affiliates</div>
       </footer>

@@ -1,6 +1,6 @@
 import React from 'react'
-import Internal_Footer from './Internal_Footer'
 import { Link } from 'react-router-dom'
+import IFooter from './IFooter'
 
 const Instructor_Deleteprofile = () => {
   return (
@@ -23,7 +23,7 @@ const Instructor_Deleteprofile = () => {
               {/* Avatar */}
               <div className="col-auto mt-4 mt-md-0">
                 <div className="avatar avatar-xxl mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="" />
                 </div>
               </div>
               {/* Profile info */}
@@ -48,7 +48,7 @@ const Instructor_Deleteprofile = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -110,15 +110,15 @@ const Instructor_Deleteprofile = () => {
             <div className="card-body">
               <h6>Before you go...</h6>
               <ul>
-                <li>Take a backup of your data <a href="#">Here</a> </li>
+                <li>Take a backup of your data <Link href="#">Here</Link> </li>
                 <li>If you delete your account, you will lose your all data.</li>
               </ul>
               <div className="form-check form-check-md my-4">
                 <input className="form-check-input" type="checkbox" defaultValue id="deleteaccountCheck" />
                 <label className="form-check-label" htmlFor="deleteaccountCheck">Yes, I'd like to delete my account</label>
               </div>
-              <a href="#" className="btn btn-success-soft mb-2 mb-sm-0">Keep my account</a>
-              <a href="#" className="btn btn-danger mb-0">Delete my account</a>
+              <Link href="#" className="btn btn-success-soft mb-2 mb-sm-0">Keep my account</Link>
+              <Link href="#" className="btn btn-danger mb-0">Delete my account</Link>
             </div>
           </div>
           {/* Title and select END */}
@@ -130,7 +130,7 @@ const Instructor_Deleteprofile = () => {
   {/* =======================
     Page content END */}
 </main>
-<Internal_Footer/>
+<IFooter/>
     </div>
   )
 }
