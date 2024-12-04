@@ -1,5 +1,5 @@
 import React from 'react'
-import IFooter from './IFooter'
+import IFooter from "./IFooter"
 
 const Instructor_Single = () => {
   return (
