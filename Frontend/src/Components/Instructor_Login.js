@@ -1,11 +1,6 @@
-
 import React, { useState, useEffect } from 'react';  // Import React and useState
-import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-=======
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Updated to useNavigate
->>>>>>> person2
 
 const Instructor_Login = () => {
   const [email, setEmail] = useState('');
@@ -60,11 +55,6 @@ const Instructor_Login = () => {
     }
   };
 
-  const handleSubmit = (e) => {  // Now React.FormEvent is recognized
-    e.preventDefault();
-    console.log('Form submitted with email:', email);
-  };
-
   return (
     <>
     <br />
@@ -107,10 +97,10 @@ const Instructor_Login = () => {
       <p>{message}</p>
           <p className="terms-text">
             By continuing, you agree to LMS's{' '}
-            <Link href="#" className="terms-Link">Conditions of Use</Link> and{' '}
-            <Link href="#" className="terms-Link">Privacy Notice</Link>.
+            <a href="#" className="terms-link">Conditions of Use</a> and{' '}
+            <a href="#" className="terms-link">Privacy Notice</a>.
           </p>
-          <Link href="#" className="help-Link">Need help?</Link>
+          <a href="#" className="help-link">Need help?</a>
         </div>
         <div className="divider">
           <span className="divider-text">New to LMS?</span>
@@ -120,10 +110,10 @@ const Instructor_Login = () => {
        </button>
       </div>
       <footer className="footer">
-        <div className="footer-Links">
-          <Link href="#" className="footer-Link">Conditions of Use</Link>
-          <Link href="#" className="footer-Link">Privacy Notice</Link>
-          <Link href="#" className="footer-Link">Help</Link>
+        <div className="footer-links">
+          <a href="#" className="footer-link">Conditions of Use</a>
+          <a href="#" className="footer-link">Privacy Notice</a>
+          <a href="#" className="footer-link">Help</a>
         </div>
         <div className="footer-text">© 1996-2024, Amazon.com, Inc. or its affiliates</div>
       </footer>
@@ -133,4 +123,3 @@ const Instructor_Login = () => {
 };
 
 export default Instructor_Login;
-
