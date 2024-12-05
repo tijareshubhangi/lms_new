@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
 import { useUser } from '../context/UserContext'; // Importing UserContext
 
-const Nav = ({ cartCount }) => {
+const Nav = ({ cartCount,handleLogout  }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // Default profile image
@@ -120,7 +120,7 @@ const Nav = ({ cartCount }) => {
               <div className="position-relative">
                 <Link to="/cart">
                   <IoMdCart size={28} />
-                  <span> ({cartCount})</span>
+                  <span>({cartCount})</span>
                 </Link>
               </div>  
 
@@ -150,7 +150,7 @@ const Nav = ({ cartCount }) => {
                       <li>
                         <Link
                           className="dropdown-item bg-danger-soft-hover"
-                          onClick={handleLogoutClick}
+                          onClick={handleLogout}
                         >
                           Log Out
                         </Link>
