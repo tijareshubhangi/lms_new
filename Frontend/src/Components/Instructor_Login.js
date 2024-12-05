@@ -1,9 +1,64 @@
 
-import React, { useState } from 'react';  // Import React and useState
+import React, { useState, useEffect } from 'react';  // Import React and useState
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Updated to useNavigate
+>>>>>>> person2
 
 const Instructor_Login = () => {
   const [email, setEmail] = useState('');
+  const [otp, setOtp] = useState('');
+  const [message, setMessage] = useState('');
+  const [timer, setTimer] = useState(0);
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [canResend, setCanResend] = useState(false);
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+
+  useEffect(() => {
+    let countdown;
+    if (timer > 0 && isOtpSent) {
+      countdown = setInterval(() => {
+        setTimer(prev => prev - 1);
+      }, 1000);
+    } else {
+      setCanResend(true);
+      clearInterval(countdown);
+    }
+    return () => clearInterval(countdown);
+  }, [timer, isOtpSent]);
+
+  // Function to send OTP
+  const sendOtp = async () => {
+    if (!email) {
+      alert('Please enter your email address');
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5000/send-otp', { email });
+      setMessage(response.data.message);
+      setIsOtpSent(true);
+      setTimer(60); // Start countdown
+    } catch (error) {
+      setMessage('Error sending OTP');
+    }
+  };
+
+  // Function to verify OTP
+  const verifyOtp = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/verify-otp', { email, userOtp: otp });
+      setMessage(response.data.message);
+      if (response.data.message === 'OTP verified successfully') {
+        alert('OTP verified successfully');
+        navigate('/instructordashboard'); // Redirect to instructor dashboard
+      }
+    } catch (error) {
+      setMessage('Invalid OTP');
+    }
+  };
 
   const handleSubmit = (e) => {  // Now React.FormEvent is recognized
     e.preventDefault();
@@ -24,25 +79,32 @@ const Instructor_Login = () => {
           <img src="assets/images/LMS.png" alt="LMS" className="logo" />
         </div>
         <div className="form-card">
-          <h1 className="form-title">Instructor Login</h1>
-          <form onSubmit={handleSubmit} className="form">
-            <div className="input-group">
-              <label htmlFor="email" className="input-label">Email or mobile phone number</label>
-              <input
-                type="text"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="input-field"
-                required
-              />
-            </div>
-            <Link to="/signUp">
-              <button type="submit" className="submit-button">
-                  Continue
-              </button>
-           </Link>
-          </form>
+        <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button onClick={sendOtp} disabled={isOtpSent}>Send OTP</button>
+
+      {isOtpSent && (
+        <>
+          <p>OTP expires in: {timer}s</p>
+          <input
+            type="text"
+            placeholder="Enter OTP"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+          />
+          <button onClick={verifyOtp}>Verify OTP</button>
+        </>
+      )}
+
+      {/* {canResend && !isOtpSent && (
+        <button onClick={sendOtp}>Resend OTP</button>
+      )} */}
+
+      <p>{message}</p>
           <p className="terms-text">
             By continuing, you agree to LMS's{' '}
             <Link href="#" className="terms-Link">Conditions of Use</Link> and{' '}
