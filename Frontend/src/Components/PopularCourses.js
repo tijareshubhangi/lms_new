@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState} from 'react';
 import { Link } from 'react-router-dom';
+
 const PopularCourses = () => {
   const videoRef = useRef(null); // To reference the video DOM element
   const [savedTime, setSavedTime] = useState(
@@ -27,7 +28,7 @@ const PopularCourses = () => {
   const courses = {
     'Web Design': [
         {
-          videoSrc: 'http://localhost:9000/videos/V1.mp3',
+          videoSrc: 'http://localhost:3000/Videos/V1.mp3',
           badge: 'All level',
           title: 'Sketch from A to Z: for HTML',
           description: 'Proposal indulged no do sociable he throwing settling.',
@@ -240,7 +241,7 @@ const PopularCourses = () => {
       <Link to="#" className={`badge bg-purple bg-opacity-10 text-purple`}>{course.badge}</Link>
       <Link to="#" className="h6 mb-0"><i className="far fa-heart"></i></Link>
     </div>
-    <h5 className="card-title fw-normal"><Link to="#">{course.title}</Link></h5>
+    <h5 className="card-title fw-normal"><Link to="/course">{course.title}</Link></h5>
     <p className="mb-2 text-truncate-2">{course.description}</p>
     <ul className="list-inline mb-0">
       {[...Array(5)].map((star, i) => (
