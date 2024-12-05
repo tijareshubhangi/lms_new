@@ -184,9 +184,11 @@ const CourseCategory1 = () => {
             <div className="col-lg-6">
               <div className="card rounded  overflow-hidden shadow mb-4" style={styles.card}>
                 <div className="card-body" style={styles.cardBody}>
-                  <h1 style={styles.sectionTitle}>HTML</h1>
+                  <Link to="#"><h1 style={styles.sectionTitle}>HTML</h1></Link>
                   {courses.map((course, index) => (
+                  
                     <div
+                      
                       key={course.id}
                       className="row align-items-center border  overflow-hidden shadow mb-3"
                       style={{
@@ -200,12 +202,13 @@ const CourseCategory1 = () => {
                         <video src={course.videoSrc} controls width="100%" style={styles.video} />
                       </div>
                       <div className="col-md-6" style={styles.colMd6}>
-                        <h5 className="card-title" style={styles.cardTitle}>{course.title}</h5>
+                        <Link to="/productdetals"><h5 className="card-title" style={styles.cardTitle}>{course.title}</h5></Link>
                         <p className="mb-1">Duration: {course.duration}</p>
                         <p className="mb-1">Lectures: {course.lectures}</p>
                         <p>Level: {course.level}</p>
                       </div>
                     </div>
+                   
                   ))}
                 </div>
               </div>
