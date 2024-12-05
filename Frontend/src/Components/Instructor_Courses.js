@@ -228,7 +228,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
           <div className="card border bg-transparent rounded-3">
             {/* Card header START */}
             <div className="card-header bg-transparent border-bottom">
-              <h2 className="mb-0">Instructor Courses List</h2>
+              <h4 className="mb-0">Instructor Courses List</h4>
             </div>
             {/* Card header END */}
             {/* Card body START */}
@@ -266,7 +266,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
 
           {/* Upload Section */}
           <div className={style.uploadSection}>
-            <h2>Upload Video</h2>
+            <h5>Upload Video</h5>
             <input
               type="text"
               placeholder="Video Title"
@@ -274,7 +274,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
               onChange={(e) => setVideoTitle(e.target.value)}
             />
             <label htmlFor="video-upload" className={style.uploadIcon}>
-              📹 Upload Video
+              📹
             </label>
             <input
               type="file"
@@ -286,7 +286,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
 
             {videoPreview && (
               <div className={style.previewSection}>
-                <h4>Video Preview:</h4>
+                <h5>Video Preview:</h5>
                 <video src={videoPreview} controls width="200" />
                 <p>{videoTitle}</p>
               </div>
@@ -299,7 +299,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
 
           {/* Uploaded Videos List */}
           <div className={style.videoList}>
-            <h2>Uploaded Videos</h2>
+            <h5>Uploaded Videos</h5>
             <ul>
               {videoList.length > 0 ? (
                 videoList.map((video) => (
@@ -324,7 +324,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
 
           {/* Playlist Creation Section */}
           <div className={style.playlistSection}>
-            <h2>Create Playlist</h2>
+            <h5>Create Playlist</h5>
             <input
               type="text"
               placeholder="Playlist Name"
@@ -336,10 +336,10 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
 
           {/* Display Playlists */}
           <div className={style.playlistDisplay}>
-            <h2>Playlists</h2>
+            <h5>Playlists</h5>
             {playlists.map((playlist) => (
               <div key={playlist.id} className={style.playlistItem}>
-                <h3>{playlist.name}</h3>
+                <h6>{playlist.name}</h6>
                 <ul>
                   {playlist.videos.map((video) => (
                     <li key={video.id}>
