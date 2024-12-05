@@ -140,12 +140,8 @@ function App() {
     setCart([]);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setCart([]);
-    window.location.reload();
-    navigate("/");
-  };
+  
+  
 
   return (
     <>
@@ -164,6 +160,7 @@ function App() {
             element={
               <Cart
                 cart={cart}
+                setCart={setCart}
                 onAdd={handleAdd}
                 onRemove={handleRemove}
                 onClearCart={handleClearCart}

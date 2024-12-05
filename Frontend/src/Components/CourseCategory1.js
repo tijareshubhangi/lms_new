@@ -37,7 +37,7 @@ const ProductsCategory1 = ({ onAddToCart }) => {
   const handleAddToCart = (productInfo) => {
     onAddToCart(productInfo);
     setShowModal(false);
-    navigate("/cart"); // Redirect to cart
+    navigate("/addcart"); // Redirect to cart
   };
 
   const handleProceedToCart = () => {
