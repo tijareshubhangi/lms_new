@@ -61,7 +61,7 @@ app.use('/api/auth', authRoutes);
 // Video Upload Route
 app.post('/api/upload', upload.single('video'), (req, res) => {
   if (!req.file) return res.status(400).send('No file uploaded');
-
+ 
   const newVideo = {
     id: Date.now(),
     title: req.body.title,
