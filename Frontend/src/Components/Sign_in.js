@@ -70,7 +70,7 @@ const SignIn = () => {
                 <div className="row my-5">
                   <div className="col-sm-10 col-xl-8 m-auto">
                     <span className="mb-0 fs-1">👋</span>
-                    <h1 className="fs-2">Login into Eduport!</h1>
+                    <h1 className="fs-2">Login into LMS!</h1>
                     <p className="lead mb-4">
                       Nice to see you! Please log in with your account.
                     </p>

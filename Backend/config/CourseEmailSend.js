@@ -15,7 +15,7 @@ export const CourseEmail = (link, email, name, password) => {
       from: process.env.EMAIL,
       to: email,
       subject: `Email Verification Request`,
-      text: `
+      text: ` 
   Hello ${name},
   
   You have requested to verify your email. Please click the following link to verify your email:

@@ -205,7 +205,7 @@ function App() {
 <Route path='/DMvideo' element={<MarketingVideo/>}/>
 <Route path='/videoplayer1' element={<VideoPlayer1/>}/>
 <Route path='/checkout' element={<Checkout/>}/>
-<Route path='/paymentpage' element={<CoursePayment/>}/>
+<Route path='/paymentpage' element={<CoursePayment/>}/> 
 {/* 
 Student Dashboard Route Start */}
 
