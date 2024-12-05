@@ -11,9 +11,12 @@ const Instructor_Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    let countdown;
-    if (timer > 0) {
-      countdown = setInterval(() => setTimer((prev) => prev - 1), 1000);
+  
+    if (timer > 0 && isOtpSent) {
+      countdown = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+
     } else {
       clearInterval(countdown);
     }
@@ -40,6 +43,7 @@ const Instructor_Login = () => {
       const response = await axios.post('http://localhost:5000/verify-otp', { email, userOtp: otp });
       setMessage(response.data.message);
       if (response.data.message === 'OTP verified successfully') {
+
         navigate('/instructordashboard');
       }
     } catch (error) {
@@ -60,9 +64,7 @@ const Instructor_Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button onClick={sendOtp} disabled={isOtpSent}>
-            Send OTP
-          </button>
+
           {isOtpSent && (
             <>
               <p>OTP expires in: {timer}s</p>
@@ -75,11 +77,16 @@ const Instructor_Login = () => {
               <button onClick={verifyOtp}>Verify OTP</button>
             </>
           )}
+
+
           <p>{message}</p>
+          <p className="terms-text">
+            By continuing, you agree to LMS's{' '}
+            <a href="#" className="terms-link">Conditions of Use</a> and{' '}
+            <a href="#" className="terms-link">Privacy Notice</a>.
+          </p>
         </div>
-        <footer>
-          <p>© 2024 Your Company</p>
-        </footer>
+
       </div>
     </div>
   );
