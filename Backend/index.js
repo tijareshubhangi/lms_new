@@ -7,7 +7,7 @@ import path from "path";
 import fs from "fs";
 
 
-// Import Custom Modules
+// Import Custom Modules 
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 
@@ -38,6 +38,76 @@ app.get("/", (req, res) => {
   res.send("Backend is Running..");
 });
 app.use("/api/auth", authRoutes);
+
+
+
+// Temporary storage for OTPs (for demo purposes; consider using a database in production)
+const otpStore = {};
+
+app.post('/send-otp', async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  const otp = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit OTP
+  const timestamp = Date.now(); // Capture the time when OTP is generated
+
+  otpStore[email] = { otp, timestamp }; // Store OTP with timestamp
+
+  // Configure Nodemailer with environment variables
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: email,
+    subject: 'Your OTP Code',
+    text: `Your OTP code is ${otp}`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: 'OTP sent successfully to ' + email });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Failed to send OTP. Please try again.' });
+  }
+});
+
+app.post('/verify-otp', (req, res) => {
+  const { email, userOtp } = req.body;
+  if (!email || !userOtp) {
+    return res.status(400).json({ message: 'Email and OTP are required' });
+  }
+
+  const otpData = otpStore[email];
+  if (!otpData) {
+    return res.status(400).json({ message: 'No OTP sent to this email' });
+  }
+
+  // Check if OTP has expired (60 seconds limit)
+  const expiryTime = 60 * 1000; // 60 seconds
+  const isExpired = Date.now() - otpData.timestamp > expiryTime;
+
+  if (isExpired) {
+    delete otpStore[email]; // Remove expired OTP
+    return res.status(400).json({ message: 'OTP has expired' });
+  }
+
+  // Validate OTP
+  if (otpData.otp == userOtp) {
+    delete otpStore[email]; // Remove OTP after successful verification
+    res.status(200).json({ message: 'OTP verified successfully' });
+  } else {
+    res.status(400).json({ message: 'Invalid OTP' });
+  }
+});
 
 // Start Server
 const PORT = process.env.PORT || 9000;
