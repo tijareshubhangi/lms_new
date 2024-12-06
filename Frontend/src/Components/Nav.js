@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
-// import { useUser } from '../context/UserContext'; // Importing UserContext
 import { useUser } from "../context/UserContext";
 
 
@@ -11,6 +10,7 @@ const Nav = ({ cartCount }) => {
   const [profileImage, setProfileImage] = useState(null); // Default profile image
   const dropdownRef = useRef(null);
   const { user, logout } = useUser(); // Access user and logout from context
+
 
   useEffect(() => {
     // Fetch the profile image from localStorage
