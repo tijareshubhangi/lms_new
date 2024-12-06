@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import fs from "fs";
-
+import nodemailer from "nodemailer"
 
 // Import Custom Modules 
 import connectDB from "./config/db.js";

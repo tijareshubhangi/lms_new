@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Updated to useNavigate
@@ -33,7 +32,7 @@ const Instructor_Login = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/send-otp', { email });
+      const response = await axios.post('http://localhost:9000/send-otp', { email });
       setMessage(response.data.message);
       setIsOtpSent(true);
       setTimer(60); // Start countdown
@@ -45,7 +44,7 @@ const Instructor_Login = () => {
   // Function to verify OTP
   const verifyOtp = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/verify-otp', { email, userOtp: otp });
+      const response = await axios.post('http://localhost:9000/verify-otp', { email, userOtp: otp });
       setMessage(response.data.message);
       if (response.data.message === 'OTP verified successfully') {
         alert('OTP verified successfully');
@@ -186,4 +185,3 @@ const Instructor_Login = () => {
 };
 
 export default Instructor_Login;
-
