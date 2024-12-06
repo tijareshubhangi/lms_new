@@ -15,8 +15,12 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("token"); // Clean up on logout
   };
 
+  const updateUser = (newUserData) => {
+    setUser((prevUser) => ({ ...prevUser, ...newUserData }));
+  };
+
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout , setUser, updateUser }}>
       {children}
     </UserContext.Provider>
   );
