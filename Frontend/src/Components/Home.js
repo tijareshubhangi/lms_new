@@ -72,6 +72,17 @@ const Home = () => {
     window.location.reload();
     navigate("/");
   };
+
+
+  const styles={
+    hero :{
+      marginTop:'100px'
+    }
+
+  }
+
+
+
  return ( 
 
 <>
@@ -84,7 +95,7 @@ Main Banner START */}
 <br />
 <br/>
 <br/>
-  <section className="position-relative overflow-hidden pt-5 pt-lg-3 mt-5">
+  <section className="position-relative overflow-hidden pt-5 pt-lg-3 " style={styles.hero}>
     {/* SVG START */}
     <figure className="position-absolute top-100 start-0 translate-middle-y ms-n7 d-none d-xxl-block">
       <svg className="rotate-74 fill-danger opacity-1">
