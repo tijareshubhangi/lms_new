@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
-import { useUser } from '../context/UserContext'; // Importing UserContext
+import { useUser } from "../context/UserContext";
+
 
 const Nav = ({ cartCount }) => {
   const navigate = useNavigate();
@@ -10,12 +11,16 @@ const Nav = ({ cartCount }) => {
   const dropdownRef = useRef(null);
   const { user, logout } = useUser(); // Access user and logout from context
 
+
   useEffect(() => {
     // Fetch the profile image from localStorage
     const storedImage = localStorage.getItem("profileImage");
     if (storedImage) {
       setProfileImage(storedImage);
     }
+      
+    
+   
 
     // Close dropdown on outside click
     const handleClickOutside = (event) => {
@@ -39,7 +44,7 @@ const Nav = ({ cartCount }) => {
     navigate("/signin");
   };
 
-  const name = user?.name || "User";
+  const name = user?.name || "User"; // Display updated name or fallback
   const email = user?.email || "Email not available";
 
   return (
