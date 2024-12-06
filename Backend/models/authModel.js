@@ -13,26 +13,24 @@ const authSchema = new mongoose.Schema({
   isVerified: {
     type: Boolean,
   },
-  firstName: {
-    type: String,
-    required: true, // Ensure that it is a required field
-    default: "",    // Provide a default value to avoid null
-  },
-  lastName: {
-    type: String,
-    required: true,
-    default: "",
-  },
-  images:
-     [
-        {
-            filename: {
-                type: String,
-                required: true
-            },
+  images:[
+      {
+         filename: {
+          type: String,
+          required: true,
         },
-    ],
-   
+      },
+],
+firstName: {
+  type: String,
+  required: true, // Ensure that it is a required field
+  default: "",    // Provide a default value to avoid null
+},
+lastName: {
+  type: String,
+  required: true,
+  default: "",
+},
 });
 
 const authModel = mongoose.model("user", authSchema);

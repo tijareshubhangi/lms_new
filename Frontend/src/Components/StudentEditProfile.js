@@ -4,7 +4,7 @@ import axios from "../Components/Services/axiosInterceptor";
 
 const StudentEditProfile = () => {
   const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(null); // Default image
+  const [preview, setPreview] = useState(null) // Default image
   const [profileImage, setProfileImage] = useState(null);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -32,56 +32,59 @@ const StudentEditProfile = () => {
     fetchName();
   }, [userId]);
 
-  // Handle edit button click
-  const handleEditNameClick = () => {
-    setIsEditing(true);
-  };
+ // Handle edit button click
+ const handleEditNameClick = () => {
+  setIsEditing(true);
+};
 
-  // Fetch the current first name and last name on component mount
-  useEffect(() => {
-    const fetchName = async () => {
-      try {
-        const res = await axios.get(`/api/auth/getName/${userId}`);
-        if (res.data.success) {
-          setFirstName(res.data.name.firstName);
-          setLastName(res.data.name.lastName);
-        } else {
-          console.error("Error fetching name:", res.data.error);
-        }
-      } catch (error) {
-        console.error("Error fetching name:", error);
-      }
-    };
 
-    fetchName();
-  }, [userId]);
-
-  // Save the updated first name and last name
-  const handleSaveName = async () => {
-    if (!firstName.trim() || !lastName.trim()) {
-      alert("First name and last name cannot be empty!");
-      return;
-    }
-
+ 
+ // Fetch the current first name and last name on component mount
+ useEffect(() => {
+  const fetchName = async () => {
     try {
-      const res = await axios.put(`/api/auth/updateName/${userId}`, {
-        firstName,
-        lastName,
-      });
+      const res = await axios.get(`/api/auth/getName/${userId}`);
       if (res.data.success) {
-        alert("Name updated successfully!");
-
-        setIsEditing(false);
+        setFirstName(res.data.name.firstName);
+        setLastName(res.data.name.lastName);
       } else {
-        console.error("Error updating name:", res.data.error);
+        console.error("Error fetching name:", res.data.error);
       }
     } catch (error) {
-      console.error("Error updating name:", error);
+      console.error("Error fetching name:", error);
     }
   };
 
-  // Fetch user profile data on component mount
-  useEffect(() => {
+  fetchName();
+}, [userId]);
+
+
+
+// Save the updated first name and last name
+const handleSaveName = async () => {
+  if (!firstName.trim() || !lastName.trim()) {
+    alert("First name and last name cannot be empty!");
+    return;
+  }
+
+  try {
+    const res = await axios.put(`/api/auth/updateName/${userId}`, { firstName, lastName });
+    if (res.data.success) {
+      alert("Name updated successfully!");
+
+      setIsEditing(false);
+  
+    } else {
+      console.error("Error updating name:", res.data.error);
+    }
+  } catch (error) {
+    console.error("Error updating name:", error);
+  }
+};
+
+
+   // Fetch user profile data on component mount
+   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
         const token = localStorage.getItem("authToken");
@@ -96,10 +99,10 @@ const StudentEditProfile = () => {
           if (latestImage) {
             // Persist the image URL in localStorage
             localStorage.setItem("profileImage", latestImage);
-            setProfileImage(latestImage); // Set the image URL to profileImage
-            setPreview(latestImage); // Set the preview to the latest image URL
+            setProfileImage(latestImage);  // Set the image URL to profileImage
+            setPreview(latestImage);       // Set the preview to the latest image URL
           } else {
-            setProfileImage("assets/images/avatar/07.jpg"); // Fallback to default if no image
+            setProfileImage("assets/images/avatar/07.jpg");  // Fallback to default if no image
             setPreview("assets/images/avatar/07.jpg");
           }
         }
@@ -123,7 +126,7 @@ const StudentEditProfile = () => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
       setFile(selectedFile);
-      setPreview(URL.createObjectURL(selectedFile)); // Show file preview immediately
+      setPreview(URL.createObjectURL(selectedFile));  // Show file preview immediately
     }
   };
 
@@ -146,17 +149,14 @@ const StudentEditProfile = () => {
         const latestImageUrl = `http://localhost:9000/public/Allimages/${res.data.imageFile}`;
         // Store the image URL in localStorage
         localStorage.setItem("profileImage", latestImageUrl);
-        setProfileImage(latestImageUrl); // Persist image in profileImage state
-        setPreview(latestImageUrl); // Update preview
+        setProfileImage(latestImageUrl);  // Persist image in profileImage state
+        setPreview(latestImageUrl);       // Update preview
         alert("Profile photo updated successfully!");
       } else {
         alert(res.data.error || "Failed to update profile photo.");
       }
     } catch (error) {
-      console.error(
-        "Error during upload:",
-        error.response ? error.response.data : error
-      );
+      console.error("Error during upload:", error.response ? error.response.data : error);
       alert("An error occurred while uploading the photo.");
     }
   };
@@ -198,26 +198,26 @@ Page Banner START */}
           <div className="row">
             {/* Profile banner START */}
             <div className="col-12">
-              <div className="card bg-transparent card-body p-4">
+              <div className="card bg-transparent card-body p-0">
                 <div className="row d-flex justify-content-between">
                   {/* Avatar */}
                   <div className="col-auto mt-4 mt-md-0">
-                    <div className="avatar avatar-xxl mt-n3">
-                      <img
-                        className="avatar-img rounded-circle border border-white border-3 shadow"
-                        src={profileImage} // Bind to the profileImage state
-                        alt="Profile"
-                      />
-                    </div>
-                  </div>
+  <div className="avatar avatar-xxl mt-n3">
+    <img
+      className="avatar-img rounded-circle border border-white border-3 shadow"
+      src={profileImage}  // Bind to the profileImage state
+      alt="Profile"
+    />
+  </div>
+</div>
 
                   {/* Profile info */}
                   <div className="col d-md-flex justify-content-between align-items-center mt-4">
                     <div>
-                      <h1 className="my-1 fs-4">
-                        {`${firstName} ${lastName}`}{" "}
-                        <i className="bi bi-patch-check-fill text-info small" />
-                      </h1>
+                    <h1 className="my-1 fs-4">
+        {`${firstName} ${lastName}`}{" "}
+        <i className="bi bi-patch-check-fill text-info small" />
+      </h1>
                       <ul className="list-inline mb-0">
                         <li className="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0">
                           <i className="fas fa-star text-warning me-2" />
@@ -389,89 +389,66 @@ Page content START */}
                     <div className="text-center relative">
                       <h2>Profile Picture</h2>
                       <div className="d-flex align-items-center">
-                        <label
-                          className="position-relative me-4"
-                          htmlFor="uploadfile-1"
-                          title="Replace this pic"
-                        >
-                          <span className="avatar avatar-xl">
-                            <img
-                              className="avatar-img rounded-circle border border-white border-3 shadow"
-                              src={preview}
-                              alt="Profile Preview"
-                            />
-                          </span>
-                          <button
-                            type="button"
-                            className="uploadremove"
-                            onClick={handleReset}
-                          >
-                            <i className="bi bi-x text-white" />
-                          </button>
-                        </label>
-                        <label
-                          className="btn btn-primary-soft mb-0"
-                          htmlFor="uploadfile-1"
-                        >
-                          Change
-                        </label>
-                        <input
-                          id="uploadfile-1"
-                          className="form-control d-none"
-                          type="file"
-                          onChange={handleFileChange}
-                          accept="image/*"
-                        />
-                      </div>
-                      <button
-                        className="btn btn-primary mt-3"
-                        onClick={handleSubmit}
-                        type="button"
-                      >
-                        Upload Photo
-                      </button>
+  <label className="position-relative me-4" htmlFor="uploadfile-1" title="Replace this pic">
+    <span className="avatar avatar-xl">
+      <img
+        className="avatar-img rounded-circle border border-white border-3 shadow"
+        src={preview}
+        alt="Profile Preview"
+      />
+    </span>
+    <button type="button" className="uploadremove" onClick={handleReset}>
+      <i className="bi bi-x text-white" />
+    </button>
+  </label>
+  <label className="btn btn-primary-soft mb-0" htmlFor="uploadfile-1">Change</label>
+  <input
+    id="uploadfile-1"
+    className="form-control d-none"
+    type="file"
+    onChange={handleFileChange}
+    accept="image/*"
+  />
+</div>
+<button className="btn btn-primary mt-3" onClick={handleSubmit} type="button">
+  Upload Photo
+</button>
                     </div>
                     {/* Full name */}
                     <div>
-                      <h1>Edit Profile</h1>
-                      <div
-                        style={{
-                          display: "flex",
-                          gap: "20px",
-                          alignItems: "center",
-                        }}
-                      >
-                        <div>
-                          <label>First Name:</label>
-                          <input
-                            type="text"
-                            value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)}
-                          />
-                        </div>
-                        <div>
-                          <label>Last Name:</label>
-                          <input
-                            type="text"
-                            value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
-                          />
-                        </div>
-                        <button
-                          onClick={handleSaveName}
-                          style={{
-                            padding: "8px 16px",
-                            backgroundColor: "#007bff",
-                            color: "#fff",
-                            border: "none",
-                            borderRadius: "4px",
-                            cursor: "pointer",
-                          }}
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </div>
+      <h1>Edit Profile</h1>
+      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+        <div>
+          <label>First Name:</label>
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
+        <button
+          onClick={handleSaveName}
+          style={{
+            padding: "8px 16px",
+            backgroundColor: "#007bff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+          }}
+        >
+          Save
+        </button>
+      </div>
+    </div>
                     {/* Username */}
                     <div className="col-md-6">
                       <label className="form-label">Username</label>
@@ -773,24 +750,14 @@ Page content START */}
                     </div>
                     {/* Card body START */}
                     <div className="col-md-6">
-                      <label className="form-label">Email id</label>
-                      <input
-                        className="form-control"
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                    <div className="pt-1 mb-4">
-                      <button
-                        className="btn btn-primary mb-0"
-                        type="submit"
-                        onClick={clickOn}
-                      >
-                        Send Email
-                      </button>
-                    </div>
+        <label className="form-label">Email id</label>
+        <input className="form-control" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </div>
+      <div className="pt-1 mb-4">
+        <button className="btn btn-primary mb-0" type="submit" onClick={clickOn}>
+          Send Email
+        </button>
+      </div>
                     {/* Card body END */}
                   </div>
                 </div>
@@ -805,7 +772,6 @@ Page content START */}
       {/* =======================
 Page content END */}
     </div>
-    
   );
 };
 

@@ -20,19 +20,23 @@ const SignIn = () => {
       const response = await axios.post("api/auth/users/login", input);
       if (response.status === 200) {
         alert(response.data.message);
-
+  
         // Store the token, name, and email in localStorage
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("name", response.data.name);
         localStorage.setItem("userEmail", input.email); // Store the logged-in user's email
-
+  
         login(response.data); // Call login from context to update user state
         navigate("/"); // Redirect to home or other target page
       }
     } catch (error) {
-      alert(error.response.data.message || "Login failed. Please try again.");
+      // Check if the error has a response object with a message
+      const errorMessage =
+        error.response?.data?.message || "Login failed. Please try again.";
+      alert(errorMessage);
     }
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +74,7 @@ const SignIn = () => {
                 <div className="row my-5">
                   <div className="col-sm-10 col-xl-8 m-auto">
                     <span className="mb-0 fs-1">👋</span>
-                    <h1 className="fs-2">Login into LMS!</h1>
+                    <h1 className="fs-2">Login into Eduport!</h1>
                     <p className="lead mb-4">
                       Nice to see you! Please log in with your account.
                     </p>
@@ -78,7 +82,7 @@ const SignIn = () => {
                     {/* Login Form */}
                     <form onSubmit={handleLogin}>
                       {/* Name Field */}
-                      {/* <div className="mb-4">
+                      <div className="mb-4">
                         <label htmlFor="name" className="form-label">
                           Name *
                         </label>
@@ -89,7 +93,7 @@ const SignIn = () => {
                           value={input.name}
                           onChange={handleChange}
                         />
-                      </div> */}
+                      </div>
 
                       {/* Email Field */}
                       <div className="mb-4">
