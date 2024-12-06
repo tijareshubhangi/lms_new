@@ -1,5 +1,5 @@
 import React from 'react'
-import Internal_Footer from './Internal_Footer'
+import IFooter from "./IFooter"
 import { Link } from 'react-router-dom'
 
 const Instructor_Editprofile = () => {
@@ -24,7 +24,7 @@ const Instructor_Editprofile = () => {
               {/* Avatar */}
               <div className="col-auto mt-4 mt-md-0">
                 <div className="avatar avatar-xxl mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="" />
                 </div>
               </div>
               {/* Profile info */}
@@ -49,7 +49,7 @@ const Instructor_Editprofile = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -118,7 +118,7 @@ const Instructor_Editprofile = () => {
                     <label className="position-relative me-4" htmlFor="uploadfile-1" title="Replace this pic">
                       {/* Avatar place holder */}
                       <span className="avatar avatar-xl">
-                        <img id="uploadfile-1-preview" className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/07.jpg" alt />
+                        <img id="uploadfile-1-preview" className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/07.jpg" alt="" />
                       </span>
                       {/* Remove btn */}
                       <button type="button" className="uploadremove"><i className="bi bi-x text-white" /></button>
@@ -162,7 +162,7 @@ const Instructor_Editprofile = () => {
                 {/* About me */}
                 <div className="col-12">
                   <label className="form-label">About me</label>
-                  <textarea className="form-control" rows={3} defaultValue={"I’ve found a way to get paid for my favorite hobby, and do so while following my dream of traveling the world."} />
+                  <textareLink className="form-control" rows={3} defaultValue={"I’ve found a way to get paid for my favorite hobby, and do so while following my dream of traveling the world."} />
                   <div className="form-text">Brief description for your profile.</div> 
                 </div>
                 {/* Education */}
@@ -203,7 +203,7 @@ const Instructor_Editprofile = () => {
                       <p className="mb-1 small">You are successfully connected to your Google account</p>
                       {/* Button */}
                       <button type="button" className="btn btn-sm btn-danger mb-0">Invoke</button>
-                      <a href="#" className="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                      <Link href="#" className="btn btn-sm btn-link text-body mb-0">Learn more</Link>
                     </div>
                   </div>
                   {/* Linkedin */}
@@ -215,7 +215,7 @@ const Instructor_Editprofile = () => {
                       <p className="mb-1 small">Connect with Linkedin account for a personalized experience</p>
                       {/* Button */}
                       <button type="button" className="btn btn-sm btn-primary mb-0">Connect Linkedin</button>
-                      <a href="#" className="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                      <Link href="#" className="btn btn-sm btn-link text-body mb-0">Learn more</Link>
                     </div>
                   </div>
                   {/* Facebook */}
@@ -227,7 +227,7 @@ const Instructor_Editprofile = () => {
                       <p className="mb-1 small">Connect with Facebook account for a personalized experience</p>
                       {/* Button */}
                       <button type="button" className="btn btn-sm btn-primary mb-0">Connect Facebook</button>
-                      <a href="#" className="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                      <Link href="#" className="btn btn-sm btn-link text-body mb-0">Learn more</Link>
                     </div>
                   </div>
                 </div>
@@ -343,7 +343,7 @@ const Instructor_Editprofile = () => {
   {/* =======================
     Page content END */}
 </main>
-<Internal_Footer/>
+<IFooter/>
     </div>
   )
 }

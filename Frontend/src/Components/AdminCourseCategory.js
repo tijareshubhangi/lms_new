@@ -1,7 +1,7 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import AdminSideNavbar from './AdminSideNavbar'
-import AdminTopNavBar from './AdminTopNavBar'
+import React from 'react';
+import AdminSideNavbar from './AdminSideNavbar';
+import AdminTopNavBar from './AdminTopNavBar';
+import { Link } from 'react-router-dom';
 const AdminCourseCategory = () => {
   return (
     <>
@@ -27,7 +27,7 @@ const AdminCourseCategory = () => {
       <div className="row mb-3">
         <div className="col-12 d-sm-flex justify-content-between align-items-center">
           <h1 className="h3 mb-2 mb-sm-0">Web design <span className="badge bg-orange bg-opacity-10 text-orange">245</span></h1>
-          <a href="instructor-create-course.html" className="btn btn-sm btn-primary mb-0">Create a Course</a>
+          <Link to="instructor-create-course.html" className="btn btn-sm btn-primary mb-0">Create a Course</Link>
         </div>
       </div>
       {/* Card START */}
@@ -87,11 +87,11 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center position-relative">
                       {/* Image */}
                       <div className="w-60px">
-                        <img src="assets/images/courses/4by3/08.jpg" className="rounded" alt />
+                        <img src="assets/images/courses/4by3/08.jpg" className="rounded" alt="" />
                       </div>
                       {/* Title */}
                       <h6 className="table-responsive-title mb-0 ms-2">	
-                        <a href="#" className="stretched-link">Building Scalable APIs with GraphQL</a>
+                        <Link to="#" className="stretched-link">Building Scalable APIs with GraphQL</Link>
                       </h6>
                     </div>
                   </td>
@@ -100,7 +100,7 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center">
                       {/* Avatar */}
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <img className="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar" />
+                        <img className="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="" />
                       </div>
                       {/* Info */}
                       <div className="ms-2">
@@ -122,7 +122,7 @@ const AdminCourseCategory = () => {
                   <td> 15,567</td>
                   {/* Table data */}
                   <td>
-                    <a href="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
+                    <Link to="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</Link>
                     <button className="btn btn-sm btn-danger mb-0">Delete</button>
                   </td>
                 </tr>
@@ -133,11 +133,11 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center position-relative">
                       {/* Image */}
                       <div className="w-60px">
-                        <img src="assets/images/courses/4by3/10.jpg" className="rounded" alt />
+                        <img src="assets/images/courses/4by3/10.jpg" className="rounded" alt="" />
                       </div>
                       {/* Title */}
                       <h6 className="table-responsive-title mb-0 ms-2">	
-                        <a href="#" className="stretched-link">Bootstrap 5 From Scratch</a>
+                        <Link to="#" className="stretched-link">Bootstrap 5 From Scratch</Link>
                       </h6>
                     </div>
                   </td>
@@ -146,7 +146,7 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center">
                       {/* Avatar */}
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <img className="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar" />
+                        <img className="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="" />
                       </div>
                       {/* Info */}
                       <div className="ms-2">
@@ -168,7 +168,7 @@ const AdminCourseCategory = () => {
                   <td>16,584</td>
                   {/* Table data */}
                   <td>
-                    <a href="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
+                    <Link to="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</Link>
                     <button className="btn btn-sm btn-danger mb-0">Delete</button>
                   </td>
                 </tr>
@@ -179,11 +179,11 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center position-relative">
                       {/* Image */}
                       <div className="w-60px">
-                        <img src="assets/images/courses/4by3/02.jpg" className="rounded" alt />
+                        <img src="assets/images/courses/4by3/02.jpg" className="rounded" alt="" />
                       </div>
                       {/* Title */}
                       <h6 className="table-responsive-title mb-0 ms-2">	
-                        <a href="#" className="stretched-link">Graphic Design Masterclass</a>
+                        <Link to="#" className="stretched-link">Graphic Design Masterclass</Link>
                       </h6>
                     </div>
                   </td>
@@ -192,7 +192,7 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center">
                       {/* Avatar */}
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <img className="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar" />
+                        <img className="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="" />
                       </div>
                       {/* Info */}
                       <div className="ms-2">
@@ -214,7 +214,7 @@ const AdminCourseCategory = () => {
                   <td>6,458</td>
                   {/* Table data */}
                   <td>
-                    <a href="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
+                    <Link to="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</Link>
                     <button className="btn btn-sm btn-danger mb-0">Delete</button>
                   </td>
                 </tr>
@@ -225,11 +225,11 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center position-relative">
                       {/* Image */}
                       <div className="w-60px">
-                        <img src="assets/images/courses/4by3/04.jpg" className="rounded" alt />
+                        <img src="assets/images/courses/4by3/04.jpg" className="rounded" alt="" />
                       </div>
                       {/* Title */}
                       <h6 className="table-responsive-title mb-0 ms-2">	
-                        <a href="#" className="stretched-link">Learn Invision</a>
+                        <Link to="#" className="stretched-link">Learn Invision</Link>
                       </h6>
                     </div>
                   </td>
@@ -238,7 +238,7 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center">
                       {/* Avatar */}
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <img className="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar" />
+                        <img className="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="" />
                       </div>
                       {/* Info */}
                       <div className="ms-2">
@@ -260,7 +260,7 @@ const AdminCourseCategory = () => {
                   <td>20,158</td>
                   {/* Table data */}
                   <td>
-                    <a href="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
+                    <Link to="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</Link>
                     <button className="btn btn-sm btn-danger mb-0">Delete</button>
                   </td>
                 </tr>
@@ -271,11 +271,11 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center position-relative">
                       {/* Image */}
                       <div className="w-60px">
-                        <img src="assets/images/courses/4by3/09.jpg" className="rounded" alt />
+                        <img src="assets/images/courses/4by3/09.jpg" className="rounded" alt="" />
                       </div>
                       {/* Title */}
                       <h6 className="table-responsive-title mb-0 ms-2">	
-                        <a href="#" className="stretched-link">JavaScript: Full Understanding</a>
+                        <Link to="#" className="stretched-link">JavaScript: Full Understanding</Link>
                       </h6>
                     </div>
                   </td>
@@ -284,7 +284,7 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center">
                       {/* Avatar */}
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <img className="avatar-img rounded-circle" src="assets/images/avatar/08.jpg" alt="avatar" />
+                        <img className="avatar-img rounded-circle" src="assets/images/avatar/08.jpg" alt="" />
                       </div>
                       {/* Info */}
                       <div className="ms-2">
@@ -306,7 +306,7 @@ const AdminCourseCategory = () => {
                   <td>5,325</td>
                   {/* Table data */}
                   <td>
-                    <a href="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
+                    <Link to="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</Link>
                     <button className="btn btn-sm btn-danger mb-0">Delete</button>
                   </td>
                 </tr>
@@ -317,11 +317,11 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center position-relative">
                       {/* Image */}
                       <div className="w-60px">
-                        <img src="assets/images/courses/4by3/11.jpg" className="rounded" alt />
+                        <img src="assets/images/courses/4by3/11.jpg" className="rounded" alt="" />
                       </div>
                       {/* Title */}
                       <h6 className="table-responsive-title mb-0 ms-2">	
-                        <a href="#" className="stretched-link">Build Responsive Websites with HTML</a>
+                        <Link to="#" className="stretched-link">Build Responsive Websites with HTML</Link>
                       </h6>
                     </div>
                   </td>
@@ -330,7 +330,7 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center">
                       {/* Avatar */}
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <img className="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar" />
+                        <img className="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="" />
                       </div>
                       {/* Info */}
                       <div className="ms-2">
@@ -352,7 +352,7 @@ const AdminCourseCategory = () => {
                   <td>8,258</td>
                   {/* Table data */}
                   <td>
-                    <a href="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
+                    <Link to="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</Link>
                     <button className="btn btn-sm btn-danger mb-0">Delete</button>
                   </td>
                 </tr>
@@ -363,11 +363,11 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center position-relative">
                       {/* Image */}
                       <div className="w-60px">
-                        <img src="assets/images/courses/4by3/12.jpg" className="rounded" alt />
+                        <img src="assets/images/courses/4by3/12.jpg" className="rounded" alt="" />
                       </div>
                       {/* Title */}
                       <h6 className="table-responsive-title mb-0 ms-2">	
-                        <a href="#" className="stretched-link">Build Websites with CSS</a>
+                        <Link to="#" className="stretched-link">Build Websites with CSS</Link>
                       </h6>
                     </div>
                   </td>
@@ -376,7 +376,7 @@ const AdminCourseCategory = () => {
                     <div className="d-flex align-items-center">
                       {/* Avatar */}
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <img className="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar" />
+                        <img className="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="" />
                       </div>
                       {/* Info */}
                       <div className="ms-2">
@@ -398,7 +398,7 @@ const AdminCourseCategory = () => {
                   <td>17,654</td>
                   {/* Table data */}
                   <td>
-                    <a href="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</a>
+                    <Link to="#" className="btn btn-sm btn-success me-1 mb-1 mb-md-0">Edit</Link>
                     <button className="btn btn-sm btn-danger mb-0">Delete</button>
                   </td>
                 </tr>
@@ -419,11 +419,11 @@ const AdminCourseCategory = () => {
             {/* Pagination */}
             <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
               <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                <li className="page-item mb-0"><a className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></a></li>
-                <li className="page-item mb-0"><a className="page-link" href="#">1</a></li>
-                <li className="page-item mb-0 active"><a className="page-link" href="#">2</a></li>
-                <li className="page-item mb-0"><a className="page-link" href="#">3</a></li>
-                <li className="page-item mb-0"><a className="page-link" href="#"><i className="fas fa-angle-right" /></a></li>
+                <li className="page-item mb-0"><Link className="page-link" to="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                <li className="page-item mb-0"><Link className="page-link" to="#">1</Link></li>
+                <li className="page-item mb-0 active"><Link className="page-link" to="#">2</Link></li>
+                <li className="page-item mb-0"><Link className="page-link" to="#">3</Link></li>
+                <li className="page-item mb-0"><Link className="page-link" to="#"><i className="fas fa-angle-right" /></Link></li>
               </ul>
             </nav>
           </div>

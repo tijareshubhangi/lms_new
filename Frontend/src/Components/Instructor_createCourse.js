@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
-
+import { Link } from 'react-router-dom';
 
 const Instructor_createCourse = () => {
   // State Management
@@ -178,9 +177,9 @@ const Instructor_createCourse = () => {
               <h1 className="text-white">Submit a new Course</h1>
               <p className="text-white mb-0">
                 Read our{' '}
-                <a href="#" className="text-white">
+                <Link href="#" className="text-white">
                   <u>"Before you create a course"</u>
-                </a>{' '}
+                </Link>{' '}
                 article before submitting!
               </p>
             </div>

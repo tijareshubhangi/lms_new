@@ -1,5 +1,5 @@
 import React from 'react'
-import Internal_Footer from './Internal_Footer'
+import IFooter from "./IFooter"
 import { Link } from 'react-router-dom'
 
 const Instructor_order = () => {
@@ -24,7 +24,7 @@ const Instructor_order = () => {
               {/* Avatar */}
               <div className="col-auto mt-4 mt-md-0">
                 <div className="avatar avatar-xxl mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt />
+                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="" />
                 </div>
               </div>
               {/* Profile info */}
@@ -49,7 +49,7 @@ const Instructor_order = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link ClassName="h6 mb-0 fw-bold d-xl-none" to="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -155,11 +155,11 @@ const Instructor_order = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><a href="#">The complete Digital Marketing Course - 8 Course in 1</a></h6>
+                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><Link to="#">The complete Digital Marketing Course - 8 Course in 1</Link></h6>
                       </td>
                       {/* Table data */}
                       <td className="text-center text-sm-start text-primary-hover">
-                        <a href="#" className="text-body"><u>#125489</u></a>
+                        <Link to="#" className="text-body"><u>#125489</u></Link>
                       </td>
                       {/* Table data */}
                       <td>18/1/2023</td>
@@ -172,11 +172,11 @@ const Instructor_order = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><a href="#">Time Management Mastery: Do More, Stress Less</a></h6>
+                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><Link to="#">Time Management Mastery: Do More, Stress Less</Link></h6>
                       </td>
                       {/* Table data */}
                       <td className="text-center text-sm-start text-primary-hover">
-                        <a href="#" className="text-body"><u>#235486</u></a>
+                        <Link to="#" className="text-body"><u>#235486</u></Link>
                       </td>
                       {/* Table data */}
                       <td>25/1/2023</td>
@@ -189,11 +189,11 @@ const Instructor_order = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><a href="#">Building Scalable APIs with GraphQL</a></h6>
+                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><Link to="#">Building Scalable APIs with GraphQL</Link></h6>
                       </td>
                       {/* Table data */}
                       <td className="text-center text-sm-start text-primary-hover">
-                        <a href="#" className="text-body"><u>#0215789</u></a>
+                        <Link to="#" className="text-body"><u>#0215789</u></Link>
                       </td>
                       {/* Table data */}
                       <td>4/9/2020</td>
@@ -206,11 +206,11 @@ const Instructor_order = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><a href="#">Sketch from A to Z: for app designer</a></h6>
+                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><Link to="#">Sketch from A to Z: for app designer</Link></h6>
                       </td>
                       {/* Table data */}
                       <td className="text-center text-sm-start text-primary-hover">
-                        <a href="#" className="text-body"><u>#0135689</u></a>
+                        <Link to="#" className="text-body"><u>#0135689</u></Link>
                       </td>
                       {/* Table data */}
                       <td>5/1/2023</td>
@@ -223,11 +223,11 @@ const Instructor_order = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><a href="#">Build Responsive Websites with HTML</a></h6>
+                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><Link to="#">Build Responsive Websites with HTML</Link></h6>
                       </td>
                       {/* Table data */}
                       <td className="text-center text-sm-start text-primary-hover">
-                        <a href="#" className="text-body"><u>#0587623</u></a>
+                        <Link to="#" className="text-body"><u>#0587623</u></Link>
                       </td>
                       {/* Table data */}
                       <td>2/1/2023</td>
@@ -240,11 +240,11 @@ const Instructor_order = () => {
                     <tr>
                       {/* Table data */}
                       <td>
-                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><a href="#">JavaScript: Full Understanding</a></h6>
+                        <h6 className="table-responsive-title mt-2 mt-lg-0 mb-0"><Link to="#">JavaScript: Full Understanding</Link></h6>
                       </td>
                       {/* Table data */}
                       <td className="text-center text-sm-start text-primary-hover">
-                        <a href="#" className="text-body"><u>#0215789</u></a>
+                        <Link to="#" className="text-body"><u>#0215789</u></Link>
                       </td>
                       {/* Table data */}
                       <td>14/1/2023</td>
@@ -266,11 +266,11 @@ const Instructor_order = () => {
                 {/* Pagination */}
                 <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
                   <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                    <li className="page-item mb-0"><a className="page-link" href="#" tabIndex={-1}><i className="fas fa-angle-left" /></a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item mb-0 active"><a className="page-link" href="#">2</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#">3</a></li>
-                    <li className="page-item mb-0"><a className="page-link" href="#"><i className="fas fa-angle-right" /></a></li>
+                    <li className="page-item mb-0"><Link ClassName="page-link" to="#" tabIndex={-1}><i className="fas fa-angle-left" /></Link></li>
+                    <li className="page-item mb-0"><Link ClassName="page-link" to="#">1</Link></li>
+                    <li className="page-item mb-0 active"><Link ClassName="page-link" to="#">2</Link></li>
+                    <li className="page-item mb-0"><Link ClassName="page-link" to="#">3</Link></li>
+                    <li className="page-item mb-0"><Link ClassName="page-link" to="#"><i className="fas fa-angle-right" /></Link></li>
                   </ul>
                 </nav>
               </div>
@@ -287,7 +287,7 @@ const Instructor_order = () => {
   {/* =======================
     Page content END */}
 </main>
-<Internal_Footer/>
+<IFooter/>
     </div>
   )
 }

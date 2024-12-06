@@ -1,5 +1,5 @@
 import React from 'react'
-import Internal_Footer from './Internal_Footer'
+import IFooter from "./IFooter"
 import Chart_Earning from './Chart_Earning'
 import Chart_View from './Chart_View'
 import { Link } from 'react-router-dom'
@@ -51,7 +51,7 @@ const Instructor_earning = () => {
           {/* Divider */}
           <hr className="d-xl-none" />
           <div className="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-            <a className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+            <Link className="h6 mb-0 fw-bold d-xl-none" href="#">Menu</Link>
             <button className="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
               <i className="fas fa-sliders-h" />
             </button>
@@ -191,7 +191,7 @@ const Instructor_earning = () => {
   {/* =======================
     Page content END */}
 </main>
-<Internal_Footer/>
+<IFooter/>
     </div>
   )
 }

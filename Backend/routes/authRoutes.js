@@ -8,38 +8,39 @@ import UserModel from "../models/authModel.js";
 
 const router = express.Router();
 
-/* User Authentication Routes */
+// User Authentication Routes
 router.post("/users/register", authController.userRegistration);
 router.post("/users/login", authController.userLogin);
 
-/* Password Management Routes */
+// Password Management Routes
 router.post("/changePassword", authController.newPassword);
 router.post("/send-email", authController.courseEmail);
 router.post("/forget-password", authController.forgetPassword);
 router.post("/forget-password/:id/:token", authController.forgetPasswordEmail);
 
-/* Email Verification Route */
+// Email Verification Route
 router.get("/verify/:token", authController.saveVerifiedEmail);
 
-/* Protected Routes */
+// Protected Routes
 router.post(
   "/change-password",
   checkIsUserAuthenticated,
   authController.changePassword
 );
 
-/* Multer Storage Configuration */
+// Multer Storage Setup
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(path.resolve(), "Public/Allimages")); // Set destination folder
+    cb(null, path.join(path.resolve(), "Public/Allimages")); // Corrected file path
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname); // Set file naming convention
+    cb(null, Date.now() + "-" + file.originalname);
   },
 });
+
 const upload = multer({ storage: storage });
 
-/* Image Upload Route */
+// Route to Upload User Image
 router.post("/upload/:userId", upload.single("file"), async (req, res) => {
   const { userId } = req.params;
 
@@ -50,11 +51,10 @@ router.post("/upload/:userId", upload.single("file"), async (req, res) => {
   try {
     const uploadedFileName = req.file.filename;
 
-    
-    // Update User's image in the database
+    // Update User with Uploaded Image in the Database
     const updatedUser = await UserModel.findByIdAndUpdate(
       userId,
-      { $push: { images: { filename: uploadedFileName } } },
+      { $push: { images: { filename: uploadedFileName } } }, // Ensures correct structure
       { new: true, upsert: true }
     );
 
@@ -62,6 +62,7 @@ router.post("/upload/:userId", upload.single("file"), async (req, res) => {
       return res.status(404).json({ error: "User not found." });
     }
 
+    // Respond with updated images array
     res.json({
       success: true,
       imageFile: uploadedFileName,
@@ -73,7 +74,7 @@ router.post("/upload/:userId", upload.single("file"), async (req, res) => {
   }
 });
 
-/* Get User's Name Route */
+// Get User's Current Name
 router.get("/getName/:userId", async (req, res) => {
   const { userId } = req.params;
 
@@ -93,8 +94,8 @@ router.get("/getName/:userId", async (req, res) => {
   }
 });
 
-/* Update User's Name Route */
-router.put("/updateName/:userId", async (req, res) => {
+// Update user's name
+router.put('/updateName/:userId', async (req, res) => {
   const { userId } = req.params;
   const { firstName, lastName } = req.body;
 
@@ -102,7 +103,7 @@ router.put("/updateName/:userId", async (req, res) => {
     return res.status(400).json({ error: "Invalid user ID format" });
   }
 
-  try {
+   try {
     const updatedUser = await UserModel.findByIdAndUpdate(
       userId,
       { firstName, lastName },
@@ -123,5 +124,6 @@ router.put("/updateName/:userId", async (req, res) => {
     res.status(500).json({ error: "Failed to update name." });
   }
 });
+
 
 export default router;
