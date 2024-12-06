@@ -8,49 +8,52 @@ const Instructor_Login = () => {
   const [message, setMessage] = useState('');
   const [timer, setTimer] = useState(0);
   const [isOtpSent, setIsOtpSent] = useState(false);
-  const navigate = useNavigate();
+  const [canResend, setCanResend] = useState(false);
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
   useEffect(() => {
-  
+    let countdown;
     if (timer > 0 && isOtpSent) {
       countdown = setInterval(() => {
-        setTimer((prev) => prev - 1);
+        setTimer(prev => prev - 1);
       }, 1000);
-
     } else {
+      setCanResend(true);
       clearInterval(countdown);
     }
     return () => clearInterval(countdown);
-  }, [timer]);
+  }, [timer, isOtpSent]);
 
+  // Function to send OTP
   const sendOtp = async () => {
     if (!email) {
       alert('Please enter your email address');
       return;
     }
+
     try {
       const response = await axios.post('http://localhost:5000/send-otp', { email });
       setMessage(response.data.message);
       setIsOtpSent(true);
-      setTimer(60);
+      setTimer(60); // Start countdown
     } catch (error) {
       setMessage('Error sending OTP');
     }
   };
 
+  // Function to verify OTP
   const verifyOtp = async () => {
     try {
       const response = await axios.post('http://localhost:5000/verify-otp', { email, userOtp: otp });
       setMessage(response.data.message);
       if (response.data.message === 'OTP verified successfully') {
-
-        navigate('/instructordashboard');
+        alert('OTP verified successfully');
+        navigate('/admin-dashboard'); // Redirect to instructor dashboard
       }
     } catch (error) {
       setMessage('Invalid OTP');
     }
   };
-
   return (
     <div className="login-form-container">
       <div className="form-wrapper">
