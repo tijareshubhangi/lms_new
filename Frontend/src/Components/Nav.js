@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
 import { useUser } from '../context/UserContext'; // Importing UserContext
 
-const Nav = ({ cartCount }) => {
+
+const Nav = ({ cartCount}) => {
+
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // Default profile image
@@ -33,7 +35,7 @@ const Nav = ({ cartCount }) => {
 
   const toggleDropdown = () => setDropdownOpen(prev => !prev);
 
-  const handleLogoutClick = () => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
     logout(); // Call logout from context
     navigate("/signin");
