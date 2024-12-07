@@ -4,11 +4,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import { Modal, Button } from "react-bootstrap";
 
-<<<<<<< HEAD
-const CourseCategory1 = ({onAddToCart}) => {
-=======
 const ProductsCategory1 = ({ onAddToCart }) => {
->>>>>>> e7fb31d93a56e76b631391119229f30d56cc33b7
   const [cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -38,22 +34,15 @@ const ProductsCategory1 = ({ onAddToCart }) => {
     setShowModal(true);
   };
 
-<<<<<<< HEAD
-  // const handleAddToCart = () => {
-  //   setCart([...cart, selectedCourse]);
-  //   setShowModal(false);
-  // };
-=======
   const handleAddToCart = (productInfo) => {
     onAddToCart(productInfo);
     setShowModal(false);
     navigate("/cart"); // Redirect to cart
   };
->>>>>>> e7fb31d93a56e76b631391119229f30d56cc33b7
 
   const handleProceedToCart = () => {
     setShowModal(false);
-    navigate("/productdetals");
+    navigate("/cart");
   };
 
   const handleLogout = () => {
@@ -65,16 +54,6 @@ const ProductsCategory1 = ({ onAddToCart }) => {
   useEffect(() => {
     setCartCount(cart.length);
   }, [cart]);
-  const handleAddToCart = () => {
-    if (selectedCourse) {
-      setCart((prevCart) => [...prevCart, selectedCourse]); // Add selected course to cart
-      onAddToCart(selectedCourse); // Notify parent component (if applicable)
-      setShowModal(false); // Close the modal
-    } else {
-      alert("No course selected to add to cart.");
-    }
-  };
-  
 
   const styles = {
     container: {
@@ -288,20 +267,8 @@ const ProductsCategory1 = ({ onAddToCart }) => {
           <Button variant="secondary" onClick={() => setShowModal(false)}>
             Close
           </Button>
-<<<<<<< HEAD
-          <button
-      className="btn btn-primary mt-3"
-      onClick={handleAddToCart}
-      style={{ cursor: "pointer" }} // Pointer style for the button
-    >
-      Add to Cart
-    </button>
-          <Button variant="success" onClick={handleProceedToCart}>
-            Product Review
-=======
           <Button variant="primary" onClick={() => handleAddToCart(selectedProduct)}>
             Add to Cart
->>>>>>> e7fb31d93a56e76b631391119229f30d56cc33b7
           </Button>
         </Modal.Footer>
       </Modal>
