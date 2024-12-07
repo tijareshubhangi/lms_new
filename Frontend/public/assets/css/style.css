@@ -39239,7 +39239,7 @@ textarea.form-control-lg {
 }
 
 .h-40px {
-  height: 40px !important;
+  height: 100px !important;
 }
 
 .h-50px {
@@ -42557,7 +42557,7 @@ textarea.form-control-lg {
   }
   header.navbar-sticky-on .navbar-brand .navbar-brand-item {
     height: 100px;
-    width: 200px;
+    width: 210px;
   }
 }
 @-webkit-keyframes fadeInDown {
