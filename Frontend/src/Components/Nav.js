@@ -4,8 +4,7 @@ import { IoMdCart } from "react-icons/io";
 import { useUser } from '../context/UserContext'; // Importing UserContext
 
 
-const Nav = ({ cartCount}) => {
-
+const Nav = ({ cartCount }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // Default profile image
@@ -32,8 +31,7 @@ const Nav = ({ cartCount}) => {
     };
   }, []);
 
-
-  const toggleDropdown = () => setDropdownOpen(prev => !prev);
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -111,7 +109,7 @@ const Nav = ({ cartCount}) => {
                   Dashboard
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
-                  <li><Link className="dropdown-item" to="/admin-dashboard">Admin</Link></li>
+                  <li><Link className="dropdown-item" to="/adminlogin">Admin</Link></li>
                   <li><Link className="dropdown-item" to="/instructorlogin">Instructor</Link></li>
                   <li><Link className="dropdown-item" to="/studentdashboard">Student</Link></li>
                 </ul>
@@ -152,7 +150,7 @@ const Nav = ({ cartCount}) => {
                       <li>
                         <Link
                           className="dropdown-item bg-danger-soft-hover"
-                          onClick={handleLogoutClick}
+                          onClick={handleLogout} // Fixed here to call handleLogout
                         >
                           Log Out
                         </Link>
