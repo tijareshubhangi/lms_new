@@ -1,253 +1,105 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Nav from "./Nav";
-import Footer from "./Footer";
-import { Modal, Button } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate instead
 
-const ProductsCategory1 = ({ onAddToCart }) => {
-  const [cart, setCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [isVideoBlurred, setIsVideoBlurred] = useState(true);
-  const [products, setProducts] = useState([]);
-  const [productsCategory2, setProductsCategory2] = useState([]);
-  
-  const navigate = useNavigate();
+import Nav  from './Nav'
+import Footer from './Footer';
+import ActionBox from './ActionBox';
 
-  // Dummy products data
+const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
+  const [products, setProducts] = useState([]); 
+  const navigate = useNavigate(); // Initialize navigate
+
   useEffect(() => {
+    // Simulate fetching product (course) data
     setProducts([
-      { id: 1, title: "SEO", duration: "10h 56m", lectures: 82, level: "Beginner", videoSrc: "https://localhost:9000/Videos/V1.mp4" },
-      { id: 2, title: "SMM", duration: "6h 20m", lectures: 60, level: "Intermediate", videoSrc: "assets/videos/video2.mp4" },
-      { id: 3, title: "Digital Marketing", duration: "12h 15m", lectures: 100, level: "Advanced", videoSrc: "assets/videos/video3.mp4" },
-    ]);
-    setProductsCategory2([
-      { id: 1, title: "HTML", duration: "8h 15m", lectures: 45, level: "Beginner", videoSrc: "assets/videos/video4.mp4" },
-      { id: 2, title: "NODE.js", duration: "10h 30m", lectures: 50, level: "Intermediate", videoSrc: "assets/videos/video5.mp4" },
-      { id: 3, title: "React.js", duration: "12h 20m", lectures: 70, level: "Advanced", videoSrc: "assets/videos/video6.mp4" },
+      { id: 1, name: "Computer Hardware" },
+      { id: 2, name: "Computer Networking" },
+      { id: 3, name: "Graphic Designing" },
+      { id: 4, name: "Digitial Marketing" },
+      { id: 5, name: "Wordpress" },
+      { id: 5, name: "(AWS) Amazon Web Services" },
+      
+      
     ]);
   }, []);
 
-  const handleBlurredVideoClick = (product) => {
-    setSelectedProduct(product);
-    setShowModal(true);
+  const handleAddToCart = (product) => {
+    onAddToCart(product); // Add to cart functionality
   };
 
-  const handleAddToCart = (productInfo) => {
-    onAddToCart(productInfo);
-    setShowModal(false);
-    navigate("/addcart"); // Redirect to cart
+  const handleNavigateToCourseList = () => {
+    navigate('/courselist'); // Navigate to course list using navigate
   };
-
-  const handleProceedToCart = () => {
-    setShowModal(false);
-    navigate("/cart");
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setCart([]);
-    navigate("/");
-  };
-
-  useEffect(() => {
-    setCartCount(cart.length);
-  }, [cart]);
+  
 
   const styles = {
-    container: {
-      padding: '2rem',
+    maincard: {
+      backgroundColor: '#fff', // White background
+      borderRadius: '10px', // Rounded corners
+      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Soft shadow
+      padding: '20px', // Inner padding
+      transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth hover effects
     },
-    s1: {
-      marginBottom: '2rem',
+    
+    // Hover effect (applied via JS event or CSS-in-JS solution)
+    maincardHover: {
+      transform: 'scale(1.05)', // Slightly enlarge card
+      boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.2)', // Stronger shadow on hover
     },
-    card: {
-      borderRadius: '10px',
-      overflow: 'hidden',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  
+    cardHeader: {
+      fontSize: '1.5rem', // Larger font size for header
+      color: '#333', // Dark text color
+      marginBottom: '15px', // Space below header
     },
-    cardBody: {
-      padding: '2rem',
+  
+    cardText: {
+      fontSize: '1rem', // Standard text size
+      color: '#555', // Slightly lighter text color
+      lineHeight: '1.5', // Line height for readability
     },
-    cardTitle: {
-      fontSize: '1.5rem',
-      fontWeight: 'bold',
-      textAlign: 'center',
+  
+    button: {
+      backgroundColor: '#12aaeb', // Green background
+      color: 'white', // White text
+      padding: '10px 20px', // Padding around button
+      textAlign: 'center', // Centered text
+      borderRadius: '5px', // Rounded corners
+      textDecoration: 'none', // Remove underline
+      display: 'inline-block', // Allow margin and padding
+      transition: 'background-color 0.3s ease', // Smooth color transition
     },
-    row: {
-      marginBottom: '1.5rem',
-      textAlign: 'center',
-    },
-    rowBorder: {
-      border: '1px solid #ddd',
-      borderRadius: '8px',
-    },
-    rowAlignItemsCenter: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    colMd6: {
-      flex: '0 0 50%',
-      maxWidth: '50%',
-    },
-    video: {
-      borderRadius: '8px',
-      marginLeft: '-10px',
-    },
-    sectionTitle: {
-      fontSize: '2rem',
-      marginBottom: '1.5rem',
-    },
-    blurredVideo: {
-      filter: 'blur(8px)',
-    },
-    pointer: {
-      cursor: 'pointer',
-    },
-    defaultCursor: {
-      cursor: 'default',
-    },
-
-    // Media Queries
-    '@media (max-width: 767px)': {
-      container: {
-        padding: '1rem',
-      },
-      row: {
-        flexDirection: 'column',
-      },
-      colMd6: {
-        flex: '0 0 100%',
-        maxWidth: '100%',
-        marginBottom: '1rem',
-      },
-      sectionTitle: {
-        fontSize: '1.5rem',
-      },
-      cardBody: {
-        display: 'flex',
-        flexDirection: 'column-reverse',
-      },
-    },
-
-    '@media (min-width: 768px) and (max-width: 1023px)': {
-      sectionTitle: {
-        fontSize: '1.75rem',
-      },
-      colMd6: {
-        flex: '0 0 50%',
-        maxWidth: '50%',
-        marginBottom: '1rem',
-      },
-    },
-
-    '@media (min-width: 1024px)': {
-      colMd6: {
-        flex: '0 0 33.333%',
-        maxWidth: '33.333%',
-      },
-      sectionTitle: {
-        fontSize: '2rem',
-      },
-      cardBody: {
-        padding: '2rem',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-      },
+  
+    buttonHover: {
+      backgroundColor: '#45a049', // Darker green on hover
     },
   };
+  
+
 
   return (
+   <>
+   <Nav cartCount={cartCount} handleLogout={handleLogout} />
     <div>
-      <Nav cartCount={cartCount} handleLogout={handleLogout} />
-
-      {/* Hero Section */}
-      <section className="bg-light position-relative mt-5">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-6 col-md-3 text-center">
-              <img src="assets/images/element/cat1.png" alt="Category" />
-            </div>
-            <div className="col-md-6 text-center">
-              <h1 className="mb-3">What do you want to learn?</h1>
-              <p className="mb-3">Grow your skill with the most reliable online products and certifications</p>
-              <form className="bg-body rounded p-2">
-                <input className="form-control border-0 me-1" type="search" placeholder="Search products" />
-                <button type="button" className="btn btn-dark rounded">Search</button>
-              </form>
-            </div>
-            <div className="col-6 col-md-3 text-center">
-              <img src="assets/images/element/cat2.png" alt="Category" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Products Listing Section */}
-      <section>
-        <div className="container" style={styles.container}>
-          <div className="row" style={styles.s1}>
-            <div className="col-lg-6">
-              <div className="card rounded overflow-hidden shadow mb-4" style={styles.card}>
-                <div className="card-body" style={styles.cardBody}>
-                  <h1 style={styles.sectionTitle}>HTML</h1>
-                  {products.map((product, index) => (
-                    <div
-                      key={product.id}
-                      className="row align-items-center border overflow-hidden shadow mb-3"
-                      style={{
-                        ...styles.row,
-                        filter: isVideoBlurred && index === 2 ? styles.blurredVideo.filter : 'none',
-                        cursor: index === 2 ? styles.pointer.cursor : styles.defaultCursor.cursor,
-                      }}
-                      onClick={index === 2 ? () => handleBlurredVideoClick(product) : undefined}
-                    >
-                      <div className="col-md-6" style={styles.colMd6}>
-                        <video src={product.videoSrc} controls width="100%" style={styles.video} />
-                      </div>
-                      <div className="col-md-6" style={styles.colMd6}>
-                        <Link to="/productdetails">
-                          <h5 className="card-title" style={styles.cardTitle}>{product.title}</h5>
-                        </Link>
-                        <p className="mb-1">Duration: {product.duration}</p>
-                        <p className="mb-1">Lectures: {product.lectures}</p>
-                        <p>Level: {product.level}</p>
-                      </div>
-                    </div>
-                  ))}
+      <br /><br /><br />
+      <section className="bg-light position-relative">
+        <div className="container  position-relative">
+          <div className="row">
+            <div className="col-12 border">
+              <div className="row align-items-center">
+                <div className="col-6 col-md-3 text-center order-1">
+                  <img src="assets/images/element/cat1.png" alt="Category" />
                 </div>
-              </div>
-            </div>
-
-            <div className="col-lg-6">
-              <div className="card rounded overflow-hidden shadow mb-4" style={styles.card}>
-                <div className="card-body" style={styles.cardBody}>
-                  <h1 style={styles.sectionTitle}>NODE.JS</h1>
-                  {productsCategory2.map((product, index) => (
-                    <div
-                      key={product.id}
-                      className="row border rounded align-items-center mb-3 overflow-hidden shadow"
-                      style={{
-                        ...styles.row,
-                        ...styles.rowBorder,
-                        filter: isVideoBlurred && index === 2 ? styles.blurredVideo.filter : 'none',
-                        cursor: index === 2 ? styles.pointer.cursor : styles.defaultCursor.cursor,
-                      }}
-                      onClick={index === 2 ? () => handleBlurredVideoClick(product) : undefined}
-                    >
-                      <div className="col-md-6" style={styles.colMd6}>
-                        <video src={product.videoSrc} controls width="100%" style={styles.video} />
-                      </div>
-                      <div className="col-md-6" style={styles.colMd6}>
-                        <h5 className="card-title" style={styles.cardTitle}>{product.title}</h5>
-                        <p className="mb-1">Duration: {product.duration}</p>
-                        <p className="mb-1">Lectures: {product.lectures}</p>
-                        <p>Level: {product.level}</p>
-                      </div>
-                    </div>
-                  ))}
+                <div className="col-md-6 px-md-5 text-center position-relative order-md-2 mb-5 mb-md-0">
+                  <h1 className="mb-3">What do you want to learn?</h1>
+                  <p className="mb-3">Grow your skill with the most reliable online courses and certifications</p>
+                  <form className="bg-body rounded p-2">
+                    <input className="form-control border-0 me-1" type="search" placeholder="Search course " />
+                    <button type="button" className="btn btn-dark rounded">Search</button>
+                  </form>
+                </div>
+                <div className="col-6 col-md-3 text-center order-3">
+                  <img src="assets/images/element/cat2.png" alt="Cat" />
                 </div>
               </div>
             </div>
@@ -255,27 +107,248 @@ const ProductsCategory1 = ({ onAddToCart }) => {
         </div>
       </section>
 
-      {/* Modal */}
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirmation</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Are you sure you want to add this product to the cart?
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={() => handleAddToCart(selectedProduct)}>
-            Add to Cart
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {/* Dynamic Course Listing */}
+<section>
+  <div className="container ">
+    <div className="row g-4"> {/* Use row class here */}
+      {products.map((product) => (
+        <div key={product.id} className="col-6 "> {/* Adjust to col-6 */}
+          <div className="card card-body border text-center position-relative btn-transition p-4"
+          style={styles.maincard} 
+          >
+            
+            <div className="col-md-12 ">
+            <h5 
+              className="mb-2" 
+              style={styles.cardHeader} // Set cursor to pointer for heading
+              onClick={handleNavigateToCourseList} // Redirect on heading click
+            >
+              {product.name}
+            </h5>
+          <hr/>
+            <div className="card rounded mt-5 overflow-hidden shadow">
+        <div className="row g-0">
+          {/* Image */}
+          <div className="col-md-4">
+            <img
+              src="assets/images/courses/4by3/01.jpg"
+              alt="card image"
+              className="img-fluid"
+            />
+          </div>
 
-      <Footer />
+          {/* Card body */}
+          <div className="col-md-8">
+            <div className="card-body">
+              {/* Title */}
+              <div className="d-flex justify-content-between mb-2">
+                <h5 className="card-title mb-0">
+                  <a href="#">
+                    The Complete Digital Marketing Course - 12 Courses in 1
+                  </a>
+                </h5>
+                {/* Wishlist icon */}
+                <a href="#">
+                  <i className="fas fa-heart text-danger"></i>
+                </a>
+              </div>
+              {/* Content */}
+              {/* Info */}
+              <ul className="list-inline mb-1">
+                <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                  <i className="far fa-clock text-danger me-2"></i>6h 56m
+                </li>
+                <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                  <i className="fas fa-table text-orange me-2"></i>82 lectures
+                </li>
+                <li className="list-inline-item h6 fw-light">
+                  <i className="fas fa-signal text-success me-2"></i>Beginner
+                </li>
+              </ul>
+              {/* Rating */}
+              <ul className="list-inline mb-0">
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star-half-alt text-warning"></i>
+                </li>
+                <li className="list-inline-item ms-2 h6 fw-light">4.5/5.0</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div className="card rounded mt-3 overflow-hidden shadow">
+        <div className="row g-0">
+          {/* Image */}
+          <div className="col-md-4">
+            <img
+              src="assets/images/courses/4by3/01.jpg"
+              alt="card image"
+              className="img-fluid"
+            />
+          </div>
+
+          {/* Card body */}
+          <div className="col-md-8">
+            <div className="card-body">
+              {/* Title */}
+              <div className="d-flex justify-content-between mb-2">
+                <h5 className="card-title mb-0">
+                  <a href="#">
+                    The Complete Digital Marketing Course - 12 Courses in 1
+                  </a>
+                </h5>
+                {/* Wishlist icon */}
+                <a href="#">
+                  <i className="fas fa-heart text-danger"></i>
+                </a>
+              </div>
+              {/* Content */}
+              {/* Info */}
+              <ul className="list-inline mb-1">
+                <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                  <i className="far fa-clock text-danger me-2"></i>6h 56m
+                </li>
+                <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                  <i className="fas fa-table text-orange me-2"></i>82 lectures
+                </li>
+                <li className="list-inline-item h6 fw-light">
+                  <i className="fas fa-signal text-success me-2"></i>Beginner
+                </li>
+              </ul>
+              {/* Rating */}
+              <ul className="list-inline mb-0">
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star-half-alt text-warning"></i>
+                </li>
+                <li className="list-inline-item ms-2 h6 fw-light">4.5/5.0</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div className="card rounded mt-3 overflow-hidden shadow">
+        <div className="row g-0">
+          {/* Image */}
+          <div className="col-md-4">
+            <img
+              src="assets/images/courses/4by3/01.jpg"
+              alt="card image"
+              className="img-fluid"
+            />
+          </div>
+
+          {/* Card body */}
+          <div className="col-md-8">
+            <div className="card-body">
+              {/* Title */}
+              <div className="d-flex justify-content-between mb-2">
+                <h5 className="card-title mb-0">
+                  <a href="#">
+                    The Complete Digital Marketing Course - 12 Courses in 1
+                  </a>
+                </h5>
+                {/* Wishlist icon */}
+                <a href="#">
+                  <i className="fas fa-heart text-danger"></i>
+                </a>
+              </div>
+              {/* Content */}
+              {/* Info */}
+              <ul className="list-inline mb-1">
+                <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                  <i className="far fa-clock text-danger me-2"></i>6h 56m
+                </li>
+                <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                  <i className="fas fa-table text-orange me-2"></i>82 lectures
+                </li>
+                <li className="list-inline-item h6 fw-light">
+                  <i className="fas fa-signal text-success me-2"></i>Beginner
+                </li>
+              </ul>
+              {/* Rating */}
+              <ul className="list-inline mb-0">
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star text-warning"></i>
+                </li>
+                <li className="list-inline-item me-0 small">
+                  <i className="fas fa-star-half-alt text-warning"></i>
+                </li>
+                <li className="list-inline-item ms-2 h6 fw-light">4.5/5.0</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+              
+              
+            </div>
+            
+   
+  
+
+           
+            <button 
+              className="btn btn-primary mt-3" 
+              onClick={() => handleAddToCart(product)}
+              style={styles.button} // Set cursor to pointer for button
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
+  </div>
+</section>
+
+    </div>
+    <ActionBox/>
+   
+    <Footer/>
+   </>
   );
 };
 
-export default ProductsCategory1;
+export default CourseCategory1;

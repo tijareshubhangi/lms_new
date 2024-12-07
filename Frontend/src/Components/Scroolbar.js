@@ -44,11 +44,11 @@ const Scrollbar = () => {
 
   return (
     <section style={styles.section} >
-      <div style={styles.container} >
+      <div style={styles.container} className="mt-5">
         <div style={styles.scrollWrapper}>
           <div ref={containerRef} style={styles.slider}>
             {logos.map((logo, index) => (
-              <div key={index} style={styles.logoItem}>
+              <div key={index} style={styles.logoItem} >
                 <img
                   src={logo.src}
                   alt={logo.alt}
@@ -72,7 +72,6 @@ const styles = {
 
   container: {
     maxWidth: "1200px",
-    marginTop:"50px",
     margin: "0 auto",
     padding: "0 1rem",
   },
@@ -87,6 +86,7 @@ const styles = {
     display: "flex",
     animation: "scroll 20s linear infinite",
     gap: "80px",
+   
   },
 
   logoItem: {
@@ -102,7 +102,7 @@ const styles = {
   },
 
   logoHover: {
-    opacity: 1,
+    opacity: 5,
     transform: "scale(1.1)",
   },
 };
@@ -111,7 +111,7 @@ const styles = {
 const mediaQueries = {
   "@media (max-width: 1200px)": {
     container: {
-      padding: "0 2rem",
+      padding: "0 5rem",
     },
     slider: {
       gap: "60px",

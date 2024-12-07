@@ -80,6 +80,7 @@ import Checkout from './Components/Checkout';
 import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
+import CourseMore from "./Components/CourseMore";
 
 
 function App() {
@@ -238,6 +239,7 @@ Student Dashboard Route Start */}
 <Route path="/admin-seating" element={<AdminSeating/>} />
 <Route path="/AdminError" element={<AdminError404/>} />
 <Route path="/productdetals" element={<ProductDetails/>} />
+<Route path="/coursemore" element={<CourseMore/>} />
 
 
           <Route path="*" element={<Navigate to="/" />} />
