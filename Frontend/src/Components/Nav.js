@@ -33,7 +33,7 @@ const Nav = ({ cartCount}) => {
 
   const toggleDropdown = () => setDropdownOpen(prev => !prev);
 
-  const handleLogoutClick = () => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
     logout(); // Call logout from context
     navigate("/signin");
