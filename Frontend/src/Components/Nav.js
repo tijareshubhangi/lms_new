@@ -121,7 +121,7 @@ const Nav = ({ cartCount }) => {
                 <Link to="/cart">
                   <IoMdCart size={28} />
                   <span> ({cartCount})</span>
-                </Link>
+                </Link> 
               </div>  
 
               {user ? ( 
