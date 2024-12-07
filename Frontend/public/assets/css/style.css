@@ -33400,13 +33400,15 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(211, 211, 211, var(--bs-bg-opacity)) !important; /* Light gray color */
 }
 
-.bg-dark {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+
+.bg-light {
+  background-color: rgba(0, 0, 0, var(--bs-bg-opacity)) !important; /* Changed to black */
 }
+
+
 
 .bg-orange {
   --bs-bg-opacity: 1;
@@ -45148,12 +45150,14 @@ html[dir=rtl] .choices__input {
 }
 
 .dark-mode-switch .btn.active {
-  background-color: var(--bs-body-bg) !important;
-  border-color: var(--bs-body-bg) !important;
-  color: var(--bs-gray-800);
-  -webkit-box-shadow: 0px 0px 40px rgba(29, 58, 83, 0.15);
-          box-shadow: 0px 0px 40px rgba(29, 58, 83, 0.15);
+  background-color: rgba(0, 123, 255, 1) !important; /* Changed to blue background */
+  border-color: rgba(0, 123, 255, 1) !important; /* Matches the new blue background */
+  color: var(--bs-white); /* Text color changed to white for better contrast */
+  -webkit-box-shadow: 0px 0px 40px rgba(0, 123, 255, 0.25); /* Adjusted shadow to a blue hue */
+  box-shadow: 0px 0px 40px rgba(0, 123, 255, 0.25); /* Same blue shadow for all browsers */
 }
+
+
 
 .dark-mode-item {
   display: none !important;
