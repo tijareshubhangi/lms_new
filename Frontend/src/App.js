@@ -10,7 +10,7 @@ import Cart from "./Components/Cart";
 import { UserProvider } from "./context/UserContext";
 
 import CourseCategory from './Components/CourseCategory';
-// import Footer from './Components/Footer';
+// import Footer from './Components/Footer'; 
 
 import Instructor_Dashboard from './Components/Instructor_Dashboard';
 import Instructor_Courses from './Components/Instructor_Courses';

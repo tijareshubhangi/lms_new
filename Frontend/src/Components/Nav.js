@@ -105,7 +105,7 @@ const Nav = ({ cartCount }) => {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
+                > 
                   Dashboard
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
