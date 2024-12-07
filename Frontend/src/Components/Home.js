@@ -8,6 +8,9 @@ import Nav from './Nav'
 import Cart from './Cart'
 import AdminLogin from './AdminLogin'
 import Footer from './Footer';
+import ActionBox from './ActionBox ';
+import Scroolbar from './Scroolbar';
+import Review2 from './Review2';
 
 
 const Home = () => {
@@ -78,6 +81,7 @@ const Home = () => {
     hero :{
       marginTop:'100px'
     }
+
 
   }
 
@@ -376,9 +380,11 @@ Main Banner END */}
  
  <Counter/>
  <PopularCourses/>
+ <ActionBox/>
  <TrendingCourses/>
+ <Scroolbar/>
  <Review/>
-
+<Review2/>
  <Footer/>
 </>
   )

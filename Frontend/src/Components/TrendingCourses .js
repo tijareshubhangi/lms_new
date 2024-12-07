@@ -4,96 +4,112 @@ import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Ribbon Style
-const ribbonStyle = {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    zIndex: "1",
-    overflow: "hidden",
-    width: "75px",
-    height: "75px",
-};
-
-const ribbonSpanStyle = {
-    position: "absolute",
-    display: "block",
-    width: "105px",
-    padding: "5px 0",
-    backgroundColor: "#5cb85c",
-    color: "#fff",
-    textAlign: "center",
-    transform: "rotate(-45deg)",
-    top: "19px",
-    left: "-21px",
-};
-
-// Currency formatting
+// Utility to format the price
 const formatPrice = (price) => {
     return price === 0 ? "Free" : `₹${price.toLocaleString()}`;
 };
 
-const CourseCard = ({ course }) => (
-    <div className="card action-trigger-hover border bg-transparent mx-2" style={{ width: "100%" }}>
-        <img src={course.image} className="card-img-top" alt="course" />
-        {course.isFree && (
-            <div className="ribbon mt-3" style={ribbonStyle}>
-                <span style={ribbonSpanStyle}>Free</span>
-            </div>
-        )}
-        <div className="card-body pb-0">
-            <div className="d-flex justify-content-between mb-3">
-                <span className="hstack gap-2">
-                    <Link to="#" className="badge bg-primary bg-opacity-10 text-primary">
-                        {course.category}
-                    </Link>
-                    <Link to="#" className="badge text-bg-dark">{course.level}</Link>
-                </span>
-                <Link to="#" className="h6 fw-light mb-0">
-                    <i className="far fa-bookmark"></i>
-                </Link>
-            </div>
-            <h5 className="card-title"><Link to="#">{course.title}</Link></h5>
-            <div className="d-flex justify-content-between mb-2">
-                <div className="hstack gap-2">
-                    <p className="text-warning m-0">
-                        {course.rating}<i className="fas fa-star text-warning ms-1"></i>
-                    </p>
-                    <span className="small">({course.reviews})</span>
-                </div>
-                <div className="hstack gap-2">
-                    <p className="h6 fw-light mb-0 m-0">{course.students}</p>
-                    <span className="small">(Students)</span>
-                </div>
-            </div>
-            <div className="hstack gap-3">
-                <span className="h6 fw-light mb-0">
-                    <i className="far fa-clock text-danger me-2"></i>{course.duration}
-                </span>
-                <span className="h6 fw-light mb-0">
-                    <i className="fas fa-table text-orange me-2"></i>{course.lectures} lectures
-                </span>
-            </div>
-        </div>
-        <div className="card-footer pt-0 bg-transparent">
-            <hr />
-            <div className="d-flex justify-content-between align-items-center">
-                <div className="d-flex align-items-center">
-                    <div className="avatar avatar-sm">
-                        <img className="avatar-img rounded-1" src={course.instructor.image} alt="instructor" />
-                    </div>
-                    <p className="mb-0 ms-2">
-                        <Link to="#" className="h6 fw-light mb-0">{course.instructor.name}</Link>
-                    </p>
-                </div>
-                <div>
-                    <h4 className="text-success mb-0 item-show">{formatPrice(course.price)}</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-);
+// Individual Course Card
+const CourseCard = ({ course }) => {
+    const cardStyle = {
+        border: "1px solid #e0e0e0",
+        borderRadius: "8px",
+        overflow: "hidden",
+        backgroundColor: "#fff",
+        position: "relative",
+    };
 
+    const ribbonStyle = {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "75px",
+        height: "75px",
+        overflow: "hidden",
+        zIndex: 1,
+    };
+
+    const ribbonSpanStyle = {
+        position: "absolute",
+        display: "block",
+        width: "105px",
+        backgroundColor: "#5cb85c",
+        color: "#fff",
+        textAlign: "center",
+        transform: "rotate(-45deg)",
+        top: "19px",
+        left: "-21px",
+        padding: "5px 0",
+        fontSize: "12px",
+    };
+
+    const footerStyle = {
+        padding: "15px",
+        borderTop: "1px solid #e0e0e0",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+    };
+
+    return (
+        <div style={cardStyle} className="mx-2">
+            <img src={course.image} alt="course" style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+            {course.isFree && (
+                <div style={ribbonStyle}>
+                    <span style={ribbonSpanStyle}>Free</span>
+                </div>
+            )}
+            <div style={{ padding: "15px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+                    <div>
+                        <span style={{ marginRight: "5px", padding: "3px 10px", background: "#e7f3ff", color: "#007bff", borderRadius: "4px", fontSize: "12px" }}>
+                            {course.category}
+                        </span>
+                        <span style={{ padding: "3px 10px", background: "#333", color: "#fff", borderRadius: "4px", fontSize: "12px" }}>
+                            {course.level}
+                        </span>
+                    </div>
+                    <i className="far fa-bookmark" style={{ fontSize: "16px", color: "#888" }}></i>
+                </div>
+                <h5 style={{ fontSize: "16px", marginBottom: "10px" }}>
+                    <Link to="#" style={{ color: "#333", textDecoration: "none" }}>{course.title}</Link>
+                </h5>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+                    <span style={{ color: "#f39c12", fontWeight: "bold" }}>
+                        {course.rating} <i className="fas fa-star" style={{ color: "#f39c12", marginLeft: "5px" }}></i>
+                        <span style={{ color: "#888", fontSize: "12px", marginLeft: "5px" }}>({course.reviews})</span>
+                    </span>
+                    <span style={{ color: "#888", fontSize: "14px" }}>
+                        {course.students} Students
+                    </span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "14px", color: "#666" }}>
+                    <span>
+                        <i className="far fa-clock" style={{ marginRight: "5px", color: "#e74c3c" }}></i>
+                        {course.duration}
+                    </span>
+                    <span>
+                        <i className="fas fa-table" style={{ marginRight: "5px", color: "#f39c12" }}></i>
+                        {course.lectures} Lectures
+                    </span>
+                </div>
+            </div>
+            <div style={footerStyle}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                    <img
+                        src={course.instructor.image}
+                        alt="instructor"
+                        style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "10px" }}
+                    />
+                    <Link to="#" style={{ color: "#333", fontSize: "14px", textDecoration: "none" }}>{course.instructor.name}</Link>
+                </div>
+                <h4 style={{ color: "#28a745", marginBottom: 0 }}>{formatPrice(course.price)}</h4>
+            </div>
+        </div>
+    );
+};
+
+// Trending Courses Component
 const TrendingCourses = () => {
     const courses = [
         {
@@ -147,38 +163,18 @@ const TrendingCourses = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        prevArrow: (
-            <button className="slick-prev" style={{ position: 'absolute', left: '10px', top: '50%', zIndex: 2, background: 'none', border: 'none', cursor: 'pointer' }}>
-                <i className="fas fa-chevron-left"></i>
-            </button>
-        ),
-        nextArrow: (
-            <button className="slick-next" style={{ position: 'absolute', right: '10px', top: '50%', zIndex: 2, background: 'none', border: 'none', cursor: 'pointer' }}>
-                <i className="fas fa-chevron-right"></i>
-            </button>
-        ),
         responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                },
-            },
+            { breakpoint: 1024, settings: { slidesToShow: 2 } },
+            { breakpoint: 600, settings: { slidesToShow: 1 } },
         ],
     };
 
     return (
-        <section className="pb-5" style={{ padding: '40px 0', backgroundColor: '#f8f9fa' }}>
-            <div className="container">
-                <div className="text-center mb-5">
-                    <h2 className="fs-1">Our Trending Courses</h2>
-                    <p>Explore the top courses trending in the market.</p>
+        <section style={{ padding: "40px 0", backgroundColor: "#f8f9fa" }}>
+            <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+                <div style={{ textAlign: "center", marginBottom: "40px" }}>
+                    <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>Our Trending Courses</h2>
+                    <p style={{ color: "#666" }}>Explore the top courses trending in the market.</p>
                 </div>
                 <Slider {...sliderSettings}>
                     {courses.map((course, index) => (
