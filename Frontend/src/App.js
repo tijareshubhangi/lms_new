@@ -240,6 +240,7 @@ Student Dashboard Route Start */}
 <Route path="/productdetals" element={<ProductDetails/>} />
 
 
+
           <Route path="*" element={<Navigate to="/" />} />
          
         </Routes>

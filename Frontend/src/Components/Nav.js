@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
-import { useUser } from '../context/UserContext'; // Importing UserContext
+import { useUser } from "../context/UserContext"; // Importing UserContext
 
-
-const Nav = ({ cartCount}) => {
-
+const Nav = ({ cartCount }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // Default profile image
@@ -32,8 +30,7 @@ const Nav = ({ cartCount}) => {
     };
   }, []);
 
-
-  const toggleDropdown = () => setDropdownOpen(prev => !prev);
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -112,7 +109,7 @@ const Nav = ({ cartCount}) => {
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
                   <li><Link className="dropdown-item" to="/admin-dashboard">Admin</Link></li>
-                  <li><Link className="dropdown-item" to="/instructorlogin">Instructor</Link></li>
+                  <li><Link className="dropdown-item" to="/instructordashboard">Instructor</Link></li>
                   <li><Link className="dropdown-item" to="/studentdashboard">Student</Link></li>
                 </ul>
               </li>
@@ -124,13 +121,16 @@ const Nav = ({ cartCount}) => {
                   <IoMdCart size={28} />
                   <span> ({cartCount})</span>
                 </Link>
-              </div>  
+              </div>
 
-              {user ? ( 
+              {user ? (
                 <div className="dropdown ms-3" ref={dropdownRef}>
-                   <button onClick={toggleDropdown}>
+                  <button
+                    className="btn btn-link p-0 border-0"
+                    onClick={toggleDropdown}
+                  >
                     <img
-                      src={profileImage}
+                      src={profileImage || "assets/images/default-avatar.png"}
                       alt="Profile"
                       className="avatar-img rounded-circle"
                       style={{ width: 30, height: 30 }}
@@ -139,8 +139,8 @@ const Nav = ({ cartCount}) => {
                   {dropdownOpen && (
                     <ul className="dropdown-menu dropdown-menu-end show mt-3">
                       <li className="dropdown-item-text">
-                        <strong>{`Welcome, ${name}`}</strong>    
-                        <p className="small mb-0">{` ${email}`}</p>  
+                        <strong>{`Welcome, ${name}`}</strong>
+                        <p className="small mb-0">{email}</p>
                       </li>
                       <div className="dropdown-divider"></div>
                       <li>
@@ -150,12 +150,12 @@ const Nav = ({ cartCount}) => {
                         <Link className="dropdown-item" to="/profile">Account Settings</Link>
                       </li>
                       <li>
-                        <Link
+                        <button
                           className="dropdown-item bg-danger-soft-hover"
-                          onClick={handleLogoutClick}
+                          onClick={handleLogout}
                         >
                           Log Out
-                        </Link>
+                        </button>
                       </li>
                     </ul>
                   )}
