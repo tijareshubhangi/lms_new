@@ -384,7 +384,6 @@ Main Banner END */}
  <TrendingCourses/>
  <Scroolbar/>
  <Review/>
-<Review2/>
  <Footer/>
 </>
   )
