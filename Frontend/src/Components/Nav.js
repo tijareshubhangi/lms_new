@@ -105,7 +105,7 @@ const Nav = ({ cartCount }) => {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
+                > 
                   Dashboard
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
@@ -121,8 +121,10 @@ const Nav = ({ cartCount }) => {
                 <Link to="/cart">
                   <IoMdCart size={28} />
                   <span> ({cartCount})</span>
-                </Link>
-              </div>
+
+                </Link> 
+              </div>  
+
 
               {user ? ( 
                 <div className="dropdown ms-3" ref={dropdownRef}>
