@@ -80,6 +80,7 @@ import Checkout from './Components/Checkout';
 import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
+import AdminEdit from "./Components/AdminEdit";
 
 
 function App() {
@@ -237,6 +238,7 @@ Student Dashboard Route Start */}
 <Route path="/admin-review" element={<AdminReview/>} />
 <Route path="/admin-seating" element={<AdminSeating/>} />
 <Route path="/AdminError" element={<AdminError404/>} />
+<Route path="/AdminEdit" element={<AdminEdit/> } />
 <Route path="/productdetals" element={<ProductDetails/>} />
 
 
