@@ -5,7 +5,7 @@ import { useUser } from '../context/UserContext'; // Importing UserContext
 
 
 
-const Nav = ({ cartCount}) => {
+const Nav = ({ cartCount }) => {
 
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -33,7 +33,9 @@ const Nav = ({ cartCount}) => {
     };
   }, []);
 
+
   const toggleDropdown = () => setDropdownOpen(prev => !prev);
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -154,7 +156,10 @@ const Nav = ({ cartCount}) => {
                       <li>
                         <Link
                           className="dropdown-item bg-danger-soft-hover"
-                          onClick={handleLogout}
+
+
+                          onClick={handleLogout} // Fixed here to call handleLogout
+
                         >
                           Log Out
                         </Link>

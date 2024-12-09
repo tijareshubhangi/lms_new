@@ -72,7 +72,10 @@ const AdminLogin = () => {
           />
         </div>
         <div className="form-card">
+<<<<<<< HEAD
           <h5>Admin Login</h5>
+=======
+>>>>>>> amo
           <div>
             <input
               type="email"
