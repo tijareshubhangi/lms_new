@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import authModel from "../models/authModel.js";
-
+import multer from "multer";
 const checkIsUserAuthenticated = async (req, res, next) => {
   let token;
   const { authorization } = req.headers;
@@ -19,5 +19,10 @@ const checkIsUserAuthenticated = async (req, res, next) => {
     return res.status(401).json({ message: "unAuthorized User" });
   }
 };
+
+
+
+
+
 
 export default checkIsUserAuthenticated;

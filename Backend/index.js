@@ -6,7 +6,7 @@ import cors from "cors";
 import path from "path";
 import fs from "fs";
 import nodemailer from "nodemailer";
-
+import bodyParser from "body-parser";
 // Import Custom Modules
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -23,6 +23,12 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+
+// Parse JSON data
+app.use(bodyParser.json());
+
+// Parse URL-encoded data
+app.use(bodyParser.urlencoded({ extended: true }));
 // Ensure Public/Allimages Directory Exists
 const folderPath = path.join(path.resolve(), "Public/Allimages"); // Use path.resolve for __dirname replacement in ES modules
 if (!fs.existsSync(folderPath)) {
