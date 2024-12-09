@@ -100,13 +100,20 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
 
   return (
     <>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
       <Nav cartCount={cartCount} handleLogout={handleLogout} />
       <div>
         <section className="py-0">
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <div className="bg-light p-4 text-center rounded-3">
+                <div className="bg-lights p-4 text-center rounded-3">
                   <h1 className="m-0">My Cart</h1>
                   <div className="d-flex justify-content-center">
                     <nav aria-label="breadcrumb">
