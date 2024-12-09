@@ -22355,7 +22355,7 @@ html[dir=rtl] .choices__input {
 
 .apexcharts-xaxistooltip-bottom:after {
   border-bottom-color: var(--bs-body-bg) !important;
-}
+} 
 
 .apexcharts-xaxistooltip, .apexcharts-yaxistooltip, .apexcharts-yaxistooltip-left:before, .apexcharts-xaxistooltip-bottom:before {
   border: none !important;
@@ -33424,7 +33424,7 @@ textarea.form-control-lg {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-blue-rgb), var(--bs-bg-opacity)) !important;
 }
-
+ 
 .bg-black {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
