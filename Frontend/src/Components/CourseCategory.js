@@ -73,7 +73,7 @@ const CourseCategory = () => {
     <br />
 <br />
 <br />
-  <section className="bg-light position-relative">
+  <section className="bg-lights position-relative">
     {/* Svg decoration */}
     <figure className="position-absolute bottom-0 start-0 d-none d-lg-block">
       <svg width="822.2px" height="301.9px" viewBox="0 0 822.2 301.9">
@@ -107,10 +107,10 @@ const CourseCategory = () => {
               <p className="mb-3">Grow your skill with the most reliable online courses and certifications</p>
               {/* Search */}
               <form className="bg-body rounded p-2">
-                <div className="input-group">
+               
                   <input className="form-control border-0 me-1" type="search" placeholder="Search course " />
                   <button type="button" className="btn btn-dark mb-0 rounded">Search</button>
-                </div>
+             
               </form>
             </div>
             {/* Image */}

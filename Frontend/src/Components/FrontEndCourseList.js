@@ -73,7 +73,7 @@ const CourseCategory1 = () => {
     <br />
 <br />
 <br />
-  <section className="bg-light position-relative">
+  <section className="bg-lights position-relative">
     {/* Svg decoration */} 
     <figure className="position-absolute bottom-0 start-0 d-none d-lg-block">
       <svg width="822.2px" height="301.9px" viewBox="0 0 822.2 301.9">
