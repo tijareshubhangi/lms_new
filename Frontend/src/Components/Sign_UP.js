@@ -96,7 +96,7 @@ const Sign_UP = () => {
                         </label>
                         <input
                           type="text"
-                          className="form-control border-1 bg-light rounded-end ps-1"
+                          className="form-control border-1 bg-lights rounded-end ps-1"
                           // placeholder="Name"
                           id="exampleInputEmail1"
                           name="name"
@@ -119,7 +119,7 @@ const Sign_UP = () => {
                         </label>
                         <input
                           type="email"
-                          className="form-control border-1 bg-light rounded-end ps-1"
+                          className="form-control border-1 bg-lights rounded-end ps-1"
                           // placeholder="E-mail"
                           id="exampleInputEmail1"
                           name="email"
@@ -140,7 +140,7 @@ const Sign_UP = () => {
                         </label>
                         <input
                           type="password"
-                          className="form-control border-1 bg-light rounded-end ps-1"
+                          className="form-control border-1 bg-lights rounded-end ps-1"
                           // placeholder="Password"
                           id="inputPassword5"
                           name="password"

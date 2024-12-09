@@ -89,7 +89,7 @@ const SignIn = () => {
                         <input
                           type="text"
                           name="name"
-                          className="form-control border-1 bg-light rounded-end ps-1"
+                          className="form-control border-1 bg-lights rounded-end ps-1"
                           value={input.name}
                           onChange={handleChange}
                         />
@@ -103,7 +103,7 @@ const SignIn = () => {
                         <input
                           type="email"
                           name="email"
-                          className="form-control border-1 bg-light rounded-end ps-1"
+                          className="form-control border-1 bg-lights rounded-end ps-1"
                           value={input.email}
                           onChange={handleChange}
                         />
@@ -117,7 +117,7 @@ const SignIn = () => {
                         <input
                           type={showPassword ? "text" : "password"} // Toggle between text and password
                           name="password"
-                          className="form-control border-1 bg-light rounded-end ps-1"
+                          className="form-control border-1 bg-lights rounded-end ps-1"
                           value={input.password}
                           onChange={handleChange}
                           style={{ paddingRight: "2.5rem" }} // Add space for the eye icon

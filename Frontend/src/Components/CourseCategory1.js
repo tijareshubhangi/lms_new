@@ -164,7 +164,7 @@ const ProductsCategory1 = ({ onAddToCart }) => {
       <Nav cartCount={cartCount} handleLogout={handleLogout} />
 
       {/* Hero Section */}
-      <section className="bg-light position-relative mt-5">
+      <section className="bg-lights position-relative mt-5">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-6 col-md-3 text-center">
