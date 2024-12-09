@@ -12,7 +12,7 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
   useEffect(() => {
     // Simulate fetching product (course) data
     setProducts([
-      { id: 1, name: "Computer Hardware" },
+      { id: 1, name: "Computer Hardware", image: "assets/images/courses/4by3/HW.png"  },
       { id: 2, name: "Computer Networking" },
       { id: 3, name: "Graphic Designing" },
       { id: 4, name: "Digitial Marketing" },
@@ -73,6 +73,19 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
     buttonHover: {
       backgroundColor: '#45a049', // Darker green on hover
     },
+    hr1:{
+      border: 'none',
+      height: '3px',
+      backgroundColor: '#3498db',
+      margin: '20px 0',
+      width: '100%',
+      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+      borderRadius: '5px',
+      
+    },
+    pimage:{
+      height:'100px'
+    }
   };
   
 
@@ -118,6 +131,13 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
           >
             
             <div className="col-md-12 ">
+            {/* <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="img-border" 
+                      style={styles.pimage} // Set cursor to pointer for image
+                      onClick={handleNavigateToCourseList} // Redirect on image click
+                    /> */}
             <h5 
               className="mb-2" 
               style={styles.cardHeader} // Set cursor to pointer for heading
@@ -125,7 +145,7 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
             >
               {product.name}
             </h5>
-          <hr/>
+          <hr style={styles.hr1}/>
             <div className="card rounded mt-5 overflow-hidden shadow">
         <div className="row g-0">
           {/* Image */}

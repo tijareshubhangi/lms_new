@@ -81,7 +81,7 @@ import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
 import CourseMore from "./Components/CourseMore";
-
+import CreateCourse from "./Components/CreateCourcescompt/CreateCourse";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -240,6 +240,7 @@ Student Dashboard Route Start */}
 <Route path="/AdminError" element={<AdminError404/>} />
 <Route path="/productdetals" element={<ProductDetails/>} />
 <Route path="/coursemore" element={<CourseMore/>} />
+<Route path="/createcource" element={<CreateCourse/>} />
 
 
           <Route path="*" element={<Navigate to="/" />} />
