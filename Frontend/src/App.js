@@ -31,7 +31,7 @@ import Instructor_createCourse from './Components/Instructor_createCourse';
 import StudentDashboard from './Components/StudentDashboard';
 
 import FrontEndCourseList from './Components/FrontEndCourseList';
-import BackEndCourseList from './Components/BackEndCourseList';
+// import BackEndCourseList from './Components/BackEndCourseList';
 import GraphicsCourseList from './Components/GraphicsCourseList';
 import DigitalMarketingCourse from './Components/DigitalMarketingCourse';
 import NetworkingVideo from './Components/NetworkingVideo';
@@ -141,6 +141,10 @@ function App() {
     setCart([]);
   };
 
+  const handleBuyProduct = (product) => {
+    localStorage.setItem("dashboardEnabled", "true");
+    localStorage.setItem("purchasedVideo", JSON.stringify(product));
+};
   
   
 
@@ -149,10 +153,10 @@ function App() {
       <UserProvider>
         
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home  cartCount={cartCount}/>} />
           <Route
             path="/course"
-            element={<CourseCategory1 onAddToCart={handleAddToCart} />}
+            element={<CourseCategory1 onAddToCart={handleAddToCart}  cartCount={cartCount} />}
           />
           <Route path="/signUp" element={<Sign_UP />} />
           <Route path="/signin" element={<Sign_in />} />
@@ -170,9 +174,9 @@ function App() {
           />
 
           
-<Route path='/coursecategory' element={<CourseCategory/>}/>
+<Route path='/coursecategory' element={<CourseCategory cartCount={cartCount} />}/>
 
-<Route path='/' element={ <Home/> }/>
+<Route path='/' element={ <Home  cartCount={cartCount}/> }/>
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
 <Route path='/instructorquiz' element={<Instructor_Quiz />} />
@@ -190,20 +194,20 @@ function App() {
 <Route path='/reset-password' element={<ForgetPassword />} />
 <Route path='/user/reset/:id/:token' element={<ChangePassword />} />
 <Route path='/instructorlogin' element={<Instructor_Login/>} />
-<Route path='/course' element={<CourseCategory1/>}/> 
-<Route path='/courselist' element={<CourseList1/>}/>
-<Route path='/frontendcourse' element={<FrontEndCourseList/>}/>
-<Route path='/backendcourse' element={<BackEndCourseList/>}/>
-<Route path='/graphicscourse' element={<GraphicsCourseList/>}/>
-<Route path='/digitalmarketing' element={<DigitalMarketingCourse/>}/>
-<Route path='/networkingvideo' element={<NetworkingVideo/>}/>
-<Route path='/frontendvideo' element={<FrontEndVideo/>}/>
-<Route path='/backendvideo' element={<BackEndVideo/>}/>
-<Route path='/graphicsvideo' element={<GraphicsVideo/>}/>
-<Route path='/DMvideo' element={<MarketingVideo/>}/>
-<Route path='/videoplayer1' element={<VideoPlayer1/>}/>
-<Route path='/checkout' element={<Checkout/>}/>
-<Route path='/paymentpage' element={<CoursePayment/>}/>
+<Route path='/course' element={<CourseCategory1  cartCount={cartCount}/>}/> 
+<Route path='/courselist' element={<CourseList1  cartCount={cartCount} />}/>
+<Route path='/frontendcourse' element={<FrontEndCourseList  cartCount={cartCount} />}/>
+{/* <Route path='/backendcourse' element={<BackEndCourseLis  cartCount={cartCount} />}/> */}
+<Route path='/graphicscourse' element={<GraphicsCourseList  cartCount={cartCount} />}/>
+<Route path='/digitalmarketing' element={<DigitalMarketingCourse  cartCount={cartCount} />}/>
+<Route path='/networkingvideo' element={<NetworkingVideo  cartCount={cartCount} />}/>
+<Route path='/frontendvideo' element={<FrontEndVideo  cartCount={cartCount} />}/>
+<Route path='/backendvideo' element={<BackEndVideo  cartCount={cartCount} />}/>
+<Route path='/graphicsvideo' element={<GraphicsVideo  cartCount={cartCount} />}/>
+<Route path='/DMvideo' element={<MarketingVideo  cartCount={cartCount} />}/>
+<Route path='/videoplayer1' element={<VideoPlayer1  cartCount={cartCount} />}/>
+<Route path='/checkout' element={<Checkout  cartCount={cartCount} />}/>
+<Route path='/paymentpage' element={<CoursePayment  cartCount={cartCount} />}/>
 {/* 
 Student Dashboard Route Start */}
 
@@ -238,8 +242,8 @@ Student Dashboard Route Start */}
 <Route path="/admin-review" element={<AdminReview/>} />
 <Route path="/admin-seating" element={<AdminSeating/>} />
 <Route path="/AdminError" element={<AdminError404/>} />
-<Route path="/productdetals" element={<ProductDetails/>} />
-<Route path="/coursemore" element={<CourseMore/>} />
+<Route path="/productdetals" element={<ProductDetails  cartCount={cartCount} />} />
+<Route path="/coursemore" element={<CourseMore  cartCount={cartCount} />} />
 <Route path="/createcource" element={<CreateCourse/>} />
 
 
