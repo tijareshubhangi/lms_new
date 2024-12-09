@@ -8,7 +8,7 @@ const AdminEdit = () => {
   const [adminImage, setadminImage] = useState(null);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");adminImage
+  const [lastName, setLastName] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
   const userId = "64dbb564f5e72c002ac169a1";
