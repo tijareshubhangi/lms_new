@@ -80,11 +80,14 @@ import Checkout from './Components/Checkout';
 import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
-<<<<<<< HEAD
+
 import AdminEdit from "./Components/AdminEdit";
-=======
+
 import CourseMore from "./Components/CourseMore";
->>>>>>> Person4
+
+
+
+import CreateCourse from "./Components/CreateCourcescompt/CreateCourse";
 
 
 function App() {
@@ -245,6 +248,7 @@ Student Dashboard Route Start */}
 <Route path="/AdminEdit" element={<AdminEdit/> } />
 <Route path="/productdetals" element={<ProductDetails/>} />
 <Route path="/coursemore" element={<CourseMore/>} />
+<Route path="/createcource" element={<CreateCourse/>} />
 
 
           <Route path="*" element={<Navigate to="/" />} />
