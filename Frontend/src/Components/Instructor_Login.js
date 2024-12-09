@@ -60,7 +60,7 @@ const Instructor_Login = () => {
       <div className="form-wrapper">
         <div className="logo-container">
           <img
-            src="assets/images/LMS.png"
+            src="assets/images/LMS.png" 
             alt="LMS"
             className="logo"
             style={{
@@ -72,6 +72,7 @@ const Instructor_Login = () => {
           />
         </div>
         <div className="form-card">
+          <h4>Instructor login</h4>
           <div>
             <input
               type="email"

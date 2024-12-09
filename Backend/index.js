@@ -5,9 +5,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import fs from "fs";
-import nodemailer from "nodemailer"
+import nodemailer from "nodemailer";
 
-// Import Custom Modules 
+// Import Custom Modules
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 
@@ -38,9 +38,6 @@ app.get("/", (req, res) => {
   res.send("Backend is Running..");
 });
 app.use("/api/auth", authRoutes);
-
-
-
 // Temporary storage for OTPs (for demo purposes; consider using a database in production)
 const otpStore = {};
 
@@ -108,7 +105,6 @@ app.post('/verify-otp', (req, res) => {
     res.status(400).json({ message: 'Invalid OTP' });
   }
 });
-
 // Start Server
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {

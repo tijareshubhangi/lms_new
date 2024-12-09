@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' 
 
 const Footer = () => {
   return (
@@ -13,7 +13,7 @@ Footer START */}
       <div className="col-lg-3">
         {/* logo */}
         <a className="me-0" href="index-2.html">
-          <img className="light-mode-item h-40px" src="assets/images/logo1newbg.png" alt="logo" />
+          <img className="light-mode-item h-40px" src="assets/images/LMS.png" alt="logo" />
           {/* <img className="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo" /> */}
         </a>
         <p className="my-3">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
