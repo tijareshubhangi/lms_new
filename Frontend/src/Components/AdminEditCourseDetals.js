@@ -25,7 +25,7 @@ const AdminEditCourseDetals = () => {
         <div className="card border rounded-3 mb-5">
           <div id="stepper" className="bs-stepper stepper-outline">
             {/* Card header */}
-            <div className="card-header bg-light border-bottom px-lg-5">
+            <div className="card-header bg-lights border-bottom px-lg-5">
               {/* Step Buttons START */}
               <div className="bs-stepper-header" role="tablist">
                 {/* Step 1 */}
@@ -165,7 +165,7 @@ const AdminEditCourseDetals = () => {
                       <div className="col-12">
                         <label className="form-label">Add description</label>
                         {/* Editor toolbar */}
-                        <div className="bg-light border border-bottom-0 rounded-top py-3" id="quilltoolbar">
+                        <div className="bg-lights border border-bottom-0 rounded-top py-3" id="quilltoolbar">
                           <span className="ql-formats">
                             <select className="ql-size" />
                           </span>
@@ -478,7 +478,9 @@ const AdminEditCourseDetals = () => {
                       {/* Tags START */}
                       {/* Reviewer START */}
                       <div className="col-12">
-                        <div className="bg-light border rounded p-4">
+                        <div className="bg-lights border rounded p-4">
+
+                          
                           <h5 className="mb-0">Message to a reviewer</h5>
                           {/* Comment */}
                           <div className="mt-3">

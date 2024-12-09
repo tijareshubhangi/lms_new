@@ -31,7 +31,7 @@ const AdminInstructorCard = () => {
         <div className="col-xxl-7">
           <div className="card bg-transparent border rounded-3 h-100">
             {/* Card header */}
-            <div className="card-header bg-light border-bottom">
+            <div className="card-header bg-lights border-bottom">
               <h5 className="card-header-title mb-0">Personal Information</h5>
             </div>
             {/* Card body START */}
@@ -113,7 +113,7 @@ const AdminInstructorCard = () => {
             <div className="col-md-6 col-xxl-12">
               <div className="card bg-transparent border overflow-hidden">
                 {/* Card header */}
-                <div className="card-header bg-light border-bottom">
+                <div className="card-header bg-lights border-bottom">
                   <h5 className="card-header-title mb-0">Active Students</h5>
                 </div>
                 {/* Card body */}
@@ -132,7 +132,7 @@ const AdminInstructorCard = () => {
             <div className="col-md-6 col-xxl-12">
               <div className="card bg-transparent border overflow-hidden">
                 {/* Card header */}
-                <div className="card-header bg-light border-bottom">
+                <div className="card-header bg-lights border-bottom">
                   <h5 className="card-header-title mb-0">New Enrollment</h5>
                 </div>
                 {/* Card body */}
@@ -154,7 +154,7 @@ const AdminInstructorCard = () => {
         <div className="col-12">
           <div className="card bg-transparent border h-100">
             {/* Card header */}
-            <div className="card-header bg-light border-bottom">
+            <div className="card-header bg-lights border-bottom">
               <h5 className="mb-0">Courses List</h5>
             </div>
             {/* Card body START */}
@@ -297,7 +297,7 @@ const AdminInstructorCard = () => {
         <div className="col-12">
           <div className="card bg-transparent border">
             {/* Card header START */}
-            <div className="card-header border-bottom bg-light">
+            <div className="card-header border-bottom bg-lights">
               <h5 className="mb-0">All Reviews</h5>
             </div>
             {/* Card header END */}

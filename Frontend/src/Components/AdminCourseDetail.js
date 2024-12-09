@@ -32,7 +32,7 @@ const AdminCourseDetail = () => {
         <div className="col-xxl-6">
           <div className="card bg-transparent border rounded-3 h-100">
             {/* Catd header */}
-            <div className="card-header bg-light border-bottom">
+            <div className="card-header bg-lights border-bottom">
               <h5 className="card-header-title">The Complete Digital Marketing Course - 12 Courses in 1</h5>
             </div>
             {/* Card body START */}
@@ -121,7 +121,7 @@ const AdminCourseDetail = () => {
             <div className="col-md-6 col-xxl-12">
               <div className="card bg-transparent border overflow-hidden">
                 {/* Card header */}
-                <div className="card-header bg-light border-bottom">
+                <div className="card-header bg-lights border-bottom">
                   <h5 className="card-header-title mb-0">Total course earning</h5>
                 </div>
                 {/* Card body */}
@@ -140,7 +140,7 @@ const AdminCourseDetail = () => {
             <div className="col-md-6 col-xxl-12">
               <div className="card bg-transparent border overflow-hidden">
                 {/* Card header */}
-                <div className="card-header bg-light border-bottom">
+                <div className="card-header bg-lights border-bottom">
                   <h5 className="card-header-title mb-0">New Enrollment This Month</h5>
                 </div>
                 {/* Card body */}
@@ -162,7 +162,7 @@ const AdminCourseDetail = () => {
         <div className="col-12">
           <div className="card bg-transparent border">
             {/* Card header START */}
-            <div className="card-header bg-light border-bottom">
+            <div className="card-header bg-lights border-bottom">
               <h5 className="mb-0">Students all Reviews</h5>
             </div>
             {/* Card header END */}

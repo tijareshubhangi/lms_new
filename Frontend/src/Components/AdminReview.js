@@ -459,7 +459,7 @@ const AdminReview = () => {
         <div className="col-xxl-7">
           <div className="card bg-transparent border h-100">
             {/* Card header */}
-            <div className="card-header bg-light border-bottom">
+            <div className="card-header bg-lights border-bottom">
               <h5 className="mb-0">Top Rated Courses</h5>
             </div>
             {/* Card body START */}
@@ -662,7 +662,7 @@ const AdminReview = () => {
         <div className="col-xxl-5">
           <div className="card bg-transparent border h-100">
             {/* Card header */}
-            <div className="card-header bg-light border-bottom">
+            <div className="card-header bg-lights border-bottom">
               <h5 className="mb-0">Reviews Analytics</h5>
             </div>
             {/* Card body START */}

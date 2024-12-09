@@ -56,7 +56,7 @@ const AdminElearning = () => {
       {/* All review table START */}
       <div className="card bg-transparent border">
         {/* Card header START */}
-        <div className="card-header bg-light border-bottom">
+        <div className="card-header bg-lights border-bottom">
           <h5 className="mb-0">Invoice History</h5>
         </div>
         {/* Card header END */}

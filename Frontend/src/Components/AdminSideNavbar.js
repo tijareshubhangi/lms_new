@@ -8,7 +8,7 @@ const AdminSideNavbar = () => {
       <nav className="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
         {/* Navbar brand for xl START */}
         <div className="d-flex align-items-center">
-          <NavLink className="navbar-brand" to="/">
+          <NavLink className="navbar-brand" to="/admin-dashboard">
             <img className="navbar-brand-item" src="assets/images/LMS.png" alt="Logo" />
           </NavLink>
         </div>

@@ -33,7 +33,7 @@ const AdminCourseCategory = () => {
       {/* Card START */}
       <div className="card bg-transparent border">
         {/* Card header START */}
-        <div className="card-header bg-light border-bottom">
+        <div className="card-header bg-lights border-bottom">
           {/* Search and select START */}
           <div className="row g-3 align-items-center justify-content-between">
             {/* Search bar */}
