@@ -9,7 +9,7 @@ const AdminSideNavbar = () => {
         {/* Navbar brand for xl START */}
         <div className="d-flex align-items-center">
           <NavLink className="navbar-brand" to="/">
-            {/* <img className="navbar-brand-item" src="assets/images/logo_new.jpg" alt="Logo" /> */}
+            <img className="navbar-brand-item" src="assets/images/LMS.png" alt="Logo" />
           </NavLink>
         </div>
         {/* Navbar brand for xl END */}
