@@ -204,7 +204,7 @@ const AdminTopNavBar = () => {
                       <div className="bg-light dark-mode-switch theme-icon-active d-flex align-items-center p-1 rounded mt-2">
                         <button
                           type="button"
-                          className="btn btn-sm mb-0"
+                          className="btn btn-lg mb-0"
                           data-bs-theme-value="light"
                           onClick={() => handleThemeChange("light")}
                         >
@@ -212,7 +212,7 @@ const AdminTopNavBar = () => {
                         </button>
                         <button
                           type="button"
-                          className="btn btn-sm mb-0"
+                          className="btn btn-lg mb-0"
                           data-bs-theme-value="dark"
                           onClick={() => handleThemeChange("dark")}
                         >
