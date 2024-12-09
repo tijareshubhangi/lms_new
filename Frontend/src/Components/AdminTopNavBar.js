@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import React from 'react'
-import { Link } from 'react-router-dom' ;
-=======
 import React, { useEffect, useState } from "react";
->>>>>>> person
 
 const AdminTopNavBar = () => {
   const [theme, setThemeState] = useState(
@@ -198,7 +193,8 @@ const AdminTopNavBar = () => {
               </li>
 <li> <hr className="dropdown-divider" /></li>
               {/* Links */}
-              <Link className="dropdown-item" to="/AdminEdit"><i className="bi bi-person fa-fw me-2" />Edit Profile</Link>              <li><a className="dropdown-item" href="#"><i className="bi bi-gear fa-fw me-2" />Account Settings</a></li>
+              <li><a className="dropdown-item" href="#"><i className="bi bi-person fa-fw me-2" />Edit Profile</a></li>
+              <li><a className="dropdown-item" href="#"><i className="bi bi-gear fa-fw me-2" />Account Settings</a></li>
               <li><a className="dropdown-item" href="#"><i className="bi bi-info-circle fa-fw me-2" />Help</a></li>
               <li><a className="dropdown-item bg-danger-soft-hover" href="#"><i className="bi bi-power fa-fw me-2" />Sign Out</a></li>
               <li> <hr className="dropdown-divider" /></li>
