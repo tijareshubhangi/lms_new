@@ -1,17 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
-<<<<<<< HEAD
-import { useUser } from "../context/UserContext"; // Importing UserContext
-=======
 import { useUser } from '../context/UserContext'; // Importing UserContext
 
 
 
 const Nav = ({ cartCount}) => {
->>>>>>> 2ae0c94fc77ae68cac88dff640e3e5f2217b1b01
 
-const Nav = ({ cartCount }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // Default profile image
@@ -38,11 +33,7 @@ const Nav = ({ cartCount }) => {
     };
   }, []);
 
-<<<<<<< HEAD
-  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
-=======
   const toggleDropdown = () => setDropdownOpen(prev => !prev);
->>>>>>> 2ae0c94fc77ae68cac88dff640e3e5f2217b1b01
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -120,13 +111,8 @@ const Nav = ({ cartCount }) => {
                   Dashboard
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
-<<<<<<< HEAD
-                  <li><Link className="dropdown-item" to="/admin-dashboard">Admin</Link></li>
-                  <li><Link className="dropdown-item" to="/instructordashboard">Instructor</Link></li>
-=======
                   <li><Link className="dropdown-item" to="/adminlogin">Admin</Link></li>
                   <li><Link className="dropdown-item" to="/instructorlogin">Instructor</Link></li>
->>>>>>> 2ae0c94fc77ae68cac88dff640e3e5f2217b1b01
                   <li><Link className="dropdown-item" to="/studentdashboard">Student</Link></li>
                 </ul>
               </li>
@@ -137,26 +123,16 @@ const Nav = ({ cartCount }) => {
                 <Link to="/cart">
                   <IoMdCart size={28} />
                   <span> ({cartCount})</span>
-<<<<<<< HEAD
-                </Link>
-              </div>
-
-              {user ? (
-=======
 
                 </Link> 
               </div>  
 
 
               {user ? ( 
->>>>>>> 2ae0c94fc77ae68cac88dff640e3e5f2217b1b01
                 <div className="dropdown ms-3" ref={dropdownRef}>
-                  <button
-                    className="btn btn-link p-0 border-0"
-                    onClick={toggleDropdown}
-                  >
+                   <button onClick={toggleDropdown}>
                     <img
-                      src={profileImage || "assets/images/default-avatar.png"}
+                      src={profileImage}
                       alt="Profile"
                       className="avatar-img rounded-circle"
                       style={{ width: 30, height: 30 }}
@@ -165,8 +141,8 @@ const Nav = ({ cartCount }) => {
                   {dropdownOpen && (
                     <ul className="dropdown-menu dropdown-menu-end show mt-3">
                       <li className="dropdown-item-text">
-                        <strong>{`Welcome, ${name}`}</strong>
-                        <p className="small mb-0">{email}</p>
+                        <strong>{`Welcome, ${name}`}</strong>    
+                        <p className="small mb-0">{` ${email}`}</p>  
                       </li>
                       <div className="dropdown-divider"></div>
                       <li>
@@ -176,12 +152,12 @@ const Nav = ({ cartCount }) => {
                         <Link className="dropdown-item" to="/profile">Account Settings</Link>
                       </li>
                       <li>
-                        <button
+                        <Link
                           className="dropdown-item bg-danger-soft-hover"
                           onClick={handleLogout}
                         >
                           Log Out
-                        </button>
+                        </Link>
                       </li>
                     </ul>
                   )}
