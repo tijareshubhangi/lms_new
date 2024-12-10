@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Nav from './Nav'
+import Footer from './Footer';
 
 
 const CourseCategory = () => {
@@ -330,7 +331,7 @@ Action box START */}
     </div>
   </section>
 </div>
-
+<Footer/>
     </>
   )
 }

@@ -72,7 +72,6 @@ const AdminLogin = () => {
           />
         </div>
         <div className="form-card">
-        
           <div>
             <input
               type="email"
