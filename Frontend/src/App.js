@@ -81,7 +81,7 @@ import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
 
-// import AdminEdit from "./Components/AdminEdit";
+import AdminEdit from "./Components/AdminEdit";
 
 import CourseMore from "./Components/CourseMore";
 
