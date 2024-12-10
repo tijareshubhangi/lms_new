@@ -13,7 +13,7 @@ const AdminEdit = () => {
 
   const userId = "64dbb564f5e72c002ac169a1"; 
 
-  // Fetch the current first name and last name on component mount
+  // Fetch the current first name and last name on component mount 
   useEffect(() => {
     const fetchName = async () => {
       try {
