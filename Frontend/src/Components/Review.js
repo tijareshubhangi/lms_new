@@ -5,7 +5,7 @@ const Review = () => {
    <>
    {/* =======================
 Reviews START */}
-<section className="bg-light">
+<section className="bg-lights">
   <div className="container">
     <div className="row g-4 g-lg-5 align-items-center">
       <div className="col-xl-7 order-2 order-xl-1">
