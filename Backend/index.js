@@ -31,7 +31,7 @@ if (!fs.existsSync(folderPath)) {
 
 
 // Serve Static Files
-app.use('/public', express.static(path.join(path.resolve(), 'Public')));
+app.use('/public', express.static(path.join(path.resolve(), 'Public/Allimages')));
 
 // Routes
 app.get("/", (req, res) => {

@@ -5,6 +5,15 @@ const AdminTopNavBar = () => {
   const [theme, setThemeState] = useState(
     localStorage.getItem("theme") || "light"
   );
+  const [profileImage, setProfileImage] = useState("assets/images/avatar/01.jpg"); // Default profile image
+
+  useEffect(() => {
+    // Fetch the profile image from localStorage if it exists
+    const storedImage = localStorage.getItem("adminImage");
+    if (storedImage) {
+      setProfileImage(storedImage);  // Update the profile image from localStorage
+    }
+  }, []);
 
   const setTheme = (theme) => {
     if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -171,7 +180,7 @@ const AdminTopNavBar = () => {
                   >
                     <img
                       className="avatar-img rounded-circle"
-                      src="assets/images/avatar/01.jpg"
+                      src={profileImage} // Dynamically display the current profile image
                       alt="avatar"
                     />
                   </a>
@@ -184,8 +193,12 @@ const AdminTopNavBar = () => {
                 <div className="d-flex align-items-center">
                   {/* Avatar */}
                   <div className="avatar me-3 mb-3">
-                    <img className="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar" />
-                  </div>
+                  <img
+                      className="avatar-img rounded-circle"
+                      src={profileImage} // Dynamically display the current profile image
+                      alt="avatar"
+                    />
+                                      </div>
                   <div>
                     <a className="h6 mt-2 mt-sm-0" href="#">Lori Ferguson</a>
                     <p className="small m-0">example@gmail.com</p>
