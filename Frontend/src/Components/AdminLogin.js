@@ -60,7 +60,7 @@ const AdminLogin = () => {
       <div className="form-wrapper">
         <div className="logo-container">
           <img
-            src="assets/images/LMS.png"
+            src="assets/images/LMS.png" 
             alt="LMS"
             className="logo"
             style={{
@@ -72,14 +72,7 @@ const AdminLogin = () => {
           />
         </div>
         <div className="form-card">
-<<<<<<< HEAD
-
-
-          <h5>Admin Login</h5>
-
-=======
-          <h5>Admin Login</h5>
->>>>>>> a7c711e0cc055389a09271b1b70bca27c60dbbdd
+          <h4>Admin login</h4>
           <div>
             <input
               type="email"
