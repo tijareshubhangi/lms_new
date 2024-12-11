@@ -53,6 +53,7 @@ const Nav = ({ cartCount}) => {
 
   const name = user?.name || "User";
   const email = user?.email || "Email not available";
+  
 
   const navbarStyle = isScrolled
     ? { padding: "0px 0", transition: "all 0.3s ease" }
