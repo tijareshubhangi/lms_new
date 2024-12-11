@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 // Import Custom Modules
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
-
+import courseRoutes from "./routes/courseRoutes.js";
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -23,12 +23,12 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-
 // Parse JSON data
 app.use(bodyParser.json());
 
 // Parse URL-encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
+
 // Ensure Public/Allimages Directory Exists
 const folderPath = path.join(path.resolve(), "Public/Allimages"); // Use path.resolve for __dirname replacement in ES modules
 if (!fs.existsSync(folderPath)) {
@@ -44,6 +44,8 @@ app.get("/", (req, res) => {
   res.send("Backend is Running..");
 });
 app.use("/api/auth", authRoutes);
+app.use('/api/auth', courseRoutes);
+app.use('/uploads', express.static('uploads'));
 // Temporary storage for OTPs (for demo purposes; consider using a database in production)
 const otpStore = {};
 
