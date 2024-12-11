@@ -75,38 +75,60 @@ router.post("/upload/:userId", upload.single("file"), async (req, res) => {
 });
 
 // Get User's Current Name
-router.get("/getName/:userId", async (req, res) => {
-  const { userId } = req.params;
+router.get("/getName/:userId/:role", async (req, res) => {
+  const { userId, role } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(userId)) {
+    return res.status(400).json({ success: false, error: "Invalid user ID format" });
+  }
 
   try {
     const user = await UserModel.findById(userId);
+
     if (!user) {
-      return res.status(404).json({ error: "User not found." });
+      return res.status(404).json({ success: false, error: "User not found" });
     }
 
-    res.json({
-      success: true,
-      name: { firstName: user.firstName, lastName: user.lastName },
-    });
+    // Fetch role-specific names
+    let name;
+    if (role === "Admin") {
+      name = { firstName: user.firstNameAdmin || "N/A", lastName: user.lastNameAdmin || "N/A" };
+    } else if (role === "Student") {
+      name = { firstName: user.firstNameStudent || "N/A", lastName: user.lastNameStudent || "N/A" };
+    } else {
+      return res.status(400).json({ success: false, error: "Invalid role specified" });
+    }
+
+    res.json({ success: true, name });
   } catch (error) {
     console.error("Error fetching name:", error);
-    res.status(500).json({ error: "Server error." });
+    res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
 
+
 // Update user's name
-router.put('/updateName/:userId', async (req, res) => {
+router.put("/updateName/:userId", async (req, res) => {
   const { userId } = req.params;
-  const { firstName, lastName } = req.body;
+  const { firstName, lastName, role } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     return res.status(400).json({ error: "Invalid user ID format" });
   }
 
-   try {
+  if (!role || !["Admin", "Student"].includes(role)) {
+    return res.status(400).json({ error: "Invalid or missing role." });
+  }
+
+  try {
+    const updateData =
+      role === "Admin"
+        ? { firstNameAdmin: firstName, lastNameAdmin: lastName }
+        : { firstNameStudent: firstName, lastNameStudent: lastName };
+
     const updatedUser = await UserModel.findByIdAndUpdate(
       userId,
-      { firstName, lastName },
+      { $set: updateData },
       { new: true }
     );
 
@@ -116,14 +138,16 @@ router.put('/updateName/:userId', async (req, res) => {
 
     res.json({
       success: true,
-      updatedFirstName: updatedUser.firstName,
-      updatedLastName: updatedUser.lastName,
+      updatedName: role === "Admin"
+        ? { firstName: updatedUser.firstNameAdmin, lastName: updatedUser.lastNameAdmin }
+        : { firstName: updatedUser.firstNameStudent, lastName: updatedUser.lastNameStudent },
     });
   } catch (err) {
-    console.error("Error updating name:", err);
+    console.error("Error updating user name:", err);
     res.status(500).json({ error: "Failed to update name." });
   }
 });
+
 
 
 export default router;

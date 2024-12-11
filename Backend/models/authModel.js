@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
 
 const authSchema = new mongoose.Schema({
-  name: {
+  role: {
     type: String,
+    enum: ["Admin", "Student"],
+    required: true,
   },
+  name: {
+   type: String,
+ },
   email: {
     type: String,
   },
@@ -13,24 +18,30 @@ const authSchema = new mongoose.Schema({
   isVerified: {
     type: Boolean,
   },
-  images:[
-      {
-         filename: {
-          type: String,
-          required: true,
-        },
+  images: [
+    {
+      filename: {
+        type: String,
+        required: true,
       },
-],
-firstName: {
-  type: String,
-  required: true, // Ensure that it is a required field
-  default: "",    // Provide a default value to avoid null
-},
-lastName: {
-  type: String,
-  required: true,
-  default: "",
-},
+    },
+  ],
+  firstNameAdmin: {
+    type: String,
+    default: "",
+  },
+  lastNameAdmin: {
+    type: String,
+    default: "",
+  },
+  firstNameStudent: {
+    type: String,
+    default: "",
+  },
+  lastNameStudent: {
+    type: String,
+    default: "",
+  },
 });
 
 const authModel = mongoose.model("user", authSchema);

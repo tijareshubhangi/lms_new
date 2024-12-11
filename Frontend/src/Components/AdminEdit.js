@@ -13,25 +13,32 @@ const AdminEdit = () => {
 
 
   const userId = "64dbb564f5e72c002ac169a1";
+  const role = "Admin";  
+
+
+  
+  // Fetch name and other logic
+  const fetchName = async () => {
+    try {
+      console.log("Fetching name with userId:", userId, "role:", role); // Log the request details
+      const res = await axios.get(`/api/auth/getName/${userId}/${role}`);
+      if (res.data.success) {
+        const { firstName, lastName } = res.data.name;
+        console.log("Fetched Name:", firstName, lastName); // Log fetched name
+        setFirstName(firstName);
+        setLastName(lastName);
+      } else {
+        console.error("Error fetching name:", res.data.error);
+      }
+    } catch (error) {
+      console.error("Error fetching name:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchName = async () => {
-      try {
-        const res = await axios.get(`/api/auth/getName/${userId}`);
-        if (res.data.success) {
-          setFirstName(res.data.name.firstName);
-          setLastName(res.data.name.lastName);
-        } else {
-          console.error("Error fetching name:", res.data.error);
-        }
-      } catch (error) {
-        console.error("Error fetching name:", error);
-      }
-    };
-
-    fetchName();
-  }, [userId]);
-
+    fetchName();  // Call fetchName when component mounts
+  }, []);
+  
   const handleEditNameClick = () => {
     setIsEditing(true);
   };
@@ -41,12 +48,14 @@ const AdminEdit = () => {
       alert("First name and last name cannot be empty!");
       return;
     }
-
+  
     try {
       const res = await axios.put(`/api/auth/updateName/${userId}`, {
         firstName,
         lastName,
+        role: "Admin", // Specify role as Admin
       });
+  
       if (res.data.success) {
         alert("Name updated successfully!");
         setIsEditing(false);
@@ -57,6 +66,7 @@ const AdminEdit = () => {
       console.error("Error updating name:", error);
     }
   };
+  
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -401,18 +411,19 @@ Page content START */}
                     {/* Full name */}
                     <div>
       <h1>Edit Profile</h1>
-      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+     <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <div>
-          <label>First Name:</label>
-          <input
+        <label>First Name: {firstName || "Loading..."}</label>
+         
+           <input
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
         <div>
-          <label>Last Name:</label>
-          <input
+        <label>Last Name: {lastName || "Loading..."}</label>
+        <input
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}

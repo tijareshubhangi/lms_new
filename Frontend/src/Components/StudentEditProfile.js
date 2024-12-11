@@ -12,41 +12,18 @@ const StudentEditProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const userId = "64dbb564f5e72c002ac169a1";
+  const role = "Student"; 
 
-  // Fetch the current first name and last name on component mount
-  useEffect(() => {
-    const fetchName = async () => {
-      try {
-        const res = await axios.get(`/api/auth/getName/${userId}`);
-        if (res.data.success) {
-          setFirstName(res.data.name.firstName);
-          setLastName(res.data.name.lastName);
-        } else {
-          console.error("Error fetching name:", res.data.error);
-        }
-      } catch (error) {
-        console.error("Error fetching name:", error);
-      }
-    };
-
-    fetchName();
-  }, [userId]);
-
- // Handle edit button click
- const handleEditNameClick = () => {
-  setIsEditing(true);
-};
-
-
- 
- // Fetch the current first name and last name on component mount
- useEffect(() => {
+  // Fetch name and other logic
   const fetchName = async () => {
     try {
-      const res = await axios.get(`/api/auth/getName/${userId}`);
+      console.log("Fetching name with userId:", userId, "role:", role); // Log the request details
+      const res = await axios.get(`/api/auth/getName/${userId}/${role}`);
       if (res.data.success) {
-        setFirstName(res.data.name.firstName);
-        setLastName(res.data.name.lastName);
+        const { firstName, lastName } = res.data.name;
+        console.log("Fetched Name:", firstName, lastName); // Log fetched name
+        setFirstName(firstName);
+        setLastName(lastName);
       } else {
         console.error("Error fetching name:", res.data.error);
       }
@@ -55,10 +32,14 @@ const StudentEditProfile = () => {
     }
   };
 
-  fetchName();
-}, [userId]);
-
-
+  useEffect(() => {
+    fetchName();  // Call fetchName when component mounts
+  }, []);
+  
+ // Handle edit button click
+ const handleEditNameClick = () => {
+  setIsEditing(true);
+};
 
 // Save the updated first name and last name
 const handleSaveName = async () => {
@@ -68,12 +49,15 @@ const handleSaveName = async () => {
   }
 
   try {
-    const res = await axios.put(`/api/auth/updateName/${userId}`, { firstName, lastName });
+    const res = await axios.put(`/api/auth/updateName/${userId}`, {
+      firstName,
+      lastName,
+      role: "Student", // Specify role as Student
+    });
+
     if (res.data.success) {
       alert("Name updated successfully!");
-
       setIsEditing(false);
-  
     } else {
       console.error("Error updating name:", res.data.error);
     }
@@ -81,6 +65,7 @@ const handleSaveName = async () => {
     console.error("Error updating name:", error);
   }
 };
+
 
 
    // Fetch user profile data on component mount
@@ -146,7 +131,7 @@ const handleSaveName = async () => {
       });
 
       if (res.status === 200) {
-        const latestImageUrl = `http://localhost:9000/public/Allimages/${res.data.imageFile}`;
+        const latestImageUrl = `http://localhost:9000/public/${res.data.imageFile}`;
         // Store the image URL in localStorage
         localStorage.setItem("profileImage", latestImageUrl);
         setProfileImage(latestImageUrl);  // Persist image in profileImage state
@@ -419,7 +404,7 @@ Page content START */}
       <h1>Edit Profile</h1>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <div>
-          <label>First Name:</label>
+        <label>First Name: {firstName || "Loading..."}</label>
           <input
             type="text"
             value={firstName}
@@ -427,8 +412,8 @@ Page content START */}
           />
         </div>
         <div>
-          <label>Last Name:</label>
-          <input
+        <label>Last Name: {lastName || "Loading..."}</label>
+        <input
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}

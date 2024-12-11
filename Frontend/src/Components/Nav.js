@@ -111,7 +111,7 @@ const Nav = ({ cartCount}) => {
                   Dashboard
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
-                  <li><Link className="dropdown-item" to="/adminlogin">Admin</Link></li>
+                  <li><Link className="dropdown-item" to="/admin-dashboard">Admin</Link></li>
                   <li><Link className="dropdown-item" to="/instructorlogin">Instructor</Link></li>
                   <li><Link className="dropdown-item" to="/studentdashboard">Student</Link></li>
                 </ul>
