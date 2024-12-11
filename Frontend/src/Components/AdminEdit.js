@@ -413,7 +413,7 @@ Page content START */}
       <h1>Edit Profile</h1>
      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <div>
-        <label>First Name: {firstName || "Loading..."}</label>
+        <label>First Name: </label>
          
            <input
             type="text"
@@ -422,7 +422,7 @@ Page content START */}
           />
         </div>
         <div>
-        <label>Last Name: {lastName || "Loading..."}</label>
+        <label>Last Name: </label>
         <input
             type="text"
             value={lastName}
