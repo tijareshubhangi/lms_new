@@ -28,7 +28,7 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
   };
 
   const handleNavigateToCourseList = () => {
-    navigate('/courselist'); // Navigate to course list using navigate
+    navigate('/productdetals'); // Navigate to course list using navigate
   };
   
 
@@ -49,8 +49,10 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
   
     cardHeader: {
       fontSize: '1.5rem', // Larger font size for header
-      color: '#333', // Dark text color
-      marginBottom: '15px', // Space below header
+  color: '#333', // Dark text color
+  marginBottom: '15px', // Space below header
+  pointerEvents: 'auto', // Allow pointer events (default behavior)
+  cursor: 'pointer', // Change cursor to a finger when hovering
     },
   
     cardText: {

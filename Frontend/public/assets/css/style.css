@@ -45401,5 +45401,118 @@ html[dir=rtl] .choices__input {
 
 .resend-button:disabled {
   color: gray;
+<<<<<<< HEAD
   cursor: not-allowed;
+=======
+}
+.description {
+  margin-top: 10px;
+  color: #555; /* Lighter color for description */
+}
+@media (max-width: 768px) {
+  .video-item {
+      flex-direction: column;
+      align-items: flex-start; /* Align items to start */
+  }
+  video {
+      margin-right: 0; /* Remove margin for mobile */
+      margin-bottom: 10px; /* Add space below the video */
+      width: 100%; /* Make video full width */
+  }
+  .info {
+      width: 100%; /* Make info take full width */
+  }
+}
+@media (max-width: 1200px) {
+  .video-item {
+      flex-direction: column;
+      align-items: flex-start; /* Align items to start */
+  }
+  video {
+      margin-right: 0; /* Remove margin for mobile */
+      margin-bottom: 10px; /* Add space below the video */
+      width: 100%; /* Make video full width */
+  }
+  .info {
+      width: 100%; /* Make info take full width */
+  }
+}
+/* mini video stop */
+/* Video Player Css Stop */
+
+/* Home Search Start*/
+.cust{
+    width: 400px; 
+    max-width: 100%; 
+}
+
+/* Ensure the button retains its default size */
+.btn-sea {
+    width : 50px;
+    margin-top: -0px;
+    
+}
+
+@media screen and (max-width: 1200px) {
+  .cust {
+      width: 300px;
+      max-width: 70%;
+  }
+  
+  .btn-sea {
+      width: 50px;
+  }
+}
+/* Media query for screens smaller than 768px (tablets and smaller devices) */
+@media screen and (max-width: 768px) {
+  .cust {
+      width: 300px;
+      max-width: 100%;
+  }
+  
+  .btn-sea {
+      width: 50px;
+  }
+}
+
+/* Media query for screens smaller than 480px (mobile devices) */
+@media screen and (max-width: 480px) {
+  .cust {
+      width: 100%;
+  }
+  
+  .btn-sea {
+      width: 50px;
+  }
+}
+
+/* Home Search End*/
+
+/* Light Mode */
+.light {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Dark Mode */
+.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
+/* Black & White Mode */
+.bw {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --filter: grayscale(100%);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+img {
+  filter: var(--filter, none);
+>>>>>>> Person4
 }
