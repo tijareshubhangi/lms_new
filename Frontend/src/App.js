@@ -8,7 +8,6 @@ import Sign_UP from "./Components/Sign_UP";
 import Sign_in from "./Components/Sign_in";
 import Cart from "./Components/Cart";
 import { UserProvider } from "./context/UserContext";
-
 import CourseCategory from './Components/CourseCategory';
 // import Footer from './Components/Footer';
 
