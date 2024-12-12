@@ -350,7 +350,7 @@ Main Banner END */}
  <ActionBox/>
  <TrendingCourses/>
  <Scroolbar/>
- <Review/>
+ {/* <Review/> */}
  <FeedBack/>
  <Footer/>
 </>
