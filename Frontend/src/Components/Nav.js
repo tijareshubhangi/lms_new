@@ -4,6 +4,7 @@ import { IoMdCart } from "react-icons/io";
 import { useUser } from '../context/UserContext'; // Importing UserContext
 
 
+
 const Nav = ({ cartCount }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -31,7 +32,8 @@ const Nav = ({ cartCount }) => {
     };
   }, []);
 
-  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+
+  const toggleDropdown = () => setDropdownOpen(prev => !prev);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -105,11 +107,11 @@ const Nav = ({ cartCount }) => {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
+                > 
                   Dashboard
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
-                  <li><Link className="dropdown-item" to="/adminlogin">Admin</Link></li>
+                  <li><Link className="dropdown-item" to="/admin-dashboard">Admin</Link></li>
                   <li><Link className="dropdown-item" to="/instructorlogin">Instructor</Link></li>
                   <li><Link className="dropdown-item" to="/studentdashboard">Student</Link></li>
                 </ul>
@@ -121,8 +123,10 @@ const Nav = ({ cartCount }) => {
                 <Link to="/cart">
                   <IoMdCart size={28} />
                   <span> ({cartCount})</span>
-                </Link>
+
+                </Link> 
               </div>  
+
 
               {user ? ( 
                 <div className="dropdown ms-3" ref={dropdownRef}>
@@ -150,7 +154,7 @@ const Nav = ({ cartCount }) => {
                       <li>
                         <Link
                           className="dropdown-item bg-danger-soft-hover"
-                          onClick={handleLogout} // Fixed here to call handleLogout
+                          onClick={handleLogoutClick}
                         >
                           Log Out
                         </Link>

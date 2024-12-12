@@ -81,6 +81,14 @@ import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
 
+// import AdminEdit from "./Components/AdminEdit";
+
+import CourseMore from "./Components/CourseMore";
+
+
+
+import CreateCourse from "./Components/CreateCourcescompt/CreateCourse";
+
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -172,6 +180,7 @@ function App() {
 <Route path='/coursecategory' element={<CourseCategory/>}/>
 
 <Route path='/' element={ <Home/> }/>
+
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
 <Route path='/instructorquiz' element={<Instructor_Quiz />} />
@@ -237,7 +246,11 @@ Student Dashboard Route Start */}
 <Route path="/admin-review" element={<AdminReview/>} />
 <Route path="/admin-seating" element={<AdminSeating/>} />
 <Route path="/AdminError" element={<AdminError404/>} />
+{/* <Route path="/AdminEdit" element={<AdminEdit/> } /> */}
 <Route path="/productdetals" element={<ProductDetails/>} />
+<Route path="/coursemore" element={<CourseMore/>} />
+<Route path="/createcource" element={<CreateCourse/>} />
+
 
 
           <Route path="*" element={<Navigate to="/" />} />
