@@ -152,7 +152,7 @@ const Nav = ({ cartCount}) => {
               <div className="position-relative">
                 <Link to="/cart">
                   <IoMdCart size={28} />
-                  <span>({cartCount})</span>
+                  <span>{cartCount}</span>
                 </Link>
               </div>  
 
