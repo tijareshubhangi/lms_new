@@ -35,7 +35,7 @@ const Instructor_Login = () => {
       const response = await axios.post('http://localhost:9000/send-otp', { email });
       setMessage(response.data.message);
       setIsOtpSent(true);
-      setTimer(60); // Start countdown
+      setTimer(30); // Start countdown
     } catch (error) {
       setMessage('Error sending OTP');
     }

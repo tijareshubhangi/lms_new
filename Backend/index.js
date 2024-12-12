@@ -89,7 +89,7 @@ app.post('/verify-otp', (req, res) => {
   }
 
   // Check if OTP has expired (60 seconds limit)
-  const expiryTime = 60 * 1000; // 60 seconds
+  const expiryTime = 30 * 1000; // 60 seconds
   const isExpired = Date.now() - otpData.timestamp > expiryTime;
 
   if (isExpired) {
