@@ -5,12 +5,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import fs from "fs";
-import nodemailer from "nodemailer"
-
-// Import Custom Modules 
+import nodemailer from "nodemailer";
+import bodyParser from "body-parser";
+// Import Custom Modules
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
-
+import courseRoutes from "./routes/courseRoutes.js";
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -22,6 +22,12 @@ connectDB();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Parse JSON data
+app.use(bodyParser.json());
+
+// Parse URL-encoded data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Ensure Public/Allimages Directory Exists
 const folderPath = path.join(path.resolve(), "Public/Allimages"); // Use path.resolve for __dirname replacement in ES modules
@@ -38,9 +44,8 @@ app.get("/", (req, res) => {
   res.send("Backend is Running..");
 });
 app.use("/api/auth", authRoutes);
-
-
-
+app.use('/api/auth', courseRoutes);
+app.use('/uploads', express.static('uploads'));
 // Temporary storage for OTPs (for demo purposes; consider using a database in production)
 const otpStore = {};
 
@@ -108,7 +113,6 @@ app.post('/verify-otp', (req, res) => {
     res.status(400).json({ message: 'Invalid OTP' });
   }
 });
-
 // Start Server
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
