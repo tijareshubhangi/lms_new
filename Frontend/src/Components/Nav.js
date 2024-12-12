@@ -154,7 +154,7 @@ const Nav = ({ cartCount }) => {
                       <li>
                         <Link
                           className="dropdown-item bg-danger-soft-hover"
-                          onClick={handleLogoutClick}
+                          onClick={handleLogout}
                         >
                           Log Out
                         </Link>
