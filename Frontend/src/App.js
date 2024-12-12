@@ -82,6 +82,10 @@ import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
 import CourseMore from "./Components/CourseMore";
 import CreateCourse from "./Components/CreateCourcescompt/CreateCourse";
+import About from "./Components/About";
+import ContactUs from "./Components/ContactUs";
+import Blog from "./Components/Blog";
+import BlogDetals from "./Components/BlogDetals";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -173,7 +177,11 @@ function App() {
             }
           />
 
-          
+<Route path='/about' element={ <About/> }/>   
+<Route path='/contactus' element={ <ContactUs/> }/>   
+<Route path='/blog' element={ <Blog/> }/>
+<Route path='/blogdetals' element={ <BlogDetals/> }/>
+
 <Route path='/coursecategory' element={<CourseCategory cartCount={cartCount} />}/>
 
 <Route path='/' element={ <Home /> }/>

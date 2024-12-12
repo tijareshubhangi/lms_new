@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -12,17 +13,17 @@ Footer START */}
       {/* Widget 1 START */}
       <div className="col-lg-3">
         {/* logo */}
-        <a className="me-0" href="index-2.html">
+        <Link className="me-0" to="index-2.html">
           <img className="light-mode-item h-40px" src="assets/images/logo1newbg.png" alt="logo" />
           {/* <img className="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo" /> */}
-        </a>
+        </Link>
         <p className="my-3">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
         {/* Social media icon */}
         <ul className="list-inline mb-0 mt-3">
-          <li className="list-inline-item"> <a className="btn btn-white btn-sm shadow px-2 text-facebook" href="#"><i className="fab fa-fw fa-facebook-f" /></a> </li>
-          <li className="list-inline-item"> <a className="btn btn-white btn-sm shadow px-2 text-instagram" href="#"><i className="fab fa-fw fa-instagram" /></a> </li>
-          <li className="list-inline-item"> <a className="btn btn-white btn-sm shadow px-2 text-twitter" href="#"><i className="fab fa-fw fa-twitter" /></a> </li>
-          <li className="list-inline-item"> <a className="btn btn-white btn-sm shadow px-2 text-linkedin" href="#"><i className="fab fa-fw fa-linkedin-in" /></a> </li>
+          <li className="list-inline-item"> <Link className="btn btn-white btn-sm shadow px-2 text-facebook" to="#"><i className="fab fa-fw fa-facebook-f" /></Link> </li>
+          <li className="list-inline-item"> <Link className="btn btn-white btn-sm shadow px-2 text-instagram" to="#"><i className="fab fa-fw fa-instagram" /></Link> </li>
+          <li className="list-inline-item"> <Link className="btn btn-white btn-sm shadow px-2 text-twitter" to="#"><i className="fab fa-fw fa-twitter" /></Link> </li>
+          <li className="list-inline-item"> <Link className="btn btn-white btn-sm shadow px-2 text-linkedin" to="#"><i className="fab fa-fw fa-linkedin-in" /></Link> </li>
         </ul>
       </div>
       {/* Widget 1 END */}
@@ -33,30 +34,30 @@ Footer START */}
           <div className="col-6 col-md-4">
             <h5 className="mb-2 mb-md-4">Company</h5>
             <ul className="nav flex-column">
-              <li className="nav-item"><a className="nav-link" href="/">About us</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">Contact us</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">News and Blogs</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">Library</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">Career</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/about">About us</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/contactus">Contact us</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/blog">News and Blogs</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Library</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Career</Link></li>
             </ul>
           </div>
           {/* Link block */}
           <div className="col-6 col-md-4">
             <h5 className="mb-2 mb-md-4">Community</h5>
             <ul className="nav flex-column">
-              <li className="nav-item"><a className="nav-link" href="/">Documentation</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">Faq</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">Forum</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">Sitemap</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Documentation</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Faq</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Forum</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Sitemap</Link></li>
             </ul>
           </div>
           {/* Link block */}
           <div className="col-6 col-md-4">
             <h5 className="mb-2 mb-md-4">Teaching</h5>
             <ul className="nav flex-column">
-              <li className="nav-item"><a className="nav-link" href="/">Become a teacher</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">How to guide</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">Terms &amp; Conditions</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Become a teacher</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/">How to guide</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/">Terms &amp; Conditions</Link></li>
             </ul>
           </div>
         </div>
@@ -74,11 +75,11 @@ Footer START */}
         <div className="row g-2 mt-2">
           {/* Google play store button */}
           <div className="col-6 col-sm-4 col-md-3 col-lg-6">
-            <a href="/"> <img src="assets/images/client/google-play.svg" alt /> </a>
+            <Link to="/"> <img src="assets/images/client/google-play.svg" alt /> </Link>
           </div>
           {/* App store button */}
           <div className="col-6 col-sm-4 col-md-3 col-lg-6">
-            <a href="/"> <img src="assets/images/client/app-store.svg" alt="app-store" /> </a>
+            <Link to="/"> <img src="assets/images/client/app-store.svg" alt="app-store" /> </Link>
           </div>
         </div> {/* Row END */}
       </div> 
@@ -91,25 +92,25 @@ Footer START */}
       <div className="container px-0">
         <div className="d-lg-flex justify-content-between align-items-center py-3 text-center text-md-left">
           {/* copyright text */}
-          <div className="text-body text-primary-hover"> Copyrights ©2024 Eduport. Build by <a href="https://www.webestica.com/" target="_blank" className="text-body">Webestica</a></div>
+          <div className="text-body text-primary-hover"> Copyrights ©2024 Eduport. Build by <Link to="https://www.webestica.com/" target="_blank" className="text-body">Webestica</Link></div>
           {/* copyright links*/}
           <div className="justify-content-center mt-3 mt-lg-0">
             <ul className="nav list-inline justify-content-center mb-0">
               <li className="list-inline-item">
                 {/* Language selector */}
                 <div className="dropup mt-0 text-center text-sm-end">
-                  <a className="dropdown-toggle nav-link" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+                  <Link className="dropdown-toggle nav-link" to="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
                     <i className="fas fa-globe me-2" />Language
-                  </a>
+                  </Link>
                   <ul className="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
-                    <li><a className="dropdown-item me-4" href="#"><img className="fa-fw me-2" src="assets/images/flags/uk.svg" alt />English</a></li>
-                    <li><a className="dropdown-item me-4" href="#"><img className="fa-fw me-2" src="assets/images/flags/gr.svg" alt />German </a></li>
-                    <li><a className="dropdown-item me-4" href="#"><img className="fa-fw me-2" src="assets/images/flags/sp.svg" alt />French</a></li>
+                    <li><Link className="dropdown-item me-4" to="#"><img className="fa-fw me-2" src="assets/images/flags/uk.svg" alt />English</Link></li>
+                    <li><Link className="dropdown-item me-4" to="#"><img className="fa-fw me-2" src="assets/images/flags/gr.svg" alt />German </Link></li>
+                    <li><Link className="dropdown-item me-4" to="#"><img className="fa-fw me-2" src="assets/images/flags/sp.svg" alt />French</Link></li>
                   </ul>
                 </div>
               </li>
-              <li className="list-inline-item"><a className="nav-link" href="#">Terms of use</a></li>
-              <li className="list-inline-item"><a className="nav-link pe-0" href="#">Privacy policy</a></li>
+              <li className="list-inline-item"><Link className="nav-link" to="#">Terms of use</Link></li>
+              <li className="list-inline-item"><Link className="nav-link pe-0" to="#">Privacy policy</Link></li>
             </ul>
           </div>
         </div>
