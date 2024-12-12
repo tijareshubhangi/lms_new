@@ -180,6 +180,7 @@ function App() {
 <Route path='/coursecategory' element={<CourseCategory/>}/>
 
 <Route path='/' element={ <Home/> }/>
+
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
 <Route path='/instructorquiz' element={<Instructor_Quiz />} />

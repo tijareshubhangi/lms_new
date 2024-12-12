@@ -49,7 +49,7 @@ const fileFilterConfig = (req, file, cb) => {
 // Configure multer upload with storage, file size limit, and file filter
 const uploadMiddleware = multer({
   storage: storageConfig,
-  limits: { fileSize: 1024 * 1024 * 5 }, // Limit file size to 5MB
+  limits: { fileSize: 1024 * 1024 * 50}, // Limit file size to 5MB
   fileFilter: fileFilterConfig,
 });
 
