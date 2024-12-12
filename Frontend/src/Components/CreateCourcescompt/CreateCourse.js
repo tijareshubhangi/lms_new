@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Nav from '../Nav';
+import axios from "../Services/axiosInterceptor";
 const CreateCourse = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 4;
@@ -16,6 +17,62 @@ const CreateCourse = () => {
       setCurrentStep(stepNumber);
     }
   };
+
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    category: '',
+    level: '',
+    featured: false,
+    videoUrl: '',
+    tags: '',
+    reviewerMessage: '',
+    curriculum: '',
+    courseImage: null,
+  });
+
+  // const handleInputChange = (e) => {
+  //   const { id, value, type, checked, files } = e.target;
+  //   if (type === 'checkbox') {
+  //     setFormData((prev) => ({ ...prev, [id]: checked }));
+  //   } else if (type === 'file') {
+  //     setFormData((prev) => ({ ...prev, courseImage: files[0] }));
+  //   } else {
+  //     setFormData((prev) => ({ ...prev, [id]: value }));
+  //   }
+  // };
+  const handleSubmit = async () => {
+    const form = new FormData();
+  
+    form.append('title', document.getElementById('title')?.value || '');
+    form.append('description', document.getElementById('description')?.value || '');
+    form.append('category', document.getElementById('category')?.value || '');
+    form.append('level', document.getElementById('level')?.value || '');
+    form.append('featured', document.getElementById('featured')?.checked || false);
+  
+    const courseImage = document.getElementById('courseImage')?.files[0];
+    if (courseImage) {
+      form.append('media.imageUrl', courseImage.name); // Adjust based on backend storage logic
+    }
+    form.append('media.videoUrl', document.getElementById('videoUrl')?.value || '');
+  
+    form.append('tags', document.getElementById('tags')?.value?.split(',') || []);
+    form.append('reviewerMessage', document.getElementById('message')?.value || '');
+  
+    try {
+      const res = await axios.post('/api/auth/courses', form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      alert('Course submitted successfully!');
+    } catch (error) {
+      console.error('Error submitting course:', error.response?.data || error.message);
+      alert(`Error: ${error.response?.data?.message || 'An error occurred.'}`);
+    }
+  };
+  
+  
+  
+
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -180,7 +237,7 @@ const CreateCourse = () => {
             Previous
           </button>
           {currentStep === totalSteps ? (
-            <button style={styles.button}>Submit Course</button>
+            <button style={styles.button} onClick={handleSubmit}>Submit Course</button>
           ) : (
             <button
               onClick={() => navigateToStep(currentStep + 1)}
@@ -303,4 +360,3 @@ const styles = {
 };
 
 export default CreateCourse;
-

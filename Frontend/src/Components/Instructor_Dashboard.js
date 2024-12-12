@@ -51,7 +51,7 @@ const Instructor_Dashboard = () => {
                 </div>
                 {/* Button */}
                 <div className="d-flex align-items-center mt-2 mt-md-0">
-                   <Link to="/instructorcreatecourses" className="btn btn-success mb-0">Create a course</Link>
+                   <Link to="/createcource" className="btn btn-success mb-0">Create a course</Link>
                 </div>
               </div>
             </div>

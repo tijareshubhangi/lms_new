@@ -5,7 +5,9 @@ import { useUser } from '../context/UserContext'; // Importing UserContext
 
 
 
+
 const Nav = ({ cartCount}) => {
+
 
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -140,7 +142,7 @@ const Nav = ({ cartCount}) => {
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="dashboardDropdown">
                   <li><Link className="dropdown-item" to="/adminlogin">Admin</Link></li>
-                  <li><Link className="dropdown-item" to="/instructorlogin">Instructor</Link></li>
+                  <li><Link className="dropdown-item" to="/instructordashboard">Instructor</Link></li>
                   <li><Link className="dropdown-item" to="/studentdashboard">Student</Link></li>
                 </ul>
               </li>

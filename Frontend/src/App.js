@@ -176,7 +176,6 @@ function App() {
 
 <Route path='/' element={ <Home/> }/>
 
-
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
 <Route path='/instructorquiz' element={<Instructor_Quiz />} />
@@ -251,6 +250,7 @@ Student Dashboard Route Start */}
 <Route path="/productdetals" element={<ProductDetails/>} />
 <Route path="/coursemore" element={<CourseMore/>} />
 <Route path="/createcource" element={<CreateCourse/>} />
+
 
 
           <Route path="*" element={<Navigate to="/" />} />
