@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 
 const CourseList = () => {
   return (
@@ -501,7 +502,7 @@ Page content START */}
     </div>
   </section>
 </div>
-
+<Footer/>
     </>
   )
 }

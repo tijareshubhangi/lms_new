@@ -13,11 +13,11 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
     // Simulate fetching product (course) data
     setProducts([
       { id: 1, name: "Computer Hardware", image: "assets/images/courses/4by3/HW.png"  },
-      { id: 2, name: "Computer Networking" },
-      { id: 3, name: "Graphic Designing" },
-      { id: 4, name: "Digitial Marketing" },
-      { id: 5, name: "Wordpress" },
-      { id: 5, name: "(AWS) Amazon Web Services" },
+      { id: 2, name: "Computer Networking", image: "assets/images/courses/4by3/HW.png" },
+      { id: 3, name: "Graphic Designing",image: "assets/images/courses/4by3/HW.png"  },
+      { id: 4, name: "Digitial Marketing",image: "assets/images/courses/4by3/HW.png" },
+      { id: 5, name: "Wordpress",image: "assets/images/courses/4by3/HW.png" },
+      { id: 5, name: "(AWS) Amazon Web Services",image: "assets/images/courses/4by3/HW.png" },
       
       
     ]);
