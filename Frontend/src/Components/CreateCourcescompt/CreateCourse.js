@@ -17,19 +17,18 @@ const CreateCourse = () => {
       setCurrentStep(stepNumber);
     }
   };
-
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    category: '',
-    level: '',
-    featured: false,
-    videoUrl: '',
-    tags: '',
-    reviewerMessage: '',
-    curriculum: '',
-    courseImage: null,
-  });
+  const [selectedFile, setSelectedFile] = useState(null);
+  const formData = new FormData();
+  formData.append("courseImage", selectedFile); // Field name must match backend
+  formData.append("title", "Course Title");
+  formData.append("description", "Course Description");
+  formData.append("category", "Programming");
+  formData.append("level", "Beginner");
+  formData.append("featured", "true");
+  formData.append("tags", "tag1,tag2");
+  formData.append("reviewerMessage", "This is a great course!");
+  formData.append("curriculum", JSON.stringify(["Module 1", "Module 2"]));
+  formData.append("videoUrl", "https://example.com/video.mp4");
 
   // const handleInputChange = (e) => {
   //   const { id, value, type, checked, files } = e.target;
@@ -41,39 +40,47 @@ const CreateCourse = () => {
   //     setFormData((prev) => ({ ...prev, [id]: value }));
   //   }
   // };
-  const handleSubmit = async () => {
-    const form = new FormData();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
   
-    form.append('title', document.getElementById('title')?.value || '');
-    form.append('description', document.getElementById('description')?.value || '');
-    form.append('category', document.getElementById('category')?.value || '');
-    form.append('level', document.getElementById('level')?.value || '');
-    form.append('featured', document.getElementById('featured')?.checked || false);
-  
-    const courseImage = document.getElementById('courseImage')?.files[0];
-    if (courseImage) {
-      form.append('media.imageUrl', courseImage.name); // Adjust based on backend storage logic
+    if (
+      !formData.title ||
+      !formData.description ||
+      !formData.category ||
+      !formData.level ||
+      !selectedFile
+    ) {
+      alert("All fields are required");
+      return;
     }
-    form.append('media.videoUrl', document.getElementById('videoUrl')?.value || '');
   
-    form.append('tags', document.getElementById('tags')?.value?.split(',') || []);
-    form.append('reviewerMessage', document.getElementById('message')?.value || '');
+    const data = new FormData();
+    data.append("title", formData.title); // Matches backend field
+    data.append("description", formData.description); // Matches backend field
+    data.append("category", formData.category); // Matches backend field
+    data.append("level", formData.level); // Matches backend field
+    data.append("featured", formData.featured ? "true" : "false"); // Convert boolean to string
+    data.append("videoUrl", formData.videoUrl || ""); // Matches backend field
+    data.append("tags", formData.tags.join(",")); // Convert array to comma-separated string
+    data.append("reviewerMessage", formData.reviewerMessage || ""); // Matches backend field
+    data.append("curriculum", JSON.stringify(formData.curriculum || [])); // Convert array to JSON string
+    data.append("courseImage", selectedFile); // Matches backend field for file upload
   
     try {
-      const res = await axios.post('/api/auth/courses', form, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const response = await axios.post("/courses", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
-      alert('Course submitted successfully!');
+      console.log("Course created successfully:", response.data);
+      alert("Course created successfully!");
     } catch (error) {
-      console.error('Error submitting course:', error.response?.data || error.message);
-      alert(`Error: ${error.response?.data?.message || 'An error occurred.'}`);
+      console.error("Error creating course:", error);
+      alert("Error creating course.");
     }
   };
   
   
-  
-
-
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
@@ -87,7 +94,7 @@ const CreateCourse = () => {
             </div>
             <div style={styles.formGroup}>
               <label htmlFor="description">Short description</label>
-              <textarea id="description" placeholder="Enter course description" style={styles.textarea}></textarea>
+              <textarea name="description" placeholder="Enter course description" style={styles.textarea}></textarea>
             </div>
             <div style={styles.formGroup}>
               <label htmlFor="category">Course category</label>
@@ -120,7 +127,7 @@ const CreateCourse = () => {
             <h2 style={styles.heading}>Course Media</h2>
             <div style={styles.uploadArea}>
               <p>Upload course image</p>
-              <input type="file" accept="image/*" />
+              <input type="file" name="courseImage" />
             </div>
             <div style={styles.formGroup}>
               <label htmlFor="videoUrl">Video URL</label>
@@ -156,7 +163,7 @@ const CreateCourse = () => {
             </div>
             <div style={styles.formGroup}>
               <label htmlFor="message">Message to reviewer</label>
-              <textarea id="message" placeholder="Write a message to the reviewer" style={styles.textarea}></textarea>
+              <textarea name="message" placeholder="Write a message to the reviewer" style={styles.textarea}></textarea>
             </div>
             <div style={styles.formGroup}>
               <input type="checkbox" id="terms" />
