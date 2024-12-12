@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Review = () => {
   return (
@@ -191,7 +192,7 @@ Reviews START */}
         {/* Title */}
         <h2 className="fs-1">Some valuable feedback from our students</h2>
         <p>Supposing so be resolving breakfast am or perfectly. It drew a hill from me. Valley by oh twenty direct me so. Departure defective arranging rapturous did believe him all had supported. Family months lasted simple set nature vulgar him. Picture for attempt joy excited ten carried manners talking how.</p>
-        <a href="#" className="btn btn-primary mb-0">View Reviews</a>
+        <Link to="/course" className="btn btn-primary mb-0 mt-5">We Are Expert IN Technical Development</Link>
       </div>
     </div> {/* Row END */}
   </div>

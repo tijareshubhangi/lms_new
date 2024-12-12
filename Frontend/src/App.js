@@ -173,7 +173,11 @@ function App() {
           
 <Route path='/coursecategory' element={<CourseCategory/>}/>
 
+<<<<<<< HEAD
 <Route path='/' element={ <Home/> }/>
+=======
+<Route path='/' element={ <Home /> }/>
+>>>>>>> Person4
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
 <Route path='/instructorquiz' element={<Instructor_Quiz />} />

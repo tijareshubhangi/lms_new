@@ -11,6 +11,7 @@ import Footer from './Footer';
 import ActionBox from './ActionBox ';
 import Scroolbar from './Scroolbar';
 import Review2 from './Review2';
+import FeedBack from './FeedBack';
 
 
 const Home = () => {
@@ -30,45 +31,7 @@ const Home = () => {
     setCartCount(cart.reduce((count, item) => count + item.quantity, 0));
   }, [cart]);
 
-  const handleAddToCart = (product) => {
-    const existsInCart = cart.find((item) => item.id === product.id);
-    if (existsInCart) {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    }
-  };
-
-  const handleAdd = (product) => {
-    setCart(
-      cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
-
-  const handleRemove = (product, isDelete = false) => {
-    if (isDelete) {
-      setCart(cart.filter((item) => item.id !== product.id));
-    } else {
-      const updatedCart = cart.map((item) =>
-        item.id === product.id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      );
-      setCart(updatedCart);
-    }
-  };
-
-  const handleClearCart = () => {
-    setCart([]);
-  };
+  
   const handleLogout = () => {
     localStorage.removeItem("token");
     setCart([]);
@@ -85,7 +48,11 @@ const Home = () => {
 
   }
 
+  const [showGreen, setShowGreen] = useState(false); // State to toggle the green div
 
+  const handleShowMore = () => {
+    setShowGreen(true); // Show the green div when the button is clicked
+  };
 
  return ( 
 
@@ -385,6 +352,7 @@ Main Banner END */}
  <TrendingCourses/>
  <Scroolbar/>
  <Review/>
+ <FeedBack/>
  <Footer/>
 </>
   )

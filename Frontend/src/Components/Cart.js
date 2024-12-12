@@ -95,6 +95,28 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
     navigate("/");
   };
 
+  const styles = {
+    mainheader: {
+      marginTop: '150px',
+    },
+    '@media (max-width: 1024px)': { // For tablets
+      mainheader: {
+        marginTop: '100px',
+      },
+    },
+    '@media (max-width: 768px)': { // For small tablets and large phones
+      mainheader: {
+        marginTop: '80px',
+      },
+    },
+    '@media (max-width: 480px)': { // For mobile devices
+      mainheader: {
+        marginTop: '50px',
+      },
+    },
+  };
+  
+
   return (
     <>
     <br/>
@@ -106,7 +128,7 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
 
       <Nav cartCount={cartCount} handleLogout={handleLogout} />
       <div>
-        <section className="py-0">
+        <section className="py-0 " style={styles.mainheader}>
           <div className="container">
             <div className="row">
               <div className="col-12">
@@ -121,7 +143,10 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                         <li className="breadcrumb-item">
                           <Link to="/courses">Courses</Link>
                         </li>
-                        <li className="breadcrumb-item active" aria-current="page">
+                        <li
+                          className="breadcrumb-item active"
+                          aria-current="page"
+                        >
                           Cart
                         </li>
                       </ol>
@@ -140,8 +165,31 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                 <div className="card card-body p-4 shadow">
                   {cart.length === 0 ? (
                     <div>
-                      <p>Your cart is empty</p>
-                      <button onClick={() => navigate("/course")}>
+                      <div
+                        className="alert alert-danger alert-dismissible d-flex justify-content-between align-items-center fade show py-3 pe-2"
+                        role="alert"
+                      >
+                        <div>
+                          <span className="fs-5 me-1">🔥</span>
+                          <strong className="text-danger ms-1">
+                          Your cart is empty ! add cources
+                          </strong>
+                        </div>
+                        <button
+                          type="button"
+                          className="btn btn-link mb-0 text-primary-hover text-end"
+                          data-bs-dismiss="alert"
+                          aria-label="Close"
+                        >
+                          <i className="bi bi-x-lg" />
+                        </button>
+                      </div>
+
+                     
+                      <button
+                        onClick={() => navigate("/course")}
+                        className="btn btn-lg btn-success"
+                      >
                         Add More Products
                       </button>
                     </div>
@@ -153,13 +201,21 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                             <tr key={item.id}>
                               <td>
                                 <div className="d-lg-flex align-items-center">
+                                <img
+            src={item.thumbnail}
+            alt={item.name}
+            className="img-fluid rounded"
+            style={{ width: "80px", height: "80px", objectFit: "cover" }}
+          />
                                   <h6 className="mb-0 ms-lg-3 mt-2 mt-lg-0">
                                     {item.name}
                                   </h6>
                                 </div>
                               </td>
                               <td className="text-center">
-                                <h5 className="text-success mb-0">₹{item.price}</h5>
+                                <h5 className="text-success mb-0">
+                                  ₹{item.price}
+                                </h5>
                                 <p>Quantity: {item.quantity}</p>
                               </td>
                               <td>
@@ -209,9 +265,6 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                     </li>
                   </ul>
                   <div className="d-grid">
-                    <button onClick={() => navigate("/course")}>
-                      See More Products
-                    </button>
                     <button
                       onClick={handleBuy}
                       className="btn btn-lg btn-success"
