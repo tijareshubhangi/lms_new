@@ -60,7 +60,7 @@ export default function FeedbackSlider() {
 
   return (
     <>
-    <section className="bg-light position-relative">
+    <section className="bg-lights position-relative">
     <hr className="text-primary h-5" />
       <div className="container text-center">
         {/* Section Title */}

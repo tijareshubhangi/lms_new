@@ -97,7 +97,7 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
    <Nav cartCount={cartCount} handleLogout={handleLogout} />
     <div>
       <br /><br /><br />
-      <section className="bg-light position-relative">
+      <section className="bg-lights position-relative">
         <div className="container  position-relative">
           <div className="row">
             <div className="col-12 border">
