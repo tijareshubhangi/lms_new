@@ -83,14 +83,11 @@ import ProductDetails from "./Components/ProductDetals";
 import CourseMore from "./Components/CourseMore";
 
 import CreateCourse from "./Components/CreateCourcescompt/CreateCourse";
-<<<<<<< HEAD
-import AdminEdit from "./Components/AdminEdit";
-=======
 import About from "./Components/About";
 import ContactUs from "./Components/ContactUs";
 import Blog from "./Components/Blog";
 import BlogDetals from "./Components/BlogDetals";
->>>>>>> Person4
+import AdminEdit from "./Components/AdminEdit";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -177,20 +174,12 @@ function App() {
             }
           />
 
-<<<<<<< HEAD
-          
-<Route path='/coursecategory' element={<CourseCategory/>}/>
-
-
-<Route path='/' element={ <Home/> }/>
-=======
 <Route path='/about' element={ <About/> }/>   
 <Route path='/contactus' element={ <ContactUs/> }/>   
 <Route path='/blog' element={ <Blog/> }/>
 <Route path='/blogdetals' element={ <BlogDetals/> }/>
 
 <Route path='/coursecategory' element={<CourseCategory cartCount={cartCount} />}/>
->>>>>>> Person4
 
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
