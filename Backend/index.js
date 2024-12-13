@@ -10,7 +10,7 @@ import fs from "fs";
 // Import Custom Modules
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
-
+import paymentRoutes from "./routes/paymentRoutes.js"
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -38,7 +38,8 @@ app.get("/", (req, res) => {
   res.send("Backend is Running..");
 });
 app.use("/api/auth", authRoutes);
-
+// Routes
+app.use("/api/payments", paymentRoutes);
 // Start Server
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {

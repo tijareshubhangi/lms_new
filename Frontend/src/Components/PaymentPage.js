@@ -1,25 +1,75 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PaymentPage = () => {
+  const [qrCode, setQrCode] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const fetchQRCode = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/generate-qr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user: "PSK", amount: 1000 }),
+      });
+
+      const data = await response.json();
+      setQrCode(data.qrCode);
+    } catch (error) {
+      console.error("Error generating QR code:", error);
+    }
+  };
+
+  const handlePaymentVerification = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/verify-payment", {
+        method: "POST",
+      });
+
+      const data = await response.json();
+      if (data.message === "Payment Successful") {
+        navigate("/success"); // Redirect to success page
+      }
+    } catch (error) {
+      console.error("Error verifying payment:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchQRCode(); // Generate QR code when the component loads
+  }, []);
+
+  const buttonStyle = {
+    backgroundColor: "#00e676",
+    color: "#fff",
+    border: "none",
+    padding: "10px 10px",
+    fontWeight: "bold",
+    borderRadius: "15px",
+    cursor: "pointer",
+    boxShadow: isHovered ? "0px 6px 14px rgba(0, 0, 0, 0.3)" : "0px 4px 8px rgba(0, 0, 0, 0.2)",
+    transform: isHovered ? "scale(1.05)" : "scale(1)",
+    transition: "transform 0.2s, box-shadow 0.2s",
+    marginBottom: "20px",
+  };
   const [selectedUPI, setSelectedUPI] = React.useState("");
 
   const [selectedPayment, setSelectedPayment] = React.useState("");
   const [selectedBank, setSelectedBank] = React.useState("");
 
-  
-
   return (
-    <div className="flex justify-center p-4">
+    <div className="flex justify-center items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
       <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-4">
         <div className="flex">
           <div className="w-3/4 pr-4">
             <div className="bg-blue-600 text-white p-4 rounded-t-lg">
-              <h2 className="text-lg font-bold">PAYMENT OPTIONS</h2>
+              <h2 className="text-lg text-white font-bold">PAYMENT OPTIONS</h2>
             </div>
             <div className="bg-yellow-100 p-4">
               <p>
                 Complete payment in{" "}
-                <span className="font-bold">00 : 13 : 53</span>
+                <span className="font-bold">00 : 02 : 53</span>
               </p>
             </div>
             <div className="p-4">
@@ -32,11 +82,11 @@ const PaymentPage = () => {
                     defaultChecked
                   />
                   <img
-                     src="assets/images/upi icon.png"
+                    src="assets/images/upi icon.png"
                     alt="Google Pay logo"
-                    className="mr-2" style={{ width: '48px', height: '48px' }}
+                    className="mr-2"
+                    style={{ width: "48px", height: "48px" }}
                   />
-                  {/* <span>UPI</span> */}
                 </div>
                 <div className="ml-6">
                   <p className="font-bold">Choose an option</p>
@@ -59,36 +109,25 @@ const PaymentPage = () => {
                     <span>Your UPI ID</span>
                   </div>
                   {selectedUPI === "Your UPI ID" && (
-  <div className="ml-6">
-    <input
-      type="text"
-      placeholder="Enter your UPI ID"
-      className="border p-2 rounded w-full"
-      value={selectedUPI} // Add this to display the selected UPI ID
-      onChange={(e) => setSelectedUPI(e.target.value)} // Add this to update the selectedUPI state
-    />
-    {selectedUPI !== "" && (
-      <button className="pay-button bg-red-600 text-black p-2 rounded w-full ">Pay</button>
-    )}
-  </div>
-)}
+                    <div className="ml-6">
+                      <input
+                        type="text"
+                        placeholder="Enter your UPI ID"
+                        className="border p-2 rounded w-full"
+                        value={selectedUPI} // Add this to display the selected UPI ID
+                        onChange={(e) => setSelectedUPI(e.target.value)} // Add this to update the selectedUPI state
+                      />
+                      {selectedUPI !== "" && (
+                        <button className="pay-button bg-red-600 text-black p-2 rounded w-full ">
+                          Pay
+                        </button>
+                      )}
+                    </div>
+                  )}
                   <p className="text-gray-500">Pay by any UPI app</p>
                 </div>
               </div>
-              {/* <div className="flex items-center mb-4">
-                <input
-                  type="radio"
-                  name="payment"
-                  className="mr-2"
-                  onChange={() => setSelectedPayment("Wallets")}
-                />
-                <img
-                  src="https://placehold.co/24x24"
-                  alt="Wallets logo"
-                  className="mr-2"
-                />
-                <span>Wallets</span>
-              </div> */}
+
               <div className="flex items-center mb-4">
                 <input
                   type="radio"
@@ -124,6 +163,38 @@ const PaymentPage = () => {
                   </button>
                 </div>
               )}
+
+              <div className="flex items-center mb-4">
+                <input
+                  type="radio"
+                  name="payment"
+                  className="mr-2"
+                  onChange={() => setSelectedPayment("QR Code")}
+                />
+                <span>QR Code</span>
+              </div>
+              {selectedPayment === "QR Code" && (
+                <div>
+                  <h5 style={{ fontWeight: "bold", marginBottom: "20px", textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)" }}>Scan the QR Code to Pay</h5>
+                  {qrCode ? (
+                    <>
+                      <img style={{ width: "150px", height: "150px", margin: "20px 0", boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)" }} src={qrCode} alt="QR Code" />
+                      <br />
+                      <button
+                        style={buttonStyle}
+                        onClick={handlePaymentVerification}
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                      >
+                        Buy Now
+                      </button>
+                    </>
+                  ) : (
+                    <p style={{ fontSize: "1.2rem", fontStyle: "italic" }}>Loading QR Code...</p>
+                  )}
+                </div>
+              )}
+
               <div className="flex items-center mb-4">
                 <input
                   type="radio"
@@ -192,6 +263,7 @@ const PaymentPage = () => {
                   )}
                 </div>
               )}
+
               <div className="flex items-center mb-4">
                 <input
                   type="radio"
@@ -238,68 +310,25 @@ const PaymentPage = () => {
           </div>
           <div className="w-1/4 bg-gray-100 p-4 rounded-lg">
             <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-              <h3 className="font-bold mb-2">PRICE DETAILS</h3>
+              <h5 className="font-bold mb-2">PRICE DETAILS</h5>
               <div className="flex justify-between mb-2">
                 <span>Price (1 item)</span>
                 <span>₹1,399</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span>Delivery Charges</span>
-                <span className="text-green-500">FREE</span>
+                <span>GST</span>
+                <span className="text-green-500">&nbsp;&nbsp;3%</span>
               </div>
               <div className="flex justify-between mb-2">
                 <span>Platform Fee</span>
-                <span>₹3</span>
+                <span className="text-green-500">&nbsp;&nbsp;₹3</span>
               </div>
               <hr className="my-2" />
               <div className="flex justify-between font-bold">
                 <span>Amount Payable</span>
-                <span>₹1,402</span>
+                <span className="text-green-500">&nbsp;&nbsp;₹1,402</span>
               </div>
             </div>
-            {/* <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-              <div className="flex items-center mb-2">
-                <img
-                  src="https://placehold.co/24x24"
-                  alt="Bajaj Finserv logo"
-                  className="mr-2"
-                />
-                <span>
-                  No Cost EMI on Bajaj Finserv EMI Card on cart value above
-                  ₹2999
-                </span>
-              </div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-              <div className="flex items-center mb-2">
-                <img
-                  src="https://placehold.co/24x24"
-                  alt="Debit and Credit Cards logo"
-                  className="mr-2"
-                />
-                <span>
-                  Additional ₹200 off on Select Debit and Credit Cards
-                </span>
-              </div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-              <div className="flex items-center mb-2">
-                <img
-                  src="https://placehold.co/24x24"
-                  alt="Flipkart Axis Bank Credit Card logo"
-                  className="mr-2"
-                />
-                <span>
-                  5% Unlimited Cashback on Flipkart Axis Bank Credit Card
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center text-gray-500">
-              <i className="fas fa-shield-alt mr-2"></i>
-              <span>
-                Safe and Secure Payments. Easy returns. 100% Authentic products.
-              </span>
-            </div> */}
           </div>
         </div>
       </div>

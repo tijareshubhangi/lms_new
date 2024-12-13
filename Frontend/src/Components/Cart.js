@@ -254,10 +254,11 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                         See More Products
                       </button>
                       <button
-                        onClick={handleBuy}
+                        // onClick={handleBuy}
+                        onClick={() => navigate("/payment")}
                         className="btn btn-lg btn-success"
                       >
-                        Buy Now
+                        Continue Purchase
                       </button>
                     </div>
 

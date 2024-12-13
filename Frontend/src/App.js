@@ -70,7 +70,7 @@ import AdminSeating from './Components/AdminSeating';
 import AdminError404 from './Components/AdminError404'
 
 import BackToTop from './Components/BacktoTop';
-// import PaymentPage from './Components/PaymentPage';
+import PaymentPage from './Components/PaymentPage';
 import CoursePayment from './Components/CoursePayment';
 
 import AdminLogin from './Components/AdminLogin';
@@ -80,6 +80,7 @@ import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
 import AdminEdit from "./Components/AdminEdit";
+import Success from "./Components/Success";
 
 
 function App() {
@@ -170,10 +171,11 @@ function App() {
               />
             }
           />
+<Route path='/payment' element={<PaymentPage/>}/>
 
           
 <Route path='/coursecategory' element={<CourseCategory/>}/>
-
+<Route path="/success" element={<Success/>} />
 <Route path='/' element={ <Home/> }/>
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
