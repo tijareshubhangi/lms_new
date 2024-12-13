@@ -289,39 +289,36 @@ Page content START */}
                   <div className="bg-dark border rounded-3 pb-0 p-3 w-100">
                     {/* Dashboard menu */}
                     <div className="list-group list-group-dark list-group-borderless">
-                      <Link className="list-group-item" to="/studentdashboard">
+                      <Link className="list-group-item" to="/admin-dashboard">
                         <i className="bi bi-ui-checks-grid fa-fw me-2" />
                         Dashboard
                       </Link>
-                      <Link className="list-group-item" to="/studentlist">
+                      <Link className="list-group-item" to="/admin-course-list">
                         <i className="bi bi-basket fa-fw me-2" />
                         My Courses
                       </Link>
-                      <Link className="list-group-item" to="/studentquiz">
+                      {/* <Link className="list-group-item" to="/studentquiz">
                         <i className="bi bi-question-diamond fa-fw me-2" />
                         Quiz
-                      </Link>
-                      <a
+                      </Link> */}
+                      {/* <a
                         className="list-group-item"
                         href="instructor-earning.html"
                       >
                         <i className="bi bi-graph-up fa-fw me-2" />
                         Earnings
-                      </a>
-                      <a
-                        className="list-group-item"
-                        href="instructor-studentlist.html"
-                      >
+                      </a> */}
+                        <Link className="list-group-item" to="/admin-student-list">
                         <i className="bi bi-people fa-fw me-2" />
                         Students
-                      </a>
-                      <a
+                      </Link>
+                    {/* <a
                         className="list-group-item"
                         href="instructor-order.html"
                       >
                         <i className="bi bi-folder-check fa-fw me-2" />
                         Orders
-                      </a>
+                      </a> */}
                       <a
                         className="list-group-item"
                         href="instructor-review.html"
@@ -331,13 +328,13 @@ Page content START */}
                       </a>
                       <Link
                         className="list-group-item active"
-                        to="/studenteditprofile"
+                        to="/AdminEdit"
                       >
                         <i className="bi bi-pencil-square fa-fw me-2" />
                         Edit Profile
                       </Link>
                       {/* <Link className="list-group-item" href="/studentpayout"><i className="bi bi-wallet2 fa-fw me-2" />Payouts</Link> */}
-                      <Link className="list-group-item" to="/studentsetting">
+                      <Link className="list-group-item" to="/admin-seating">
                         <i className="bi bi-gear fa-fw me-2" />
                         Settings
                       </Link>

@@ -4,6 +4,26 @@ import usertxt from "../Components/Css/usertxt.css"; // Import CSS without assig
 
 const StudentDashboard = () => {
   const [purchasedVideos, setPurchasedVideos] = useState([]);
+  const [profileImage, setProfileImage] = useState(null);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  
+
+
+  useEffect(() => {
+    // Fetch profile name from localStorage
+    const storedFirstName = localStorage.getItem("userFirstName");
+    const storedLastName = localStorage.getItem("userLastName");
+    setFirstName(storedFirstName || "First Name");
+    setLastName(storedLastName || "Last Name");
+  }, []);
+
+
+  useEffect(() => {
+    const storedImage = localStorage.getItem("profileImage");
+    const defaultImage = "assets/images/avatar/07.jpg";
+    setProfileImage(storedImage || defaultImage);
+  }, []);
 
   // Fetch purchased videos from localStorage on mount
   useEffect(() => {
@@ -33,15 +53,20 @@ const StudentDashboard = () => {
               {/* Avatar */}
               <div className="col-auto">
                 <div className="avatar avatar-xxl position-relative mt-n3">
-                  <img className="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/09.jpg" alt="" />
-                  <span className="badge text-bg-success rounded-pill position-absolute top-50 start-100 translate-middle mt-4 mt-md-5 ms-n3 px-md-3">Pro</span>
+   <img
+          className="avatar-img rounded-circle border border-white border-3 shadow"
+          src={profileImage}
+          alt="Profile"
+        />                  <span className="badge text-bg-success rounded-pill position-absolute top-50 start-100 translate-middle mt-4 mt-md-5 ms-n3 px-md-3">Pro</span>
                 </div>
               </div>
               {/* Profile info */}
               <div className="col d-sm-flex justify-content-between align-items-center">
                 <div>
-                  <h1 className="my-1 fs-4">Lori Stevens</h1>
-                  <ul className="list-inline mb-0">
+<h1 className="my-1 fs-4">
+        {`${firstName} ${lastName}`}{" "}
+        <i className="bi bi-patch-check-fill text-info small" />
+      </h1>                  <ul className="list-inline mb-0">
                     <li className="list-inline-item me-3 mb-1 mb-sm-0">
                       <span className="h6">255</span>
                       <span className="text-body fw-light"> points</span>

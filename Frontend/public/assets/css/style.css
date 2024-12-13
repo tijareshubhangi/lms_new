@@ -33404,7 +33404,7 @@ textarea.form-control-lg {
 
 .bg-lights {
   --bs-bg-opacity: 1;
-  background-color: rgba(211, 211, 211, var(--bs-bg-opacity)) !important; /* Light gray color */
+  background-color: rgba(240, 240, 240, var(--bs-bg-opacity)) !important; /* Very light gray color */
 }
 
 

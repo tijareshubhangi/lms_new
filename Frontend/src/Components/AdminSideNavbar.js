@@ -98,7 +98,13 @@ const AdminSideNavbar = () => {
                   <i className="fas fa-user-cog fa-fw me-2" /> Admin Settings
                 </NavLink>
               </li>
-              {/* Menu item 8 */}
+               {/* Menu item 8 */}
+               <li className="nav-item">
+                <NavLink to="/AdminEdit" className="nav-link">
+                  <i className="fas fa-user-cog fa-fw me-2" /> Admin Edit
+                </NavLink>
+              </li>
+              {/* Menu item 9 */}
               <li className="nav-item">
                 <a className="nav-link" data-bs-toggle="collapse" href="#collapseauthentication" role="button" aria-expanded="false" aria-controls="collapseauthentication">
                   <i className="bi bi-lock fa-fw me-2" /> Authentication

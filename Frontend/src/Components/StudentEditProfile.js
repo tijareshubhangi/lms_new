@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "../Components/Services/axiosInterceptor";
 
+
 const StudentEditProfile = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null) // Default image
@@ -50,14 +51,17 @@ const handleSaveName = async () => {
 
   try {
     const res = await axios.put(`/api/auth/updateName/${userId}`, {
-      firstName,
-      lastName,
-      role: "Student", // Specify role as Student
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      role, // Using "role" variable
     });
 
     if (res.data.success) {
       alert("Name updated successfully!");
       setIsEditing(false);
+      // Save the updated name in localStorage
+      localStorage.setItem("userFirstName", firstName);
+      localStorage.setItem("userLastName", lastName);
     } else {
       console.error("Error updating name:", res.data.error);
     }
@@ -65,9 +69,6 @@ const handleSaveName = async () => {
     console.error("Error updating name:", error);
   }
 };
-
-
-
    // Fetch user profile data on component mount
    useEffect(() => {
     const fetchUserProfile = async () => {
