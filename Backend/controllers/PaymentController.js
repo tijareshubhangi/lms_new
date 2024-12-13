@@ -13,6 +13,7 @@ class PaymentController {
       return res.status(500).json({ error: "Failed to generate QR code" });
     }
   };
+  
 
   static verifyPayment = async (req, res) => {
     try {

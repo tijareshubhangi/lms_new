@@ -114,6 +114,7 @@ app.post('/verify-otp', (req, res) => {
     res.status(400).json({ message: 'Invalid OTP' });
   }
 });
+
 // Routes
 app.use("/api/payments", paymentRoutes);
 // Start Server

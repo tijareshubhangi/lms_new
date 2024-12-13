@@ -187,11 +187,10 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
 
                      
                       <button
-                        // onClick={handleBuy}
-                        onClick={() => navigate("/payment")}
+                        onClick={() => navigate("/course")}
                         className="btn btn-lg btn-success"
                       >
-                        Continue Purchase
+                        Add More Products
                       </button>
                     </div>
                   ) : (
@@ -266,13 +265,17 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                     </li>
                   </ul>
                   <div className="d-grid">
-                    <button
-                      onClick={handleBuy}
-                      className="btn btn-lg btn-success"
-                    >
-                      Buy Now
-                    </button>
-                  </div>
+                      <button onClick={() => navigate("/")}>
+                        See More Products
+                      </button>
+                      <button
+                        // onClick={handleBuy}
+                        onClick={() => navigate("/payment")}
+                        className="btn btn-lg btn-success"
+                      >
+                        Continue Purchase
+                      </button>
+                    </div>
                   <p className="small mb-0 mt-2 text-center">
                     By completing your purchase, you agree to these{" "}
                     <Link to="#">Terms of Service</Link>
