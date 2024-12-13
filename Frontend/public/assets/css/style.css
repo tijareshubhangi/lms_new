@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 /*!
  * Bootstrap  v5.3.3 (https://getbootstrap.com/)
  * Copyright 2011-2024 The Bootstrap Authors
@@ -45516,3 +45516,131 @@ img {
   filter: var(--filter, none);
 >>>>>>> Person4
 }
+/* Internal CSS for Payment Page */
+
+  .flex {
+    display: flex;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .p-4 {
+    padding: 16px;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .max-w-4xl {
+    max-width: 1024px;
+  }
+
+  .bg-white {
+    background-color: #ffffff;
+  }
+
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .rounded-lg {
+    border-radius: 12px;
+  }
+
+  .pr-4 {
+    padding-right: 16px;
+  }
+
+  .text-white {
+    color: #ffffff;
+  }
+
+  .text-lg {
+    font-size: 1.125rem;
+  }
+
+  .font-bold {
+    font-weight: bold;
+  }
+
+  .bg-blue-600 {
+    background-color: #2563eb;
+  }
+
+  .bg-yellow-100 {
+    background-color: #fef9c3;
+  }
+
+  .font-bold {
+    font-weight: bold;
+  }
+
+  .bg-blue-50 {
+    background-color: #ebf8ff;
+  }
+
+  .mb-4 {
+    margin-bottom: 16px;
+  }
+
+  .ml-6 {
+    margin-left: 24px;
+  }
+
+  .border {
+    border: 1px solid #d1d5db;
+  }
+
+  .rounded {
+    border-radius: 8px;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .text-gray-500 {
+    color: #6b7280;
+  }
+
+  .bg-gray-100 {
+    background-color: #f3f4f6;
+  }
+
+  .text-black {
+    color: #000000;
+  }
+
+  .text-green-500 {
+    color: #10b981;
+  }
+
+  .bg-blue-600:hover {
+    background-color: #1d4ed8;
+    cursor: pointer;
+  }
+
+  .pay-button {
+    background-color: #ff6b6b;
+    color: white;
+    margin-top: 8px;
+  }
+
+  .pay-button:hover {
+    background-color: #fa5252;
+    cursor: pointer;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(to right, red, blue);
+    min-height: 100vh; /* Ensures the gradient covers the full screen height */
+  }
+  

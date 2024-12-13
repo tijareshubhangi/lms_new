@@ -8,8 +8,7 @@ import Sign_UP from "./Components/Sign_UP";
 import Sign_in from "./Components/Sign_in";
 import Cart from "./Components/Cart";
 import { UserProvider } from "./context/UserContext";
-
-import CourseCategory from "./Components/CourseCategory";
+import CourseCategory from './Components/CourseCategory';
 // import Footer from './Components/Footer';
 
 import Instructor_Dashboard from "./Components/Instructor_Dashboard";
@@ -70,9 +69,9 @@ import AdminSeating from "./Components/AdminSeating";
 
 import AdminError404 from "./Components/AdminError404";
 
-import BackToTop from "./Components/BacktoTop";
-// import PaymentPage from './Components/PaymentPage';
-import CoursePayment from "./Components/CoursePayment";
+import BackToTop from './Components/BacktoTop';
+import PaymentPage from './Components/PaymentPage';
+import CoursePayment from './Components/CoursePayment';
 
 import AdminLogin from "./Components/AdminLogin";
 import Instructor_Login from "./Components/Instructor_Login";
@@ -81,6 +80,8 @@ import ForgetPassword from "./Components/Pages/ForgetPassword";
 import ChangePassword from "./Components/Pages/ChangePassword";
 import ProductDetails from "./Components/ProductDetals";
 import CourseMore from "./Components/CourseMore";
+import AdminEdit from "./Components/AdminEdit";
+import Success from "./Components/Success";
 
 import CreateCourse from "./Components/CreateCourcescompt/CreateCourse";
 import About from "./Components/About";
@@ -173,6 +174,7 @@ function App() {
               />
             }
           />
+<Route path='/payment' element={<PaymentPage/>}/>
 
 <Route path='/about' element={ <About/> }/>   
 <Route path='/contactus' element={ <ContactUs/> }/>   
@@ -181,6 +183,10 @@ function App() {
 
 <Route path='/coursecategory' element={<CourseCategory cartCount={cartCount} />}/>
 
+          
+<Route path='/coursecategory' element={<CourseCategory/>}/>
+<Route path="/success" element={<Success/>} />
+<Route path='/' element={ <Home/> }/>
 <Route path='/instructordashboard' element={<Instructor_Dashboard/>}/>
 <Route path='/instructorcourses' element={<Instructor_Courses />} />
 <Route path='/instructorquiz' element={<Instructor_Quiz />} />

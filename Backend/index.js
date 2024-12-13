@@ -11,6 +11,7 @@ import bodyParser from "body-parser";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js"
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -113,6 +114,8 @@ app.post('/verify-otp', (req, res) => {
     res.status(400).json({ message: 'Invalid OTP' });
   }
 });
+// Routes
+app.use("/api/payments", paymentRoutes);
 // Start Server
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {

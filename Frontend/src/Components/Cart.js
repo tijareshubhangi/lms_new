@@ -187,10 +187,11 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
 
                      
                       <button
-                        onClick={() => navigate("/course")}
+                        // onClick={handleBuy}
+                        onClick={() => navigate("/payment")}
                         className="btn btn-lg btn-success"
                       >
-                        Add More Products
+                        Continue Purchase
                       </button>
                     </div>
                   ) : (
