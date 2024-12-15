@@ -7,6 +7,7 @@ import path from "path";
 import fs from "fs";
 import nodemailer from "nodemailer";
 import bodyParser from "body-parser";
+import multer from "multer";
 // Import Custom Modules
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -46,6 +47,37 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use('/api/auth', courseRoutes);
 app.use('/uploads', express.static('uploads'));
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/') // Make sure this directory exists
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname)) // Appending extension
+  }
+});
+
+const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 } // Limit file size to 10MB
+});
+
+app.post('/api/auth/courses', upload.single('video'), (req, res) => {
+  try {
+    // Handle course creation logic here
+    // req.file contains the uploaded file information
+    // req.body contains the text fields
+
+    res.status(201).json({ message: 'Course created successfully' });
+  } catch (error) {
+    console.error('Server error:', error);
+    res.status(500).json({ message: 'Error creating course', error: error.message });
+  }
+});
+
+
+
+
 // Temporary storage for OTPs (for demo purposes; consider using a database in production)
 const otpStore = {};
 

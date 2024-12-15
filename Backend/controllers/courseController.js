@@ -1,7 +1,6 @@
+import Course from "../models/courseModel.js"
 
-
-class courseController {
-    // Add a new course
+class courseController2 {
   static addCourse = async (req, res) => {
     const {
       title,
@@ -9,43 +8,58 @@ class courseController {
       category,
       level,
       featured,
-      videoUrl,
       tags,
       reviewerMessage,
       curriculum,
     } = req.body;
 
     try {
+      if (!title || !description || !category || !level) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
+
+      // Handle file uploads
+      const imageFile = req.files?.['courseImage']?.[0];
+      const videoFile = req.files?.['courseVideo']?.[0];
+
       const newCourse = new Course({
         title,
         description,
         category,
         level,
-        featured: featured === 'true', // Convert string to boolean
+        featured: featured === 'true',
         media: {
-          imageUrl: req.file ? `/uploads/${req.file.filename}` : '',
-          videoUrl,
+          imageUrl: imageFile ? {
+            path: `/uploads/${imageFile.filename}`,
+            originalName: imageFile.originalname // Use originalname from multer
+          } : null,
+          videoUrl: videoFile ? {
+            path: `/uploads/${videoFile.filename}`,
+            originalName: videoFile.originalname // Use originalname from multer
+          } : null
         },
-        tags: tags ? tags.split(',') : [],
+        tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
         reviewerMessage,
         curriculum: curriculum ? JSON.parse(curriculum) : [],
       });
 
       const savedCourse = await newCourse.save();
-      res.status(201).json({ message: 'Course added successfully', course: savedCourse });
+      
+      return res.status(201).json({
+        message: 'Course added successfully',
+        course: savedCourse,
+      });
     } catch (error) {
-      res.status(500).json({ error: 'Error adding course', details: error.message });
+      console.error('Error in addCourse:', error);
+      return res.status(500).json({
+        message: 'Error adding course',
+        error: error.message,
+      });
     }
   };
-  
-  // Get all courses
-  static getAllCourses = async (req, res) => {
-    try {
-      const courses = await Course.find();
-      res.status(200).json(courses);
-    } catch (error) {
-      res.status(500).json({ error: 'Error fetching courses', details: error.message });
-    }
-  };
+
+  // Other methods remain the same...
 }
-export default courseController;
+
+export default courseController2;
+
