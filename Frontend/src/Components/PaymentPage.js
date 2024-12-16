@@ -82,7 +82,7 @@ const PaymentPage = () => {
   const [selectedBank, setSelectedBank] = useState("");
 
 
-  return (
+  return (  
     <div className="flex justify-center items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
       <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-4">
         <div className="flex">
@@ -187,7 +187,7 @@ const PaymentPage = () => {
                   </button>
                 </div>
               )}
-               {/* QR Code Payment Option */}
+               {/* QR Code Payment Options */}
                <div className="flex items-center mb-4">
                 <input
                   type="radio"
