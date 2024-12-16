@@ -129,7 +129,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://localhost:3000/user/reset/${isUser._id}/${token}`;
+          const link = `http://localhost:9000/user/reset/${isUser._id}/${token}`;
   
           // email sending
           const transport = nodemailer.createTransport({
@@ -298,7 +298,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://localhost:3000/user/sendEmail/${isUser._id}/${token}`;
+          const link = `http://localhost:9000/user/sendEmail/${isUser._id}/${token}`;
           
   
           // email sending
