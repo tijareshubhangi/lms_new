@@ -39,7 +39,7 @@ const AdminCourceList = () => {
       <div className="row mb-3">
         <div className="col-12 d-sm-flex justify-content-between align-items-center">
           <h1 className="h3 mb-2 mb-sm-0">Courses</h1>
-          <Link to="instructor-create-course.html" className="btn btn-sm btn-primary mb-0">Create a Course</Link>
+          <Link to="/instructorcreatecourses" className="btn btn-sm btn-primary mb-0">Create a Course</Link>
         </div>
       </div>
       {/* Course boxes START */}
