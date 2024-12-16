@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "../Components/Services/axiosInterceptor";
+
 
 const PaymentPage = () => {
   const [qrCode, setQrCode] = useState("");
@@ -21,18 +23,37 @@ const PaymentPage = () => {
     }
   };
 
-  const handlePaymentVerification = async () => {
-    try {
-      const response = await fetch("http://localhost:9000/verify-payment", {
-        method: "POST",
-      });
+  const handleBuy = async () => {
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("userEmail");
 
-      const data = await response.json();
-      if (data.message === "Payment Successful") {
+    if (!token) {
+      alert("Please log in or sign up to complete your purchase.");
+      navigate("/signin");
+      return;
+    }
+
+    if (!email) {
+      alert("User email not found. Please log in again.");
+      return;
+    }
+
+    try {
+      const res = await axios.post("/api/auth/send-email", { email });
+
+      if (res.status === 200) {
+        alert("Purchase successful! Confirmation email sent.");
         navigate("/success"); // Redirect to success page
+      } else {
+        alert("Purchase successful, but email could not be sent.");
       }
     } catch (error) {
-      console.error("Error verifying payment:", error);
+      console.error("Error sending email:", error);
+      alert(
+        `An error occurred while sending the confirmation email. ${
+          error.response?.data?.message || "Please try again later."
+        }`
+      );
     }
   };
 
@@ -48,17 +69,20 @@ const PaymentPage = () => {
     fontWeight: "bold",
     borderRadius: "15px",
     cursor: "pointer",
-    boxShadow: isHovered ? "0px 6px 14px rgba(0, 0, 0, 0.3)" : "0px 4px 8px rgba(0, 0, 0, 0.2)",
+    boxShadow: isHovered
+      ? "0px 6px 14px rgba(0, 0, 0, 0.3)"
+      : "0px 4px 8px rgba(0, 0, 0, 0.2)",
     transform: isHovered ? "scale(1.05)" : "scale(1)",
     transition: "transform 0.2s, box-shadow 0.2s",
     marginBottom: "20px",
   };
-  const [selectedUPI, setSelectedUPI] = React.useState("");
 
-  const [selectedPayment, setSelectedPayment] = React.useState("");
-  const [selectedBank, setSelectedBank] = React.useState("");
+  const [selectedUPI, setSelectedUPI] = useState("");
+  const [selectedPayment, setSelectedPayment] = useState("");
+  const [selectedBank, setSelectedBank] = useState("");
 
-  return (
+
+  return (  
     <div className="flex justify-center items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
       <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-4">
         <div className="flex">
@@ -163,8 +187,8 @@ const PaymentPage = () => {
                   </button>
                 </div>
               )}
-
-              <div className="flex items-center mb-4">
+               {/* QR Code Payment Options */}
+               <div className="flex items-center mb-4">
                 <input
                   type="radio"
                   name="payment"
@@ -175,14 +199,31 @@ const PaymentPage = () => {
               </div>
               {selectedPayment === "QR Code" && (
                 <div>
-                  <h5 style={{ fontWeight: "bold", marginBottom: "20px", textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)" }}>Scan the QR Code to Pay</h5>
+                  <h5
+                    style={{
+                      fontWeight: "bold",
+                      marginBottom: "20px",
+                      textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)",
+                    }}
+                  >
+                    Scan the QR Code to Pay
+                  </h5>
                   {qrCode ? (
                     <>
-                      <img style={{ width: "150px", height: "150px", margin: "20px 0", boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)" }} src={qrCode} alt="QR Code" />
+                      <img
+                        style={{
+                          width: "150px",
+                          height: "150px",
+                          margin: "20px 0",
+                          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)",
+                        }}
+                        src={qrCode}
+                        alt="QR Code"
+                      />
                       <br />
                       <button
                         style={buttonStyle}
-                        onClick={handlePaymentVerification}
+                        onClick={handleBuy} // Trigger handleBuy function
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                       >
@@ -190,10 +231,14 @@ const PaymentPage = () => {
                       </button>
                     </>
                   ) : (
-                    <p style={{ fontSize: "1.2rem", fontStyle: "italic" }}>Loading QR Code...</p>
+                    <p style={{ fontSize: "1.2rem", fontStyle: "italic" }}>
+                      Loading QR Code...
+                    </p>
                   )}
                 </div>
               )}
+
+              {/* Other Payment Options */}
 
               <div className="flex items-center mb-4">
                 <input

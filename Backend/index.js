@@ -8,9 +8,11 @@ import fs from "fs";
 import nodemailer from "nodemailer";
 import bodyParser from "body-parser";
 // Import Custom Modules
-import connectDB from "./config/db.js";
+import connectDB from "./config/db.js"
 import authRoutes from "./routes/authRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
+import QRCode from "qrcode";
+
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -113,6 +115,27 @@ app.post('/verify-otp', (req, res) => {
     res.status(400).json({ message: 'Invalid OTP' });
   }
 });
+
+app.post("/generate-qr", async (req, res) => {
+  const { user, amount } = req.body;
+
+  // Use "INR" for currency in the QR data
+  const qrData = `Payment Request:\nUser: ${user}\nAmount: INR ${amount}`;
+
+  try {
+    const qrCode = await QRCode.toDataURL(qrData, { errorCorrectionLevel: "H" }); // High error correction level
+    res.status(200).json({ qrCode });
+  } catch (error) {
+    console.error("Error generating QR code:", error);
+    res.status(500).json({ error: "Failed to generate QR code" });
+  }
+});
+
+app.post("/verify-payment", (req, res) => {
+  // Simulate payment verification
+  res.status(200).json({ message: "Payment Successful" });
+});
+
 // Start Server
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
