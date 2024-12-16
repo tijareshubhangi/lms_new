@@ -11,6 +11,9 @@ import bodyParser from "body-parser";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
+import QRCode from "qrcode";
+
+
 // Initialize Express App
 const app = express();
 dotenv.config();
