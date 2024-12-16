@@ -5,8 +5,8 @@ import { useUser } from '../context/UserContext'; // Importing UserContext
 
 
 
-const Nav = ({ cartCount}) => {
 
+const Nav = ({ cartCount }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // Default profile image
