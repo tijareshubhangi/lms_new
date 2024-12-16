@@ -204,7 +204,7 @@ const Instructor_createCourse = () => {
           <div className="card bg-transparent border rounded-3 mb-5">
             <div className="bs-stepper stepper-outline">
               {/* Stepper Header */}
-              <div className="card-header bg-light border-bottom px-lg-5">
+              <div className="card-header bg-lights border-bottom px-lg-5">
                 <div className="bs-stepper-header" role="tablist">
                   {/* Step 1 */}
                   <div className={`step ${currentStep === 1 ? 'active' : ''}`} data-target="#step-1">
