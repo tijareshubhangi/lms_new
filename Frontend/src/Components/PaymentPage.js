@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../Components/Services/axiosInterceptor";
 
-const PaymentPage = (onClearCart) => {
+const PaymentPage = () => {
   const [qrCode, setQrCode] = useState("");
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
   const fetchQRCode = async () => {
     try {
-      const response = await fetch("http://localhost:5000/generate-qr", {
+      const response = await fetch("http://localhost:9000/generate-qr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user: "PSK", amount: 1000 }),
@@ -24,7 +23,7 @@ const PaymentPage = (onClearCart) => {
 
   const handlePaymentVerification = async () => {
     try {
-      const response = await fetch("http://localhost:5000/verify-payment", {
+      const response = await fetch("http://localhost:9000/verify-payment", {
         method: "POST",
       });
 
@@ -34,41 +33,6 @@ const PaymentPage = (onClearCart) => {
       }
     } catch (error) {
       console.error("Error verifying payment:", error);
-    }
-  };
-
-  const handleBuy = async () => {
-    const token = localStorage.getItem("token");
-    const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
-
-    if (!token) {
-      alert("Please log in or sign up to complete your purchase.");
-      navigate("/signin");
-      return; // Stop execution if not logged in
-    }
-
-    if (!email) {
-      alert("User email not found. Please log in again.");
-      return; // Stop if email is not available
-    }
-
-    try {
-      // Send email request
-      const res = await axios.post("/api/auth/send-email", { email });
-
-      if (res.status === 200) {
-        alert("Purchase successful! Confirmation email sent.");
-        onClearCart(); // Clear cart after successful purchase
-      } else {
-        alert("Purchase successful, but email could not be sent.");
-      }
-    } catch (error) {
-      console.error("Error sending email:", error); // Log detailed error for debugging
-      alert(
-        `An error occurred while sending the confirmation email. ${
-          error.response?.data?.message || "Please try again later."
-        }`
-      );
     }
   };
 
@@ -363,14 +327,6 @@ const PaymentPage = (onClearCart) => {
               <div className="flex justify-between font-bold">
                 <span>Amount Payable</span>
                 <span className="text-green-500">&nbsp;&nbsp;₹1,402</span>
-              
-                <button
-                 style={buttonStyle}
-                        onClick={handleBuy}
-                        className="btn btn-lg btn-success"
-                      >
-                        Buy Now
-                      </button>
               </div>
             </div>
           </div>
