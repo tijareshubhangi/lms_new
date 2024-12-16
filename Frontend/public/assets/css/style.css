@@ -42845,7 +42845,7 @@ video {
   background-size: cover;
   display: table-cell;
   vertical-align: middle;
-  width: 100%;
+  width: 30%;
 }
 
 section {
@@ -45599,7 +45599,7 @@ img {
   }
 
   .w-full {
-    width: 100%;
+    width: 40%;
   }
 
   .text-gray-500 {
@@ -45625,7 +45625,7 @@ img {
 
   .pay-button {
     background-color: #ff6b6b;
-    color: white;
+    color: white; 
     margin-top: 8px;
   }
 
@@ -45643,4 +45643,5 @@ img {
     background: linear-gradient(to right, red, blue);
     min-height: 100vh; /* Ensures the gradient covers the full screen height */
   }
+  
   

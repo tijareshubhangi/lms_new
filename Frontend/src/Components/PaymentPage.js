@@ -62,7 +62,7 @@ const PaymentPage = () => {
     <div className="flex justify-center items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
       <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-4">
         <div className="flex">
-          <div className="w-3/4 pr-4">
+          <div className="w-3/4 pr-4"> 
             <div className="bg-blue-600 text-white p-4 rounded-t-lg">
               <h2 className="text-lg text-white font-bold">PAYMENT OPTIONS</h2>
             </div>
@@ -328,6 +328,14 @@ const PaymentPage = () => {
                 <span>Amount Payable</span>
                 <span className="text-green-500">&nbsp;&nbsp;₹1,402</span>
               </div>
+              <button
+                        style={buttonStyle}
+                        onClick={handleBuy} // Trigger handleBuy function
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                      >
+                        Buy Now
+                      </button>
             </div>
           </div>
         </div>

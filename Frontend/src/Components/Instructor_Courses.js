@@ -185,7 +185,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
     Main Banner END */}
   {/* =======================
     Inner part START */}
-  <section className="pt-0">
+  <section className="pt-0"> 
     <div className="container">
       <div className="row">
         {/* Left sidebar START */}
