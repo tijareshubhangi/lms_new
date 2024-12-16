@@ -373,6 +373,14 @@ const PaymentPage = () => {
                 <span>Amount Payable</span>
                 <span className="text-green-500">&nbsp;&nbsp;₹1,402</span>
               </div>
+              <button
+                        style={buttonStyle}
+                        onClick={handleBuy} // Trigger handleBuy function
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                      >
+                        Buy Now
+                      </button>
             </div>
           </div>
         </div>

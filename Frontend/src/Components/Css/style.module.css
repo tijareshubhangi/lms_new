@@ -12,7 +12,7 @@
     margin-right: 10px;
   }
   
-  button {
+  button { 
     margin-top: 10px;
     padding: 10px;
     font-size: 16px;
@@ -90,7 +90,7 @@
 }
 
 .video {
-  width: 100%; /* Make video take up full width of container */
+  width: 50%; /* Make video take up full width of container */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Ensure it's treated as a block element */
   border-radius: 8px;
