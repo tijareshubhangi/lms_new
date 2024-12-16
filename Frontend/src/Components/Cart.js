@@ -1,4 +1,4 @@
-// File: src/components/Cart.js
+
 import React, { useState, useEffect } from "react";
 import axios from "../Components/Services/axiosInterceptor";
 import { Link, useNavigate } from "react-router-dom";
