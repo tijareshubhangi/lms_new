@@ -42,7 +42,7 @@ const PaymentPage = () => {
       const res = await axios.post("/api/auth/send-email", { email });
 
       if (res.status === 200) {
-        alert("Purchase successful! Confirmation email sent.");
+        alert("Product purchase confirmation email sent.");
         navigate("/success"); // Redirect to success page
       } else {
         alert("Purchase successful, but email could not be sent.");

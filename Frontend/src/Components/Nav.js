@@ -49,7 +49,8 @@ const Nav = ({ cartCount }) => {
           <Link className="navbar-brand" to="/">
             <img
               className="light-mode-item logo navbar-brand-item"
-              src="assets/images/LMS.png"
+              // src="assets/images/LMS.png"
+              src="./assets/images/LMS.png"
               alt="logo"
             />
           </Link>
