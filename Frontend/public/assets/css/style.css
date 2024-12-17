@@ -42842,7 +42842,7 @@ video {
   background-size: cover;
   display: table-cell;
   vertical-align: middle;
-  width: 30%;
+  width: 100%;
 }
 
 section {
@@ -45483,7 +45483,7 @@ html[dir=rtl] .choices__input {
   }
 
   .w-full {
-    width: 40%;
+    width: 45%;
   }
 
   .text-gray-500 {
