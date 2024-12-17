@@ -97,8 +97,8 @@ const PaymentPage = () => {
                 <span className="font-bold">00 : 02 : 53</span>
               </p>
             </div>
-            <div className="p-4">
-              <div className="bg-blue-50 p-4 rounded-lg mb-4">
+            <div >
+              <div className=" rounded-lg mb-4">
                 <div className="flex items-center mb-2">
                   <input
                     type="radio"
