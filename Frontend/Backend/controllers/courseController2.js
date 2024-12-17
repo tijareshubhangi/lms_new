@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+import Course from "../models/courseModel.js";
+
+class courseController2 {
+=======
 import authModel from "../models/authModel.js";
 import nodemailer from "nodemailer";
 import bcryptjs from "bcryptjs";
@@ -7,6 +12,7 @@ import Course from "../models/courseModel.js"
 class courseController2 {
   
   //new course add
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
   static addCourse = async (req, res) => {
     const {
       title,
@@ -30,12 +36,33 @@ class courseController2 {
         description,
         category,
         level,
+<<<<<<< HEAD
+        featured: featured === 'true',
+        media: {
+          imageUrl: req.files?.['courseImage']
+            ? {
+                path: `/uploads/${req.files['courseImage'][0].filename}`,
+                originalName: req.files['courseImage'][0].originalname,
+              }
+            : null,
+          videoUrl: req.files?.['courseVideo']
+            ? {
+                path: `/uploads/${req.files['courseVideo'][0].filename}`,
+                originalName: req.files['courseVideo'][0].originalname,
+              }
+            : videoUrl
+            ? { path: videoUrl, originalName: 'External Video' }
+            : null,
+        },
+        tags: tags ? tags.split(',').map((tag) => tag.trim()) : [],
+=======
         featured: featured === 'true', // Convert string to boolean
         media: {
           imageUrl: req.file ? `/uploads/${req.file.filename}` : '',
           videoUrl,
         },
         tags: tags ? tags.split(',') : [],
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
         reviewerMessage,
         curriculum: curriculum ? JSON.parse(curriculum) : [],
       });
@@ -46,6 +73,10 @@ class courseController2 {
         course: savedCourse,
       });
     } catch (error) {
+<<<<<<< HEAD
+      console.error('Error in addCourse:', error);
+=======
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
       return res.status(500).json({
         message: 'Error adding course',
         error: error.message,
@@ -53,6 +84,21 @@ class courseController2 {
     }
   };
 
+<<<<<<< HEAD
+  static getAllCourses = (req, res) => {
+    const courses = [
+      { id: 1, name: 'Course 1' },
+      { id: 2, name: 'Course 2' },
+    ];
+    res.json(courses);
+  };
+
+  // Additional methods...
+}
+
+export default courseController2;
+
+=======
   // Get all courses
   static getAllCourses = async (req, res) => {
     try {
@@ -129,3 +175,4 @@ class courseController2 {
 }
 
 export default courseController2;
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
