@@ -45529,3 +45529,79 @@ html[dir=rtl] .choices__input {
   }
   
   
+  /* Default styles (for desktop view) */
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Desktop-specific adjustments */
+@media (min-width: 1025px) {
+  .max-w-4xl {
+    max-width: 1024px;
+  }
+
+  .w-full {
+    width: 45%;
+  }
+}
+
+/* Tablet view */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .flex {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .max-w-4xl {
+    max-width: 768px;
+  }
+
+  .w-full {
+    width: 90%;
+  }
+
+  .ml-6 {
+    margin-left: 0; /* Adjust margins for smaller screens */
+  }
+
+  .pay-button {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .max-w-4xl {
+    max-width: 100%; /* Ensure content fits the mobile screen width */
+  }
+
+  .p-4 {
+    padding: 12px;
+  }
+
+  .w-full {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .text-lg {
+    font-size: 1rem; /* Adjust text size */
+  }
+
+  .pay-button {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 0.875rem; /* Slightly smaller button text for mobile */
+  }
+
+  .text-gray-500 {
+    font-size: 0.875rem;
+  }
+}

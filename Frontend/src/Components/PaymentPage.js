@@ -72,6 +72,7 @@ const PaymentPage = () => {
     boxShadow: isHovered
       ? "0px 6px 14px rgba(0, 0, 0, 0.3)"
       : "0px 4px 8px rgba(0, 0, 0, 0.2)",
+
     transform: isHovered ? "scale(1.05)" : "scale(1)",
     transition: "transform 0.2s, box-shadow 0.2s",
     marginBottom: "20px",
@@ -373,14 +374,14 @@ const PaymentPage = () => {
                 <span>Amount Payable</span>
                 <span className="text-green-500">&nbsp;&nbsp;₹1,402</span>
               </div>
-              <button
+              {/* <button
                         style={buttonStyle}
                         onClick={handleBuy} // Trigger handleBuy function
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                       >
                         Buy Now
-                      </button>
+                      </button> */}
             </div>
           </div>
         </div>
