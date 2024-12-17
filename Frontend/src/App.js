@@ -86,6 +86,7 @@ import About from "./Components/About";
 import ContactUs from "./Components/ContactUs";
 import Blog from "./Components/Blog";
 import BlogDetals from "./Components/BlogDetals";
+import Library from "./Components/Library";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -252,7 +253,7 @@ Student Dashboard Route Start */}
 <Route path="/AdminError" element={<AdminError404/>} />
 <Route path="/productdetals" element={<ProductDetails  cartCount={cartCount} />} />
 <Route path="/coursemore" element={<CourseMore  cartCount={cartCount} />} />
-<Route path="/createcource" element={<CreateCourse/>} />
+<Route path="/library" element={<Library/>} />
 
 
           <Route path="*" element={<Navigate to="/" />} />

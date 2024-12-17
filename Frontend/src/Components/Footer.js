@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Nav from './Nav'
 
 const Footer = () => {
   return (
     <>
+   
 {/* =======================
 Footer START */}
 <footer className="pt-5">
@@ -37,7 +39,7 @@ Footer START */}
               <li className="nav-item"><Link className="nav-link" to="/about">About us</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/contactus">Contact us</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/blog">News and Blogs</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/">Library</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="">Library</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/">Career</Link></li>
             </ul>
           </div>
@@ -120,8 +122,6 @@ Footer START */}
 </footer>
 {/* =======================
 Footer END */}
-
-
     </>
   )
 }
