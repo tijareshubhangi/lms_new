@@ -8,11 +8,10 @@ const checkIsUserAuthenticated = async (req, res, next) => {
     try {
       token = authorization.split(" ")[1];
       // verify token
-<<<<<<< HEAD
+
       const { userID } = jwt.verify(token, pleaseSubscribe);
-=======
-      const { userID } = jwt.verify(token, process.env.JWT_SECRET);
->>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
+
+      
       // Get User from Token
       req.user = await authModel.findById(userID).select("--password");
       next();

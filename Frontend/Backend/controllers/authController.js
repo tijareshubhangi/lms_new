@@ -25,7 +25,7 @@ class authController {
             expiresIn: "10m",
           });
 
-          const link = `http://localhost:9000/api/auth/verify/${token}`;
+          const link = `http://localhost:3000/api/auth/verify/${token}`;
 
           sendEmailtoUser(link, email, name, password);
           ;
@@ -129,7 +129,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://localhost:3000/user/reset/${isUser._id}/${token}`;
+          const link = `http://localhost:3001/user/reset/${isUser._id}/${token}`;
   
           // email sending
           const transport = nodemailer.createTransport({
@@ -298,7 +298,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://localhost:9000/user/sendEmail/${isUser._id}/${token}`;
+          const link = `http://localhost:3001/user/sendEmail/${isUser._id}/${token}`;
           
   
           // email sending
@@ -384,7 +384,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://localhost:3000/user/reset/${isUser._id}/${token}`;
+          const link = `http://localhost:3001/user/reset/${isUser._id}/${token}`;
   
           // email sending
           const transport = nodemailer.createTransport({

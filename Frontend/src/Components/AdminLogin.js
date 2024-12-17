@@ -60,7 +60,7 @@ const AdminLogin = () => {
       <div className="form-wrapper">
         <div className="logo-container">
           <img
-            src="assets/images/LMS.png"
+            src="./assets/images/LMS.jpg"
             alt="LMS"
             className="logo"
             style={{

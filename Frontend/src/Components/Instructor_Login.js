@@ -41,7 +41,7 @@ const Instructor_Login = () => {
     }
   };
 
-  // Function to verify OTP
+   // Function to verify OTP
   const verifyOtp = async () => {
     try {
       const response = await axios.post('http://localhost:9000/verify-otp', { email, userOtp: otp });
@@ -51,7 +51,8 @@ const Instructor_Login = () => {
         navigate('/instructordashboard'); // Redirect to instructor dashboard
       }
     } catch (error) {
-      setMessage('Invalid OTP');
+      console.error('Error verifying OTP:', error.response?.data?.message || error);
+      setMessage(error.response?.data?.message || 'Invalid OTP');
     }
   };
 
@@ -60,8 +61,8 @@ const Instructor_Login = () => {
       <div className="form-wrapper">
         <div className="logo-container">
           <img
-            src="assets/images/LMS.png" 
-            alt="LMS"
+            src="./assets/images/LMS.jpg"
+             alt="LMS"
             className="logo"
             style={{
               width: '250px',    // Set desired width
