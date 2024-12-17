@@ -3,10 +3,20 @@ import { useNavigate } from "react-router-dom";
 import axios from "../Components/Services/axiosInterceptor";
 
 
-const PaymentPage = () => {
+const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
   const [qrCode, setQrCode] = useState("");
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
+    const [totalPrice, setTotalPrice] = useState(0);
+
+
+    
+      // Update total price when the cart changes
+      useEffect(() => {
+        setTotalPrice(
+          cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+        );
+      }, [cart]);
 
   const fetchQRCode = async () => {
     try {
@@ -358,7 +368,7 @@ const PaymentPage = () => {
               <h5 className="font-bold mb-2">PRICE DETAILS</h5>
               <div className="flex justify-between mb-2">
                 <span>Price (1 item)</span>
-                <span>₹1,399</span>
+                <span> ₹{totalPrice}</span>
               </div>
               <div className="flex justify-between mb-2">
                 <span>GST</span>
@@ -371,7 +381,7 @@ const PaymentPage = () => {
               <hr className="my-2" />
               <div className="flex justify-between font-bold">
                 <span>Amount Payable</span>
-                <span className="text-green-500">&nbsp;&nbsp;₹1,402</span>
+                <span className="text-green-500">&nbsp;&nbsp;₹{totalPrice}</span>
               </div>
               <button
                         style={buttonStyle}

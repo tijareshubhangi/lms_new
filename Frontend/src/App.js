@@ -175,7 +175,12 @@ function App() {
               />
             }
           />
-<Route path='/payment' element={<PaymentPage/>}/>
+<Route path='/payment' element={<PaymentPage  
+ cart={cart}
+ setCart={setCart}
+ onAdd={handleAdd}
+
+/>}/>
 <Route path="/success" element={<Success/>} />
 <Route path='/about' element={ <About/> }/>   
 <Route path='/contactus' element={ <ContactUs/> }/>   
