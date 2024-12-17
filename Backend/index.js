@@ -47,6 +47,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use('/api/auth', courseRoutes);
 app.use('/uploads', express.static('uploads'));
+<<<<<<< HEAD
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -78,6 +79,8 @@ app.post('/api/auth/courses', upload.single('video'), (req, res) => {
 
 
 
+=======
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
 // Temporary storage for OTPs (for demo purposes; consider using a database in production)
 const otpStore = {};
 

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Nav from '../Nav';
 import axios from "../Services/axiosInterceptor";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
 const CreateCourse = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 4;
@@ -25,6 +28,7 @@ const CreateCourse = () => {
     category: '',
     level: '',
     featured: false,
+<<<<<<< HEAD
     courseImage: null,
     videoUrl: '',
     videoFile: null,
@@ -108,15 +112,71 @@ const CreateCourse = () => {
       alert("Error creating course. Please check the console for more details.");
     }
   };
+=======
+    videoUrl: '',
+    tags: '',
+    reviewerMessage: '',
+    curriculum: '',
+    courseImage: null,
+  });
+
+  // const handleInputChange = (e) => {
+  //   const { id, value, type, checked, files } = e.target;
+  //   if (type === 'checkbox') {
+  //     setFormData((prev) => ({ ...prev, [id]: checked }));
+  //   } else if (type === 'file') {
+  //     setFormData((prev) => ({ ...prev, courseImage: files[0] }));
+  //   } else {
+  //     setFormData((prev) => ({ ...prev, [id]: value }));
+  //   }
+  // };
+  const handleSubmit = async () => {
+    const form = new FormData();
+  
+    form.append('title', document.getElementById('title')?.value || '');
+    form.append('description', document.getElementById('description')?.value || '');
+    form.append('category', document.getElementById('category')?.value || '');
+    form.append('level', document.getElementById('level')?.value || '');
+    form.append('featured', document.getElementById('featured')?.checked || false);
+  
+    const courseImage = document.getElementById('courseImage')?.files[0];
+    if (courseImage) {
+      form.append('media.imageUrl', courseImage.name); // Adjust based on backend storage logic
+    }
+    form.append('media.videoUrl', document.getElementById('videoUrl')?.value || '');
+  
+    form.append('tags', document.getElementById('tags')?.value?.split(',') || []);
+    form.append('reviewerMessage', document.getElementById('message')?.value || '');
+  
+    try {
+      const res = await axios.post('/api/auth/courses', form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      alert('Course submitted successfully!');
+    } catch (error) {
+      console.error('Error submitting course:', error.response?.data || error.message);
+      alert(`Error: ${error.response?.data?.message || 'An error occurred.'}`);
+    }
+  };
+  
+  
+  
+
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
 
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
         return (
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
           <div className=''>
             <h2 style={styles.heading}>Course Details</h2>
             <div style={styles.formGroup}>
               <label htmlFor="title">Course title</label>
+<<<<<<< HEAD
               <input type="text" id="title" value={formData.title} onChange={handleInputChange} placeholder="Enter course title" style={styles.input} />
             </div>
             <div style={styles.formGroup}>
@@ -126,6 +186,17 @@ const CreateCourse = () => {
             <div style={styles.formGroup}>
               <label htmlFor="category">Course category</label>
               <select id="category" value={formData.category} onChange={handleInputChange} style={styles.select}>
+=======
+              <input type="text" id="title" placeholder="Enter course title" style={styles.input} />
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="description">Short description</label>
+              <textarea id="description" placeholder="Enter course description" style={styles.textarea}></textarea>
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="category">Course category</label>
+              <select id="category" style={styles.select}>
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
                 <option value="">Select category</option>
                 <option value="engineering">Engineering</option>
                 <option value="medical">Medical</option>
@@ -135,7 +206,11 @@ const CreateCourse = () => {
             </div>
             <div style={styles.formGroup}>
               <label htmlFor="level">Course level</label>
+<<<<<<< HEAD
               <select id="level" value={formData.level} onChange={handleInputChange} style={styles.select}>
+=======
+              <select id="level" style={styles.select}>
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
                 <option value="">Select level</option>
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
@@ -143,7 +218,11 @@ const CreateCourse = () => {
               </select>
             </div>
             <div style={styles.formGroup}>
+<<<<<<< HEAD
               <input type="checkbox" id="featured" checked={formData.featured} onChange={handleInputChange} />
+=======
+              <input type="checkbox" id="featured" />
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
               <label htmlFor="featured">Mark as featured course</label>
             </div>
           </div>
@@ -154,6 +233,7 @@ const CreateCourse = () => {
             <h2 style={styles.heading}>Course Media</h2>
             <div style={styles.uploadArea}>
               <p>Upload course image</p>
+<<<<<<< HEAD
               <input type="file" id="courseImage" onChange={handleInputChange} accept="image/*" />
             </div>
             <div style={styles.formGroup}>
@@ -163,6 +243,17 @@ const CreateCourse = () => {
             <div style={styles.formGroup}>
               <label htmlFor="videoFile">Or upload video file</label>
               <input type="file" id="videoFile" accept="video/*" onChange={handleInputChange} />
+=======
+              <input type="file" accept="image/*" />
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="videoUrl">Video URL</label>
+              <input type="text" id="videoUrl" placeholder="Enter video URL" style={styles.input} />
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="videoFile">Or upload video file</label>
+              <input type="file" id="videoFile" accept="video/*" />
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
             </div>
           </div>
         );
@@ -186,11 +277,19 @@ const CreateCourse = () => {
             <h2 style={styles.heading}>Additional Information</h2>
             <div style={styles.formGroup}>
               <label htmlFor="tags">Tags</label>
+<<<<<<< HEAD
               <input type="text" id="tags" value={formData.tags} onChange={handleInputChange} placeholder="Enter tags (comma separated)" style={styles.input} />
             </div>
             <div style={styles.formGroup}>
               <label htmlFor="reviewerMessage">Message to reviewer</label>
               <textarea id="reviewerMessage" value={formData.reviewerMessage} onChange={handleInputChange} placeholder="Write a message to the reviewer" style={styles.textarea}></textarea>
+=======
+              <input type="text" id="tags" placeholder="Enter tags (comma separated)" style={styles.input} />
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="message">Message to reviewer</label>
+              <textarea id="message" placeholder="Write a message to the reviewer" style={styles.textarea}></textarea>
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
             </div>
             <div style={styles.formGroup}>
               <input type="checkbox" id="terms" />
@@ -205,6 +304,7 @@ const CreateCourse = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <Nav/>
       <section
         className="py-0 bg-blue h-100px align-items-center d-flex h-200px rounded-0"
@@ -256,6 +356,76 @@ const CreateCourse = () => {
         <div style={styles.formContainer}>
           {renderStepContent()}
           <div style={styles.navigationButtons}>
+=======
+    <Nav/>
+<section
+  className="py-0 bg-blue h-100px align-items-center d-flex h-200px rounded-0"
+  style={{
+    background: 'url(assets/images/pattern/04.png) no-repeat center center',
+    backgroundSize: 'cover',
+  }}
+>
+  {/* Main banner background image */}
+  <div className="container">
+    <div className="row">
+      <div className="col-12 text-center">
+        {/* Title */}
+        <h1 className="text-white">Submit a new Course</h1>
+        <p className="text-white mb-0">
+          Read our{' '}
+          <a href="#" className="text-white">
+            <u>"Before you create a course"</u>
+          </a>{' '}
+          article before submitting!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <div style={styles.container} className='card bg-transparent border rounded-3 mb-5'>
+    <div className="row">
+  <div className="col-md-8 mt-5 mx-auto text-center">
+    {/* Content */}
+    <p className="text-center">Use this interface to add a new Course to the portal. Once you are done adding the item it will be reviewed for quality. If approved, your course will appear for sale and you will be informed by email that your course has been accepted.</p>
+  </div>
+</div>
+        <div className='bs-stepper stepper-outline'>
+      <div style={styles.stepperContainer} className='card-header bg-light border-bottom px-lg-5'>
+        {steps.map((step) => (
+          <div key={step.number} style={styles.stepItem} className='bs-stepper-header'>
+            <button
+              onClick={() => navigateToStep(step.number)}
+              style={{
+                ...styles.stepButton,
+                ...(currentStep === step.number ? styles.activeStep : {})
+              }}
+            >
+              {step.number}
+            </button>
+            <span style={styles.stepTitle}>{step.title}</span>
+          </div>
+        ))}
+      </div>
+      </div>
+      <div style={styles.formContainer}>
+        {renderStepContent()}
+        <div style={styles.navigationButtons}>
+          <button
+            onClick={() => navigateToStep(currentStep - 1)}
+            disabled={currentStep === 1}
+            style={styles.button}
+          >
+            Previous
+          </button>
+          {currentStep === totalSteps ? (
+            <button style={styles.button} onClick={handleSubmit}>Submit Course</button>
+          ) : (
+>>>>>>> 289ec6f157802e29f2ae8979fd65a007a654068f
             <button
               onClick={() => navigateToStep(currentStep - 1)}
               disabled={currentStep === 1}
@@ -276,6 +446,7 @@ const CreateCourse = () => {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 };
