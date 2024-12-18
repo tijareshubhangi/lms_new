@@ -188,5 +188,5 @@ app.post("/verify-payment", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://3.110.103.222:${PORT}`);
+  console.log(`API is running on http://43.204.234.11:${PORT}`);
 });
