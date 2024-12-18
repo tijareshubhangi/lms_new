@@ -236,7 +236,7 @@ const CreateCourse = () => {
           </div>
         </div>
         <div className='bs-stepper stepper-outline'>
-          <div style={styles.stepperContainer} className='card-header bg-light border-bottom px-lg-5'>
+          <div style={styles.stepperContainer} className='card-header bg-lights border-bottom px-lg-5'>
             {steps.map((step) => (
               <div key={step.number} style={styles.stepItem} className='bs-stepper-header'>
                 <button

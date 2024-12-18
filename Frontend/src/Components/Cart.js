@@ -80,7 +80,7 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <div className="bg-light p-4 text-center rounded-3">
+                <div className="bg-lights p-4 text-center rounded-3">
                   <h1 className="m-0">My Cart</h1>
                 </div>
               </div>
@@ -188,11 +188,12 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                     </span>
                   </div>
                   <button
-                    onClick={() => alert("Proceed to Checkout")}
-                    className="btn btn-lg btn-success mt-3 w-100"
-                  >
-                    Buy Now
-                  </button>
+                        // onClick={handleBuy}
+                        onClick={() => navigate("/payment")}
+                        className="btn btn-lg btn-success"
+                      >
+                        Continue Purchase
+                      </button>
                 </div>
               </div>
             </div>

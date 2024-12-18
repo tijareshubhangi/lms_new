@@ -4,7 +4,7 @@ const Success = () => {
   return (
     <div style={styles.container}>
         <img
-            src="assets/images/LMS.png"
+            src="./assets/images/LMS.jpg"
             alt="LMS"
             className="logo"
             style={{

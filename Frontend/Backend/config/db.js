@@ -2,7 +2,7 @@ import mongoose from "mongoose"; // Add this line
 
 const connectDB = async () => {
   try {
-    const res = await mongoose.connect("mongodb://127.0.0.1:27017/mern-auth-project");
+    const res = await mongoose.connect("mongodb+srv://codehackamod:lue1SiZfcRMcWt0H@lms.3ujwt.mongodb.net/");
     console.log("Database connected successfully");
   } catch (err) {
     console.error("Database connection error:", err);

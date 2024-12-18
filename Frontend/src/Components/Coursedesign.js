@@ -5,7 +5,7 @@ const Coursedesign = () => {
    <>
    {/* =======================
 Popular course START */}
-<section className="bg-light position-relative overflow-hidden">
+<section className="bg-lights position-relative overflow-hidden">
   {/* SVG decoration */}
   <figure className="position-absolute bottom-0 end-0 mb-n5">
     <svg width="822.2px" height="301.9px" viewBox="0 0 822.2 301.9">

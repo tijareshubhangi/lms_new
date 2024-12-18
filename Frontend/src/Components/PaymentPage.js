@@ -7,20 +7,34 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
   const [qrCode, setQrCode] = useState("");
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-    const [totalPrice, setTotalPrice] = useState(0);
+   const [totalPrice, setTotalPrice] = useState(0);
 
 
-    
-      // Update total price when the cart changes
-      useEffect(() => {
-        setTotalPrice(
-          cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-        );
-      }, [cart]);
+    const GST_PERCENT = 0.03; // 3% GST
+     const DISCOUNT_PERCENT = 0.2; // 10% Discount
+   
+     const [gst, setGST] = useState(0);
+     const [discount, setDiscount] = useState(0);
+     const [payableAmount, setPayableAmount] = useState(0);
+   
+     useEffect(() => {
+       const price = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+       setTotalPrice(price);
+   
+       const gstAmount = price * GST_PERCENT;
+       const discountAmount = price * DISCOUNT_PERCENT;
+       const finalAmount = price + gstAmount - discountAmount;
+   
+       setGST(gstAmount);
+       setDiscount(discountAmount);
+       setPayableAmount(finalAmount);
+   
+       localStorage.setItem("cart", JSON.stringify(cart));
+     }, [cart]);
 
   const fetchQRCode = async () => {
     try {
-      const response = await fetch("http://13.232.236.57:9000/generate-qr", {
+      const response = await fetch("http://3.110.103.222:3000/generate-qr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user: "PSK", amount: 1000 }),
@@ -52,7 +66,7 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
       const res = await axios.post("/api/auth/send-email", { email });
 
       if (res.status === 200) {
-        alert("Purchase successful! Confirmation email sent.");
+        alert("Product purchase confirmation email sent.");
         navigate("/success"); // Redirect to success page
       } else {
         alert("Purchase successful, but email could not be sent.");
@@ -82,6 +96,7 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
     boxShadow: isHovered
       ? "0px 6px 14px rgba(0, 0, 0, 0.3)"
       : "0px 4px 8px rgba(0, 0, 0, 0.2)",
+
     transform: isHovered ? "scale(1.05)" : "scale(1)",
     transition: "transform 0.2s, box-shadow 0.2s",
     marginBottom: "20px",
@@ -92,8 +107,43 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
   const [selectedBank, setSelectedBank] = useState("");
 
 
+  const styles = {
+    cardContainer: {
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      borderRadius: "10px",
+      overflow: "hidden",
+      marginBottom: "20px",
+      backgroundColor: "#fff",
+      padding: "20px",
+      border: "1px solid #ddd",
+    },
+    tableRow: {
+      borderBottom: "1px solid #ddd",
+    },
+    button: {
+      marginRight: "5px",
+      fontSize: "14px",
+    },
+    cardTotal: {
+      backgroundColor: "#f8f9fa",
+      padding: "20px",
+      borderRadius: "10px",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    },
+    totalItem: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: "10px",
+      fontSize: "16px",
+    },
+    totalPayable: {
+      fontSize: "18px",
+      fontWeight: "bold",
+      color: "#28a745",
+    },
+  };
   return (  
-    <div className="flex justify-center items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
+    <div className="flex justify-center  items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
       <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-4">
         <div className="flex">
           <div className="w-3/4 pr-4"> 
@@ -106,8 +156,8 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                 <span className="font-bold">00 : 02 : 53</span>
               </p>
             </div>
-            <div className="p-4">
-              <div className="bg-blue-50 p-4 rounded-lg mb-4">
+            <div >
+              <div className=" rounded-lg mb-4">
                 <div className="flex items-center mb-2">
                   <input
                     type="radio"
@@ -366,31 +416,41 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
           <div className="w-1/4 bg-gray-100 p-4 rounded-lg">
             <div className="bg-white p-4 rounded-lg shadow-md mb-4">
               <h5 className="font-bold mb-2">PRICE DETAILS</h5>
-              <div className="flex justify-between mb-2">
-                <span>Price (1 item)</span>
-                <span> ₹{totalPrice}</span>
+              <div className="col-lg-4">
+                <div style={styles.cardTotal}>
+                  <h4 className="mb-3">Cart Total</h4>
+                  <div style={styles.totalItem}>
+                    <span>Original Price</span>
+                    <strong>₹{totalPrice.toFixed(2)}</strong>
+                  </div>
+                  <div style={styles.totalItem}>
+                    <span>Discount (20%)</span>
+                    <strong>- ₹{discount.toFixed(2)}</strong>
+                  </div>
+                  <div style={styles.totalItem}>
+                    <span>GST (3%)</span>
+                    <strong>₹{gst.toFixed(2)}</strong>
+                  </div>
+                 
+                  <div style={styles.totalItem}>
+                    <span className="total-payable" style={styles.totalPayable}>
+                      Total Payable
+                    </span>
+                    <span className="total-payable" >
+                      ₹{payableAmount.toFixed(2)}
+                    </span>
+                  </div>
+                
+                </div>
               </div>
-              <div className="flex justify-between mb-2">
-                <span>GST</span>
-                <span className="text-green-500">&nbsp;&nbsp;3%</span>
-              </div>
-              <div className="flex justify-between mb-2">
-                <span>Platform Fee</span>
-                <span className="text-green-500">&nbsp;&nbsp;₹3</span>
-              </div>
-              <hr className="my-2" />
-              <div className="flex justify-between font-bold">
-                <span>Amount Payable</span>
-                <span className="text-green-500">&nbsp;&nbsp;₹{totalPrice}</span>
-              </div>
-              <button
+              {/* <button
                         style={buttonStyle}
                         onClick={handleBuy} // Trigger handleBuy function
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                       >
                         Buy Now
-                      </button>
+                      </button> */}
             </div>
           </div>
         </div>

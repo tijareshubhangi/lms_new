@@ -77,7 +77,7 @@ const PopularCourses = () => {
                 lectures: 18
               },
               {
-                videoSrc: 'http://3.110.103.222:3000/videos/V1.mp4',
+                videoSrc: 'http://l3.110.103.222:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Advanced Web Design: HTML5 and CSS3 Techniques',
                 description: 'Take your web design skills to the next level with advanced techniques.',

@@ -264,7 +264,6 @@ Student Dashboard Route Start */}
 <Route path="/coursemore" element={<CourseMore/>} />
 <Route path="/createcource" element={<CreateCourse/>} />
 
-<Route path="/paymentpage" element = {<PaymentPage/>} />
 
 
           <Route path="*" element={<Navigate to="/" />} />

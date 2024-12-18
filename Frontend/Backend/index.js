@@ -9,11 +9,17 @@ import nodemailer from "nodemailer";
 import bodyParser from "body-parser";
 import multer from "multer";
 // Import Custom Modules
-import connectDB from "./config/db.js"
+import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
 import QRCode from "qrcode";
 
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+// __dirname replacement
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -22,9 +28,17 @@ mongoose.set("strictQuery", true);
 // Connect to Database
 connectDB();
 
+// app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "../build")));
+
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Handle React routing
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
+});
 
 // Parse JSON data
 app.use(bodyParser.json());
@@ -38,55 +52,56 @@ if (!fs.existsSync(folderPath)) {
   fs.mkdirSync(folderPath, { recursive: true });
 }
 
-
 // Serve Static Files
-app.use('/public', express.static(path.join(path.resolve(), 'Public/Allimages')));
+app.use(
+  "/public",
+  express.static(path.join(path.resolve(), "Public/Allimages"))
+);
 
 // Routes
 app.get("/", (req, res) => {
   res.send("Backend is Running..");
 });
 app.use("/api/auth", authRoutes);
-app.use('/api/auth', courseRoutes);
-app.use('/uploads', express.static('uploads'));
+app.use("/api/auth", courseRoutes);
+app.use("/uploads", express.static("uploads"));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/') // Make sure this directory exists
+    cb(null, "uploads/"); // Make sure this directory exists
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)) // Appending extension
-  }
+    cb(null, Date.now() + path.extname(file.originalname)); // Appending extension
+  },
 });
 
-const upload = multer({ 
+const upload = multer({
   storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 } // Limit file size to 10MB
+  limits: { fileSize: 10 * 1024 * 1024 }, // Limit file size to 10MB
 });
 
-app.post('/api/auth/courses', upload.single('video'), (req, res) => {
+app.post("/api/auth/courses", upload.single("video"), (req, res) => {
   try {
     // Handle course creation logic here
     // req.file contains the uploaded file information
     // req.body contains the text fields
 
-    res.status(201).json({ message: 'Course created successfully' });
+    res.status(201).json({ message: "Course created successfully" });
   } catch (error) {
-    console.error('Server error:', error);
-    res.status(500).json({ message: 'Error creating course', error: error.message });
+    console.error("Server error:", error);
+    res
+      .status(500)
+      .json({ message: "Error creating course", error: error.message });
   }
 });
-
-
-
 
 // Temporary storage for OTPs (for demo purposes; consider using a database in production)
 const otpStore = {};
 
-app.post('/send-otp', async (req, res) => {
+app.post("/send-otp", async (req, res) => {
   const { email } = req.body;
   if (!email) {
-    return res.status(400).json({ message: 'Email is required' });
+    return res.status(400).json({ message: "Email is required" });
   }
 
   const otp = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit OTP
@@ -96,7 +111,7 @@ app.post('/send-otp', async (req, res) => {
 
   // Configure Nodemailer with environment variables
   const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    service: "Gmail",
     auth: {
       user: process.env.EMAIL,
       pass: process.env.EMAIL_PASSWORD,
@@ -106,28 +121,28 @@ app.post('/send-otp', async (req, res) => {
   const mailOptions = {
     from: process.env.EMAIL,
     to: email,
-    subject: 'Your OTP Code',
+    subject: "Your OTP Code",
     text: `Your OTP code is ${otp}`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'OTP sent successfully to ' + email });
+    res.status(200).json({ message: "OTP sent successfully to " + email });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Failed to send OTP. Please try again.' });
+    console.error("Error sending email:", error);
+    res.status(500).json({ message: "Failed to send OTP. Please try again." });
   }
 });
 
-app.post('/verify-otp', (req, res) => {
+app.post("/verify-otp", (req, res) => {
   const { email, userOtp } = req.body;
   if (!email || !userOtp) {
-    return res.status(400).json({ message: 'Email and OTP are required' });
+    return res.status(400).json({ message: "Email and OTP are required" });
   }
 
   const otpData = otpStore[email];
   if (!otpData) {
-    return res.status(400).json({ message: 'No OTP sent to this email' });
+    return res.status(400).json({ message: "No OTP sent to this email" });
   }
 
   // Check if OTP has expired (60 seconds limit)
@@ -136,15 +151,15 @@ app.post('/verify-otp', (req, res) => {
 
   if (isExpired) {
     delete otpStore[email]; // Remove expired OTP
-    return res.status(400).json({ message: 'OTP has expired' });
+    return res.status(400).json({ message: "OTP has expired" });
   }
 
   // Validate OTP
   if (otpData.otp == userOtp) {
     delete otpStore[email]; // Remove OTP after successful verification
-    res.status(200).json({ message: 'OTP verified successfully' });
+    res.status(200).json({ message: "OTP verified successfully" });
   } else {
-    res.status(400).json({ message: 'Invalid OTP' });
+    res.status(400).json({ message: "Invalid OTP" });
   }
 });
 
@@ -155,7 +170,9 @@ app.post("/generate-qr", async (req, res) => {
   const qrData = `Payment Request:\nUser: ${user}\nAmount: INR ${amount}`;
 
   try {
-    const qrCode = await QRCode.toDataURL(qrData, { errorCorrectionLevel: "H" }); // High error correction level
+    const qrCode = await QRCode.toDataURL(qrData, {
+      errorCorrectionLevel: "H",
+    }); // High error correction level
     res.status(200).json({ qrCode });
   } catch (error) {
     console.error("Error generating QR code:", error);
@@ -171,5 +188,5 @@ app.post("/verify-payment", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://localhost:${PORT}`);
+  console.log(`API is running on http://3.110.103.222:${PORT}`);
 });
