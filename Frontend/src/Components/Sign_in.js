@@ -184,10 +184,10 @@ const SignIn = () => {
                         </p>
                       </div>
                       <div className="col-xxl-6 d-grid">
-                        <a href="#" className="btn bg-google mb-2 mb-xxl-0">
+                        {/* <a href="#" className="btn bg-google mb-2 mb-xxl-0">
                           <i className="fab fa-fw fa-google text-white me-2" />{" "}
                           Login with Google
-                        </a>
+                        </a> */}
                       </div>
                       <div className="col-xxl-6 d-grid">
                         <a href="#" className="btn bg-facebook mb-0">

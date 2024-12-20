@@ -443,6 +443,7 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                 
                 </div>
               </div>
+
               {/* <button
                         style={buttonStyle}
                         onClick={handleBuy} // Trigger handleBuy function

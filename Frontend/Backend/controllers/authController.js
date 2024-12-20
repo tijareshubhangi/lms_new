@@ -315,7 +315,7 @@ class authController {
           const mailOptions = {
             from: process.env.EMAIL,
             to: email,
-            subject: `Purchesed Order Successfully`,
+            subject: `Purchased Order Successfully`,
             html: `
               <!doctype html>
               <html lang="en-US">

@@ -185,6 +185,21 @@ app.post("/verify-payment", (req, res) => {
   res.status(200).json({ message: "Payment Successful" });
 });
 
+
+
+// Sample route
+app.post("/api/users/save", (req, res) => {
+  const { name, email, photo } = req.body;
+  if (!name || !email || !photo) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
+
+  // Mock response
+  res.status(201).json({ message: "User saved successfully" });
+});
+
+
+
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

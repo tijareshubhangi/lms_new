@@ -2,9 +2,37 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {useNavigate } from 'react-router-dom';
 import axios from "../Components/Services/axiosInterceptor";
+// import { auth, googleProvider, signInWithPopup } from "../../src/services/firebase";
+import { auth, googleProvider, signInWithPopup } from "../services/firebase";
+
 
 const Sign_UP = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Initialize navigate function
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+  
+      const res = await axios.post("http://localhost:3000/api/users/save", {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      });
+  
+      console.log("User saved to backend:", res.data);
+      navigate("/success");
+    } catch (error) {
+      if (error.response) {
+        console.error("API Error:", error.response.data.message);
+      } else if (error.request) {
+        console.error("No response received from API:", error.request);
+      } else {
+        console.error("Error setting up request:", error.message);
+      }
+    }
+  };
+  
+
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -204,10 +232,10 @@ const Sign_UP = () => {
                         </p>
                       </div>
                       <div className="col-xxl-6 d-grid">
-                        <a href="#" className="btn bg-google mb-2 mb-xxl-0">
+                        <button onClick={handleGoogleLogin} className="btn bg-google mb-2 mb-xxl-0">
                           <i className="fab fa-fw fa-google text-white me-2" />
                           Signup with Google
-                        </a>
+                        </button>
                       </div>
                       <div className="col-xxl-6 d-grid">
                         <a href="#" className="btn bg-facebook mb-0">
