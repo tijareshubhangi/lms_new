@@ -12,12 +12,12 @@ const CourseCategory1 = ({ onAddToCart,cartCount,handleLogout }) => {
   useEffect(() => {
     // Simulate fetching product (course) data
     setProducts([
-      { id: 1, name: "Computer Hardware", image: "assets/images/courses/4by3/HW.png"  },
-      { id: 2, name: "Computer Networking", image: "assets/images/courses/4by3/HW.png" },
-      { id: 3, name: "Graphic Designing",image: "assets/images/courses/4by3/HW.png"  },
-      { id: 4, name: "Digitial Marketing",image: "assets/images/courses/4by3/HW.png" },
-      { id: 5, name: "Wordpress",image: "assets/images/courses/4by3/HW.png" },
-      { id: 5, name: "(AWS) Amazon Web Services",image: "assets/images/courses/4by3/HW.png" },
+      { id: 1, name: "Computer Hardware", image: "assets/images/courses/4by3/HW.png",price:"11"  },
+      { id: 2, name: "Computer Networking", image: "assets/images/courses/4by3/HW.png",price:"21" },
+      { id: 3, name: "Graphic Designing",image: "assets/images/courses/4by3/HW.png",price:"51"  },
+      { id: 4, name: "Digitial Marketing",image: "assets/images/courses/4by3/HW.png",price:"101" },
+      { id: 5, name: "Wordpress",image: "assets/images/courses/4by3/HW.png",price:"501" },
+      { id: 5, name: "(AWS) Amazon Web Services",image: "assets/images/courses/4by3/HW.png",price:"1001" },
       
       
     ]);

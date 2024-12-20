@@ -132,7 +132,7 @@ const handleSaveName = async () => {
       });
 
       if (res.status === 200) {
-        const latestImageUrl = `http://localhost:9000/public/${res.data.imageFile}`;
+        const latestImageUrl = `http://43.204.234.11:3000/public/${res.data.imageFile}`;
         // Store the image URL in localStorage
         localStorage.setItem("profileImage", latestImageUrl);
         setProfileImage(latestImageUrl);  // Persist image in profileImage state
@@ -219,7 +219,7 @@ Page Banner START */}
                         </li>
                       </ul>
                     </div>
-                    {/* Button */}
+                    {/* Button
                     <div className="d-flex align-items-center mt-2 mt-md-0">
                       <a
                         href="/instructorcreatecourses"
@@ -227,7 +227,7 @@ Page Banner START */}
                       >
                         Create a course
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

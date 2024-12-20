@@ -1,18 +1,34 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "../Components/Services/axiosInterceptor";
 import { Link, useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 import Footer from "./Footer";
-
+import Coursedesign from "./Coursedesign";
 
 const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [cartCount, setCartCount] = useState(0);
   const navigate = useNavigate();
 
+  const GST_PERCENT = 0.03; // 3% GST
+  const DISCOUNT_PERCENT = 0.2; // 10% Discount
+
+  const [gst, setGST] = useState(0);
+  const [discount, setDiscount] = useState(0);
+  const [payableAmount, setPayableAmount] = useState(0);
+
   useEffect(() => {
-    setTotalPrice(cart.reduce((sum, item) => sum + item.price * item.quantity, 0));
+    const price = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    setTotalPrice(price);
+
+    const gstAmount = price * GST_PERCENT;
+    const discountAmount = price * DISCOUNT_PERCENT;
+    const finalAmount = price + gstAmount - discountAmount;
+
+    setGST(gstAmount);
+    setDiscount(discountAmount);
+    setPayableAmount(finalAmount);
+
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
@@ -20,139 +36,52 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
     setCartCount(cart.reduce((count, item) => count + item.quantity, 0));
   }, [cart]);
 
-  useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-  }, [setCart]);
-
-  const handleBuy = async () => {
-    const token = localStorage.getItem("token");
-    const email = localStorage.getItem("userEmail");
-
-    if (!token) {
-      alert("Please log in or sign up to complete your purchase.");
-      navigate("/signin");
-      return;
-    }
-
-    if (!email) {
-      alert("User email not found. Please log in again.");
-      return;
-    }
-
-    try {
-      const res = await axios.post("/api/auth/send-email", { email });
-
-      if (res.status === 200) {
-        alert("Purchase successful! Confirmation email sent.");
-        onClearCart();
-      } else {
-        alert("Purchase successful, but email could not be sent.");
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
-      alert(
-        `An error occurred while sending the confirmation email. ${
-          error.response?.data?.message || "Please try again later."
-        }`
-      );
-    }
-  };
-
-  const handleAdd = (product) => {
-    setCart(
-      cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
-
-  const handleRemove = (product, isDelete = false) => {
-    if (isDelete) {
-      setCart(cart.filter((item) => item.id !== product.id));
-    } else {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id && item.quantity > 1
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-      );
-    }
-  };
-
-  const handleClearCart = () => {
-    setCart([]);
-    localStorage.removeItem("cart");
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setCart([]);
-    localStorage.removeItem("cart");
-    window.location.reload();
-    navigate("/");
-  };
-
   const styles = {
-    mainheader: {
-      marginTop: '150px',
+    cardContainer: {
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      borderRadius: "10px",
+      overflow: "hidden",
+      marginBottom: "20px",
+      backgroundColor: "#fff",
+      padding: "20px",
+      border: "1px solid #ddd",
     },
-    '@media (max-width: 1024px)': { // For tablets
-      mainheader: {
-        marginTop: '100px',
-      },
+    tableRow: {
+      borderBottom: "1px solid #ddd",
     },
-    '@media (max-width: 768px)': { // For small tablets and large phones
-      mainheader: {
-        marginTop: '80px',
-      },
+    button: {
+      marginRight: "5px",
+      fontSize: "14px",
     },
-    '@media (max-width: 480px)': { // For mobile devices
-      mainheader: {
-        marginTop: '50px',
-      },
+    cardTotal: {
+      backgroundColor: "#f8f9fa",
+      padding: "20px",
+      borderRadius: "10px",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    },
+    totalItem: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: "10px",
+      fontSize: "16px",
+    },
+    totalPayable: {
+      fontSize: "18px",
+      fontWeight: "bold",
+      color: "#28a745",
     },
   };
-  
 
   return (
     <>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-
-      <Nav cartCount={cartCount} handleLogout={handleLogout} />
+      <Nav cartCount={cartCount} />
       <div>
-        <section className="py-0 " style={styles.mainheader}>
+        <section className="py-0" style={{ marginTop: "150px" }}>
           <div className="container">
             <div className="row">
               <div className="col-12">
                 <div className="bg-lights p-4 text-center rounded-3">
                   <h1 className="m-0">My Cart</h1>
-                  <div className="d-flex justify-content-center">
-                    <nav aria-label="breadcrumb">
-                      <ol className="breadcrumb breadcrumb-dots mb-0">
-                        <li className="breadcrumb-item">
-                          <Link to="/">Home</Link>
-                        </li>
-                        <li className="breadcrumb-item">
-                          <Link to="/courses">Courses</Link>
-                        </li>
-                        <li
-                          className="breadcrumb-item active"
-                          aria-current="page"
-                        >
-                          Cart
-                        </li>
-                      </ol>
-                    </nav>
-                  </div>
                 </div>
               </div>
             </div>
@@ -163,80 +92,60 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
           <div className="container">
             <div className="row g-4 g-sm-5">
               <div className="col-lg-8 mb-4 mb-sm-0">
-                <div className="card card-body p-4 shadow">
+                <div style={styles.cardContainer}>
                   {cart.length === 0 ? (
                     <div>
-                      <div
-                        className="alert alert-danger alert-dismissible d-flex justify-content-between align-items-center fade show py-3 pe-2"
-                        role="alert"
-                      >
-                        <div>
-                          <span className="fs-5 me-1">🔥</span>
-                          <strong className="text-danger ms-1">
-                          Your cart is empty ! add cources
-                          </strong>
-                        </div>
-                        <button
-                          type="button"
-                          className="btn btn-link mb-0 text-primary-hover text-end"
-                          data-bs-dismiss="alert"
-                          aria-label="Close"
-                        >
-                          <i className="bi bi-x-lg" />
-                        </button>
+                      <div className="alert alert-danger py-3">
+                        Your cart is empty! Add courses.
                       </div>
-
-                     
                       <button
-                        onClick={() => navigate("/course")}
+                        onClick={() => navigate("/courses")}
                         className="btn btn-lg btn-success"
                       >
                         Add More Products
                       </button>
                     </div>
                   ) : (
-                    <div className="table-responsive border-0 rounded-3">
-                      <table className="table align-middle p-4 mb-0">
-                        <tbody className="border-top-0">
+                    <div className="table-responsive">
+                      <table className="table align-middle">
+                        <tbody>
                           {cart.map((item) => (
-                            <tr key={item.id}>
+                            <tr key={item.id} style={styles.tableRow}>
                               <td>
                                 <div className="d-lg-flex align-items-center">
-                                <img
-            src={item.thumbnail}
-            alt={item.name}
-            className="img-fluid rounded"
-            style={{ width: "80px", height: "80px", objectFit: "cover" }}
-          />
-                                  <h6 className="mb-0 ms-lg-3 mt-2 mt-lg-0">
-                                    {item.name}
-                                  </h6>
+                                  <img
+                                    src={item.thumbnail}
+                                    alt={item.name}
+                                    className="img-fluid rounded"
+                                    style={{ width: "80px", height: "80px" }}
+                                  />
+                                  <h6 className="ms-lg-3">{item.name}</h6>
                                 </div>
                               </td>
                               <td className="text-center">
-                                <h5 className="text-success mb-0">
-                                  ₹{item.price}
-                                </h5>
-                                <p>Quantity: {item.quantity}</p>
+                                ₹{item.price} x {item.quantity}
                               </td>
                               <td>
                                 <button
-                                  onClick={() => handleAdd(item)}
-                                  className="btn btn-sm btn-success-soft px-2 me-1 mb-1 mb-md-0"
+                                  onClick={() => onAdd(item)}
+                                  className="btn btn-sm btn-success"
+                                  style={styles.button}
                                 >
-                                  <i className="fas fa-plus" />
+                                  +
                                 </button>
                                 <button
-                                  onClick={() => handleRemove(item)}
-                                  className="btn btn-sm btn-warning-soft px-2 me-1 mb-1 mb-md-0"
+                                  onClick={() => onRemove(item)}
+                                  className="btn btn-sm btn-warning"
+                                  style={styles.button}
                                 >
-                                  <i className="fas fa-minus" />
+                                  -
                                 </button>
                                 <button
-                                  onClick={() => handleRemove(item, true)}
-                                  className="btn btn-sm btn-danger-soft px-2 mb-0"
+                                  onClick={() => onRemove(item, true)}
+                                  className="btn btn-sm btn-danger"
+                                  style={styles.button}
                                 >
-                                  <i className="fas fa-times" />
+                                  x
                                 </button>
                               </td>
                             </tr>
@@ -245,7 +154,7 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
                       </table>
                       <button
                         className="btn btn-danger mt-3"
-                        onClick={handleClearCart}
+                        onClick={onClearCart}
                       >
                         Clear Cart
                       </button>
@@ -255,34 +164,43 @@ const Cart = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
               </div>
 
               <div className="col-lg-4">
-                <div className="card card-body p-4 shadow">
+                <div style={styles.cardTotal}>
                   <h4 className="mb-3">Cart Total</h4>
-                  <ul className="list-group list-group-borderless mb-2">
-                    <li className="list-group-item px-0 d-flex justify-content-between">
-                      <span className="h6 fw-light mb-0">Original Price</span>
-                      <span className="h6 fw-light mb-0 fw-bold">
-                        ₹{totalPrice}
-                      </span>
-                    </li>
-                  </ul>
-                  <div className="d-grid">
-                    <button
-                      onClick={handleBuy}
-                      className="btn btn-lg btn-success"
-                    >
-                      Buy Now
-                    </button>
+                  <div style={styles.totalItem}>
+                    <span>Original Price</span>
+                    <strong>₹{totalPrice.toFixed(2)}</strong>
                   </div>
-                  <p className="small mb-0 mt-2 text-center">
-                    By completing your purchase, you agree to these{" "}
-                    <Link to="#">Terms of Service</Link>
-                  </p>
+                  <div style={styles.totalItem}>
+                    <span>Discount (20%)</span>
+                    <strong>- ₹{discount.toFixed(2)}</strong>
+                  </div>
+                  <div style={styles.totalItem}>
+                    <span>GST (3%)</span>
+                    <strong>₹{gst.toFixed(2)}</strong>
+                  </div>
+                 
+                  <div style={styles.totalItem}>
+                    <span className="total-payable" style={styles.totalPayable}>
+                      Total Payable
+                    </span>
+                    <span className="total-payable" style={styles.totalPayable}>
+                      ₹{payableAmount.toFixed(2)}
+                    </span>
+                  </div>
+                  <button
+                        // onClick={handleBuy}
+                        onClick={() => navigate("/payment")}
+                        className="btn btn-lg btn-success"
+                      >
+                        Continue Purchase
+                      </button>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
+      <Coursedesign/>
       <Footer />
     </>
   );

@@ -89,6 +89,7 @@ import Blog from "./Components/Blog";
 import BlogDetals from "./Components/BlogDetals";
 import AdminEdit from "./Components/AdminEdit";
 import PaymentPage from "./Components/PaymentPage";
+import Success from "./Components/Success";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -174,8 +175,13 @@ function App() {
               />
             }
           />
-<Route path='/payment' element={<PaymentPage/>}/>
+<Route path='/payment' element={<PaymentPage  
+ cart={cart}
+ setCart={setCart}
+ onAdd={handleAdd}
 
+/>}/>
+<Route path="/success" element={<Success/>} />
 <Route path='/about' element={ <About/> }/>   
 <Route path='/contactus' element={ <ContactUs/> }/>   
 <Route path='/blog' element={ <Blog/> }/>
@@ -258,7 +264,6 @@ Student Dashboard Route Start */}
 <Route path="/coursemore" element={<CourseMore/>} />
 <Route path="/createcource" element={<CreateCourse/>} />
 
-<Route path="/paymentpage" element = {<PaymentPage/>} />
 
 
           <Route path="*" element={<Navigate to="/" />} />

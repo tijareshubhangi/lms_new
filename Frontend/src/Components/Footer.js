@@ -17,7 +17,7 @@ Footer START */}
         {/* logo */}
 
         <Link className="me-0" to="index-2.html">
-          <img className="light-mode-item h-40px" src="assets/images/logo1newbg.png" alt="logo" />
+          <img className="light-mode-item h-40px"    src="./assets/images/LMS.jpg" alt="logo" />
 
           {/* <img className="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo" /> */}
         </Link>

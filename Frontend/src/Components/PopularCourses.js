@@ -30,7 +30,7 @@ const PopularCourses = () => {
   const courses = {
     'Web Design': [
       {
-        videoSrc: 'http://localhost:9000/videos/V1.mp4',
+        videoSrc: 'http://localhost:3000/videos/V1.mp4',
         badge: 'All level',
         title: 'Sketch from A to Z: for HTML',
         description: 'Proposal indulged no do sociable he throwing settling.',
@@ -39,7 +39,7 @@ const PopularCourses = () => {
         lectures: 15,
       },
     {             
-                  videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                  videoSrc: 'http://localhost:3000/videos/V1.mp4',
                   badge: 'All level',
                   title: 'Sketch from A to Z: for HTML',
                   description: 'Proposal indulged no do sociable he throwing settling.',
@@ -50,7 +50,7 @@ const PopularCourses = () => {
                   
                   },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'All level',
                 title: 'Sketch from A to Z: for app designer',
                 description: 'Proposal indulged no do sociable he throwing settling.',
@@ -59,7 +59,7 @@ const PopularCourses = () => {
                 lectures: 15
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Beginner',
                 title: 'Mastering Adobe XD: From UI to UX Design',
                 description: 'Learn how to use Adobe XD for user interface and experience design.',
@@ -68,7 +68,7 @@ const PopularCourses = () => {
                 lectures: 20
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Advanced Web Design: HTML5 and CSS3 Techniques',
                 description: 'Take your web design skills to the next level with advanced techniques.',
@@ -77,7 +77,7 @@ const PopularCourses = () => {
                 lectures: 18
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://llocalhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Advanced Web Design: HTML5 and CSS3 Techniques',
                 description: 'Take your web design skills to the next level with advanced techniques.',
@@ -86,7 +86,7 @@ const PopularCourses = () => {
                 lectures: 18
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Advanced Web Design: HTML5 and CSS3 Techniques',
                 description: 'Take your web design skills to the next level with advanced techniques.',
@@ -95,7 +95,7 @@ const PopularCourses = () => {
                 lectures: 18
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Advanced Web Design: HTML5 and CSS3 Techniques',
                 description: 'Take your web design skills to the next level with advanced techniques.',
@@ -110,7 +110,7 @@ const PopularCourses = () => {
       // Course data...
       
       {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'All level',
                 title: 'Complete React Developer in 2024',
                 description: 'Learn React by building real-world projects and mastering its ecosystem.',
@@ -119,7 +119,7 @@ const PopularCourses = () => {
                 lectures: 40
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'All level',
                 title: 'Sketch from A to Z: for app designer',
                 description: 'Proposal indulged no do sociable he throwing settling.',
@@ -128,7 +128,7 @@ const PopularCourses = () => {
                 lectures: 15
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Beginner',
                 title: 'Python Programming: A Comprehensive Guide',
                 description: 'From the basics of Python to advanced applications.',
@@ -137,7 +137,7 @@ const PopularCourses = () => {
                 lectures: 35
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Node.js, Express & MongoDB - Full-Stack Bootcamp',
                 description: 'Learn full-stack development by building dynamic web applications.',
@@ -146,7 +146,7 @@ const PopularCourses = () => {
                 lectures: 50
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Node.js, Express & MongoDB - Full-Stack Bootcamp',
                 description: 'Learn full-stack development by building dynamic web applications.',
@@ -155,7 +155,7 @@ const PopularCourses = () => {
                 lectures: 50
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Node.js, Express & MongoDB - Full-Stack Bootcamp',
                 description: 'Learn full-stack development by building dynamic web applications.',
@@ -164,7 +164,7 @@ const PopularCourses = () => {
                 lectures: 50
               },
               {
-                videoSrc: 'http://localhost:9000/videos/V1.mp4',
+                videoSrc: 'http://localhost:3000/videos/V1.mp4',
                 badge: 'Intermediate',
                 title: 'Node.js, Express & MongoDB - Full-Stack Bootcamp',
                 description: 'Learn full-stack development by building dynamic web applications.',

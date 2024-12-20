@@ -308,6 +308,7 @@ const Instructor_Editprofile = () => {
                   <div className="mb-3">
                     <label className="form-label">Current password</label>
                     <input className="form-control" type="password" placeholder="Enter current password" />
+                    
                   </div>
                   {/* New password */}
                   <div className="mb-3">

@@ -1,14 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "../Components/Services/axiosInterceptor";
 
-const PaymentPage = () => {
+
+const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
   const [qrCode, setQrCode] = useState("");
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
+   const [totalPrice, setTotalPrice] = useState(0);
+
+
+    const GST_PERCENT = 0.03; // 3% GST
+     const DISCOUNT_PERCENT = 0.2; // 10% Discount
+   
+     const [gst, setGST] = useState(0);
+     const [discount, setDiscount] = useState(0);
+     const [payableAmount, setPayableAmount] = useState(0);
+   
+     useEffect(() => {
+       const price = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+       setTotalPrice(price);
+   
+       const gstAmount = price * GST_PERCENT;
+       const discountAmount = price * DISCOUNT_PERCENT;
+       const finalAmount = price + gstAmount - discountAmount;
+   
+       setGST(gstAmount);
+       setDiscount(discountAmount);
+       setPayableAmount(finalAmount);
+   
+       localStorage.setItem("cart", JSON.stringify(cart));
+     }, [cart]);
 
   const fetchQRCode = async () => {
     try {
-      const response = await fetch("http://localhost:9000/generate-qr", {
+      const response = await fetch("http://localhost:3000/generate-qr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user: "PSK", amount: 1000 }),
@@ -21,18 +47,37 @@ const PaymentPage = () => {
     }
   };
 
-  const handlePaymentVerification = async () => {
-    try {
-      const response = await fetch("http://localhost:9000/verify-payment", {
-        method: "POST",
-      });
+  const handleBuy = async () => {
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("userEmail");
 
-      const data = await response.json();
-      if (data.message === "Payment Successful") {
+    if (!token) {
+      alert("Please log in or sign up to complete your purchase.");
+      navigate("/signin");
+      return;
+    }
+
+    if (!email) {
+      alert("User email not found. Please log in again.");
+      return;
+    }
+
+    try {
+      const res = await axios.post("/api/auth/send-email", { email });
+
+      if (res.status === 200) {
+        alert("Product purchase confirmation email sent.");
         navigate("/success"); // Redirect to success page
+      } else {
+        alert("Purchase successful, but email could not be sent.");
       }
     } catch (error) {
-      console.error("Error verifying payment:", error);
+      console.error("Error sending email:", error);
+      alert(
+        `An error occurred while sending the confirmation email. ${
+          error.response?.data?.message || "Please try again later."
+        }`
+      );
     }
   };
 
@@ -48,21 +93,60 @@ const PaymentPage = () => {
     fontWeight: "bold",
     borderRadius: "15px",
     cursor: "pointer",
-    boxShadow: isHovered ? "0px 6px 14px rgba(0, 0, 0, 0.3)" : "0px 4px 8px rgba(0, 0, 0, 0.2)",
+    boxShadow: isHovered
+      ? "0px 6px 14px rgba(0, 0, 0, 0.3)"
+      : "0px 4px 8px rgba(0, 0, 0, 0.2)",
+
     transform: isHovered ? "scale(1.05)" : "scale(1)",
     transition: "transform 0.2s, box-shadow 0.2s",
     marginBottom: "20px",
   };
-  const [selectedUPI, setSelectedUPI] = React.useState("");
 
-  const [selectedPayment, setSelectedPayment] = React.useState("");
-  const [selectedBank, setSelectedBank] = React.useState("");
+  const [selectedUPI, setSelectedUPI] = useState("");
+  const [selectedPayment, setSelectedPayment] = useState("");
+  const [selectedBank, setSelectedBank] = useState("");
 
-  return (
-    <div className="flex justify-center items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
+
+  const styles = {
+    cardContainer: {
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      borderRadius: "10px",
+      overflow: "hidden",
+      marginBottom: "20px",
+      backgroundColor: "#fff",
+      padding: "20px",
+      border: "1px solid #ddd",
+    },
+    tableRow: {
+      borderBottom: "1px solid #ddd",
+    },
+    button: {
+      marginRight: "5px",
+      fontSize: "14px",
+    },
+    cardTotal: {
+      backgroundColor: "#f8f9fa",
+      padding: "20px",
+      borderRadius: "10px",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    },
+    totalItem: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: "10px",
+      fontSize: "16px",
+    },
+    totalPayable: {
+      fontSize: "18px",
+      fontWeight: "bold",
+      color: "#28a745",
+    },
+  };
+  return (  
+    <div className="flex justify-center  items-center min-h-screen p-4 " style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)" }}>
       <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-4">
         <div className="flex">
-          <div className="w-3/4 pr-4">
+          <div className="w-3/4 pr-4"> 
             <div className="bg-blue-600 text-white p-4 rounded-t-lg">
               <h2 className="text-lg text-white font-bold">PAYMENT OPTIONS</h2>
             </div>
@@ -72,8 +156,8 @@ const PaymentPage = () => {
                 <span className="font-bold">00 : 02 : 53</span>
               </p>
             </div>
-            <div className="p-4">
-              <div className="bg-blue-50 p-4 rounded-lg mb-4">
+            <div >
+              <div className=" rounded-lg mb-4">
                 <div className="flex items-center mb-2">
                   <input
                     type="radio"
@@ -163,8 +247,8 @@ const PaymentPage = () => {
                   </button>
                 </div>
               )}
-
-              <div className="flex items-center mb-4">
+               {/* QR Code Payment Options */}
+               <div className="flex items-center mb-4">
                 <input
                   type="radio"
                   name="payment"
@@ -175,14 +259,31 @@ const PaymentPage = () => {
               </div>
               {selectedPayment === "QR Code" && (
                 <div>
-                  <h5 style={{ fontWeight: "bold", marginBottom: "20px", textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)" }}>Scan the QR Code to Pay</h5>
+                  <h5
+                    style={{
+                      fontWeight: "bold",
+                      marginBottom: "20px",
+                      textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)",
+                    }}
+                  >
+                    Scan the QR Code to Pay
+                  </h5>
                   {qrCode ? (
                     <>
-                      <img style={{ width: "150px", height: "150px", margin: "20px 0", boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)" }} src={qrCode} alt="QR Code" />
+                      <img
+                        style={{
+                          width: "150px",
+                          height: "150px",
+                          margin: "20px 0",
+                          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)",
+                        }}
+                        src={qrCode}
+                        alt="QR Code"
+                      />
                       <br />
                       <button
                         style={buttonStyle}
-                        onClick={handlePaymentVerification}
+                        onClick={handleBuy} // Trigger handleBuy function
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                       >
@@ -190,10 +291,14 @@ const PaymentPage = () => {
                       </button>
                     </>
                   ) : (
-                    <p style={{ fontSize: "1.2rem", fontStyle: "italic" }}>Loading QR Code...</p>
+                    <p style={{ fontSize: "1.2rem", fontStyle: "italic" }}>
+                      Loading QR Code...
+                    </p>
                   )}
                 </div>
               )}
+
+              {/* Other Payment Options */}
 
               <div className="flex items-center mb-4">
                 <input
@@ -311,23 +416,42 @@ const PaymentPage = () => {
           <div className="w-1/4 bg-gray-100 p-4 rounded-lg">
             <div className="bg-white p-4 rounded-lg shadow-md mb-4">
               <h5 className="font-bold mb-2">PRICE DETAILS</h5>
-              <div className="flex justify-between mb-2">
-                <span>Price (1 item)</span>
-                <span>₹1,399</span>
+              <div className="col-lg-4">
+                <div style={styles.cardTotal}>
+                  <h4 className="mb-3">Cart Total</h4>
+                  <div style={styles.totalItem}>
+                    <span>Original Price</span>
+                    <strong>₹{totalPrice.toFixed(2)}</strong>
+                  </div>
+                  <div style={styles.totalItem}>
+                    <span>Discount (20%)</span>
+                    <strong>- ₹{discount.toFixed(2)}</strong>
+                  </div>
+                  <div style={styles.totalItem}>
+                    <span>GST (3%)</span>
+                    <strong>₹{gst.toFixed(2)}</strong>
+                  </div>
+                 
+                  <div style={styles.totalItem}>
+                    <span className="total-payable" style={styles.totalPayable}>
+                      Total Payable
+                    </span>
+                    <span className="total-payable" >
+                      ₹{payableAmount.toFixed(2)}
+                    </span>
+                  </div>
+                
+                </div>
               </div>
-              <div className="flex justify-between mb-2">
-                <span>GST</span>
-                <span className="text-green-500">&nbsp;&nbsp;3%</span>
-              </div>
-              <div className="flex justify-between mb-2">
-                <span>Platform Fee</span>
-                <span className="text-green-500">&nbsp;&nbsp;₹3</span>
-              </div>
-              <hr className="my-2" />
-              <div className="flex justify-between font-bold">
-                <span>Amount Payable</span>
-                <span className="text-green-500">&nbsp;&nbsp;₹1,402</span>
-              </div>
+
+              {/* <button
+                        style={buttonStyle}
+                        onClick={handleBuy} // Trigger handleBuy function
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                      >
+                        Buy Now
+                      </button> */}
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ const Instructor_Login = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:9000/send-otp', { email });
+      const response = await axios.post('http://3.110.103.222:3000/send-otp', { email });
       setMessage(response.data.message);
       setIsOtpSent(true);
       setTimer(30); // Start countdown
@@ -41,17 +41,18 @@ const Instructor_Login = () => {
     }
   };
 
-  // Function to verify OTP
+   // Function to verify OTP
   const verifyOtp = async () => {
     try {
-      const response = await axios.post('http://localhost:9000/verify-otp', { email, userOtp: otp });
+      const response = await axios.post('http://3.110.103.222:3000/verify-otp', { email, userOtp: otp });
       setMessage(response.data.message);
       if (response.data.message === 'OTP verified successfully') {
         alert('OTP verified successfully');
         navigate('/instructordashboard'); // Redirect to instructor dashboard
       }
     } catch (error) {
-      setMessage('Invalid OTP');
+      console.error('Error verifying OTP:', error.response?.data?.message || error);
+      setMessage(error.response?.data?.message || 'Invalid OTP');
     }
   };
 
@@ -60,8 +61,8 @@ const Instructor_Login = () => {
       <div className="form-wrapper">
         <div className="logo-container">
           <img
-            src="assets/images/LMS.png" 
-            alt="LMS"
+            src="./assets/images/LMS.jpg"
+             alt="LMS"
             className="logo"
             style={{
               width: '250px',    // Set desired width

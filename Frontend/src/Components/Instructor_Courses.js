@@ -20,7 +20,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
 
   const fetchVideos = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/videos');
+      const response = await fetch('http://localhost:3000/api/videos');
       if (response.ok) {
         const data = await response.json();
         setVideoList(data);
@@ -50,7 +50,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
     formData.append('title', videoTitle);
 
     try {
-      const response = await fetch('http://localhost:9000/api/upload', {
+      const response = await fetch('http://localhost:3000/api/upload', {
         method: 'POST',
         body: formData,
       });
@@ -80,7 +80,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
     if (!window.confirm('Are you sure you want to delete this video?')) return;
 
     try {
-      const response = await fetch(`http://localhost:9000/api/videos/${videoId}`, {
+      const response = await fetch(`http://localhost:3000/api/videos/${videoId}`, {
         method: 'DELETE',
       });
 
@@ -185,7 +185,7 @@ const Instructor_Courses = ({ videoPreview: propVideoPreview }) => {
     Main Banner END */}
   {/* =======================
     Inner part START */}
-  <section className="pt-0">
+  <section className="pt-0"> 
     <div className="container">
       <div className="row">
         {/* Left sidebar START */}
