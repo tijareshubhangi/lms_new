@@ -131,7 +131,7 @@ console.log("Stored Image URL in LocalStorage: ", storedImage);    if (storedIma
   
       console.log("Response from server: ", res); // Log the full response
       if (res.status === 200) {
-        const latestImageUrl = `http://43.204.234.11:3000/public/${res.data.imageFile}`;
+        const latestImageUrl = `http://localhost:3000/public/${res.data.imageFile}`;
         console.log("Constructed Image URL: ", latestImageUrl); // Check constructed URL
   
         // Store image URL in localStorage

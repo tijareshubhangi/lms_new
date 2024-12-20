@@ -29,16 +29,16 @@ mongoose.set("strictQuery", true);
 connectDB();
 
 // app.use(express.static(path.join(__dirname, "../build")));
-app.use(express.static(path.join(__dirname, "../build")));
+// app.use(express.static(path.join(__dirname, "../build")));
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Handle React routing
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../build", "index.html"));
+// });
 
 // Parse JSON data
 app.use(bodyParser.json());
@@ -188,5 +188,5 @@ app.post("/verify-payment", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://43.204.234.11:${PORT}`);
+  console.log(`API is running on http://localhost:${PORT}`);
 });

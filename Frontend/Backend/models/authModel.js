@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const authSchema = new mongoose.Schema({
-  role: {
-    type: String,
-    enum: ["Admin", "Student"],
-    required: true,
-  },
+  // role: {
+  //   type: String,
+  //   enum: ["Admin", "Student"],
+  //   required: true,
+  // },
   name: {
    type: String,
  },
