@@ -15,7 +15,7 @@ import userRoutes from "./routes/userRoutes.js"; // Corrected import statement
 // Initialize Express App
 const app = express();
 dotenv.config();
-mongoose.set("strictQuery", true);
+mongoose.set("strictQuery", true); 
 
 // Connect to Database
 connectDB();

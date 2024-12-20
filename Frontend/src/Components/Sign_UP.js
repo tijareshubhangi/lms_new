@@ -19,9 +19,9 @@ const Sign_UP = () => {
       });
   
       console.log("User saved to backend:", res.data);
-      navigate("/success");
+      navigate("/");
     } catch (error) {
-      if (error.response) {
+      if (error.response) { 
         console.error("API Error:", error.response.data.message);
       } else {
         console.error("Error logging in with Google:", error.message);
