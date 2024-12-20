@@ -183,12 +183,12 @@ const SignIn = () => {
                           Or
                         </p>
                       </div>
-                      <div className="col-xxl-6 d-grid">
+                      {/* <div className="col-xxl-6 d-grid">
                         <a href="#" className="btn bg-google mb-2 mb-xxl-0">
                           <i className="fab fa-fw fa-google text-white me-2" />{" "}
                           Login with Google
                         </a>
-                      </div>
+                      </div> */}
                       <div className="col-xxl-6 d-grid">
                         <a href="#" className="btn bg-facebook mb-0">
                           <i className="fab fa-fw fa-facebook-f me-2" /> Login
