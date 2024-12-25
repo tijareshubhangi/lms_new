@@ -20,6 +20,7 @@ import { dirname } from "path";
 // __dirname replacement
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -28,17 +29,17 @@ mongoose.set("strictQuery", true);
 // Connect to Database
 connectDB();
 
-// app.use(express.static(path.join(__dirname, "../build")));
-// app.use(express.static(path.join(__dirname, "../build")));
+
+ app.use(express.static(path.join(__dirname, "../build")));
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Handle React routing
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../build", "index.html"));
-// });
+ app.get("*", (req, res) => {
+   res.sendFile(path.join(__dirname, "../build", "index.html"));
+ });
 
 // Parse JSON data
 app.use(bodyParser.json());
@@ -203,5 +204,5 @@ app.post("/api/users/save", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://localhost:${PORT}`);
+  console.log(`API is running on http://13.201.81.133:${PORT}`);
 });
