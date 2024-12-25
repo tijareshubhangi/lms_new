@@ -204,5 +204,5 @@ app.post("/api/users/save", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://13.201.81.133:${PORT}`);
+  console.log(`API is running on http://3.7.70.230:${PORT}`);
 });

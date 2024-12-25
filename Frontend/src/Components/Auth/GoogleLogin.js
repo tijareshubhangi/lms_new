@@ -12,7 +12,7 @@ const GoogleLogin = () => {
       const user = result.user;
 
       // Send user data to backend
-      const res = await axios.post("http://13.201.81.133:3000/api/users/save", {
+      const res = await axios.post("http://3.7.70.230:3000/api/users/save", {
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
