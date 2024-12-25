@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 const GoogleLogin = () => {
   const navigate = useNavigate(); // Initialize navigate function
+  
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -18,8 +19,8 @@ const GoogleLogin = () => {
       });
 
       console.log("User saved to backend:", res.data);
-      navigate("/success"); // Replace "/dashboard" with your desired route
-    } catch (error) {    
+      navigate("/success"); // Replace "/success" with your desired route
+    } catch (error) {
       console.error("Error logging in with Google:", error);
     }
   };
