@@ -20,7 +20,6 @@ import { dirname } from "path";
 // __dirname replacement
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -202,7 +201,7 @@ app.post("/api/users/save", (req, res) => {
 
 
 // Start Server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://3.7.70.230:${PORT}`);
+  console.log(`API is running on http://3.110.123.25:${PORT}`);
 });
