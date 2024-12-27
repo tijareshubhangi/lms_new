@@ -8,11 +8,12 @@ import fs from "fs";
 import nodemailer from "nodemailer";
 import bodyParser from "body-parser";
 import multer from "multer";
+import QRCode from "qrcode";
+
 // Import Custom Modules
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
-import QRCode from "qrcode";
 
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -20,6 +21,7 @@ import { dirname } from "path";
 // __dirname replacement
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 // Initialize Express App
 const app = express();
 dotenv.config();
@@ -28,23 +30,17 @@ mongoose.set("strictQuery", true);
 // Connect to Database
 connectDB();
 
-
- app.use(express.static(path.join(__dirname, "../build")));
-
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "../build")));
 
 // Handle React routing
- app.get("*", (req, res) => {
-   res.sendFile(path.join(__dirname, "../build", "index.html"));
- });
-
-// Parse JSON data
-app.use(bodyParser.json());
-
-// Parse URL-encoded data
-app.use(bodyParser.urlencoded({ extended: true }));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
+});
 
 // Ensure Public/Allimages Directory Exists
 const folderPath = path.join(path.resolve(), "Public/Allimages"); // Use path.resolve for __dirname replacement in ES modules
@@ -53,10 +49,25 @@ if (!fs.existsSync(folderPath)) {
 }
 
 // Serve Static Files
-app.use(
-  "/public",
-  express.static(path.join(path.resolve(), "Public/Allimages"))
-);
+app.use("/public", express.static(path.join(path.resolve(), "Public/Allimages")));
+app.use('/public', express.static(path.join(path.resolve(), 'Public')));
+app.use('/Videos', express.static(path.join(__dirname, 'videos'))); // Serve static videos
+
+const videos = [];
+
+// Multer Storage Engine for Video Uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, 'videos')); // Destination for video uploads
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); // Add timestamp to filenames
+  },
+});
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 }, // Limit file size to 10MB
+});
 
 // Routes
 app.get("/", (req, res) => {
@@ -66,38 +77,27 @@ app.use("/api/auth", authRoutes);
 app.use("/api/auth", courseRoutes);
 app.use("/uploads", express.static("uploads"));
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Make sure this directory exists
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // Appending extension
-  },
+// Video Upload Route
+app.post('/api/upload', upload.single('video'), (req, res) => {
+  if (!req.file) return res.status(400).send('No file uploaded');
+
+  const newVideo = {
+    id: Date.now(),
+    title: req.body.title,
+    videoUrl: `${req.protocol}://${req.get('host')}/Videos/${req.file.filename}`,
+  };
+  videos.push(newVideo);
+
+  res.status(200).json({ message: 'Video uploaded successfully', video: newVideo });
 });
 
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, // Limit file size to 10MB
-});
-
-app.post("/api/auth/courses", upload.single("video"), (req, res) => {
-  try {
-    // Handle course creation logic here
-    // req.file contains the uploaded file information
-    // req.body contains the text fields
-
-    res.status(201).json({ message: "Course created successfully" });
-  } catch (error) {
-    console.error("Server error:", error);
-    res
-      .status(500)
-      .json({ message: "Error creating course", error: error.message });
-  }
-});
+// Get All Videos
+app.get('/api/videos', (req, res) => res.status(200).json(videos));
 
 // Temporary storage for OTPs (for demo purposes; consider using a database in production)
 const otpStore = {};
 
+// Send OTP route
 app.post("/send-otp", async (req, res) => {
   const { email } = req.body;
   if (!email) {
@@ -127,13 +127,14 @@ app.post("/send-otp", async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "OTP sent successfully to " + email });
+    res.status(200).json({ message: `OTP sent successfully to ${email}` });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({ message: "Failed to send OTP. Please try again." });
   }
 });
 
+// Verify OTP route
 app.post("/verify-otp", (req, res) => {
   const { email, userOtp } = req.body;
   if (!email || !userOtp) {
@@ -146,7 +147,7 @@ app.post("/verify-otp", (req, res) => {
   }
 
   // Check if OTP has expired (60 seconds limit)
-  const expiryTime = 30 * 1000; // 60 seconds
+  const expiryTime = 60 * 1000; // 60 seconds
   const isExpired = Date.now() - otpData.timestamp > expiryTime;
 
   if (isExpired) {
@@ -163,6 +164,7 @@ app.post("/verify-otp", (req, res) => {
   }
 });
 
+// Generate QR Code
 app.post("/generate-qr", async (req, res) => {
   const { user, amount } = req.body;
 
@@ -180,14 +182,7 @@ app.post("/generate-qr", async (req, res) => {
   }
 });
 
-app.post("/verify-payment", (req, res) => {
-  // Simulate payment verification
-  res.status(200).json({ message: "Payment Successful" });
-});
-
-
-
-// Sample route
+// Sample route to Save User
 app.post("/api/users/save", (req, res) => {
   const { name, email, photo } = req.body;
   if (!name || !email || !photo) {
@@ -198,10 +193,8 @@ app.post("/api/users/save", (req, res) => {
   res.status(201).json({ message: "User saved successfully" });
 });
 
-
-
 // Start Server
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://3.110.123.25:${PORT}`);
+  console.log(`API is running on http://13.126.223.163:${PORT}`);
 });

@@ -90,6 +90,8 @@ import BlogDetals from "./Components/BlogDetals";
 import AdminEdit from "./Components/AdminEdit";
 import PaymentPage from "./Components/PaymentPage";
 import Success from "./Components/Success";
+import VerificationSuccess from "./Components/VerificationSuccess";
+import VerificationFailed from "./Components/VerificationFailed";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -263,8 +265,8 @@ Student Dashboard Route Start */}
 <Route path="/productdetals" element={<ProductDetails/>} />
 <Route path="/coursemore" element={<CourseMore/>} />
 <Route path="/createcource" element={<CreateCourse/>} />
-
-
+<Route path="/VerificationSuccess" element={<VerificationSuccess/>} />
+<Route path="/VerificationFailed" element={<VerificationFailed/>} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

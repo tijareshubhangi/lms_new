@@ -5,55 +5,54 @@ import jwt from "jsonwebtoken";
 import { sendEmailtoUser } from "../config/EmailTemplate.js";
 
 class authController {
+ 
   static userRegistration = async (req, res) => {
-    const { name, email, password } = req.body;
-    try {
-      if (name && email && password) {
-        const isUser = await authModel.findOne({ email: email });
-        if (isUser) {
-          return res.status(400).json({ message: "user Already Exists" });
-        } else {
-          // Password HAshing
-          const genSalt = await bcryptjs.genSalt(10);
-          const hashedPassword = await bcryptjs.hash(password, genSalt);
-
-          // Generate Token
-
-          const secretKey = "welcomeToCodeWithviju";
-
-          const token = jwt.sign({ email: email }, secretKey, {
-            expiresIn: "10m",
-          });
-
-          const link = `http://3.110.123.25:9000/api/auth/verify/${token}`;
-
-
-          sendEmailtoUser(link, email, name, password);
-          ;
-          // save the user
-          const newUser = authModel({
-            name,
-            email,
-            password: hashedPassword,
-            isVerified: false,
-          });
-
-          const resUser = await newUser.save();
-          if (resUser) {
-            return res
-              .status(201)
-              .json({ message: "!Registered Successfully !we sent you email for verification! Please Verify it", user: resUser });
-          }
-        }
-      } else {
-        return res.status(400).json({ message: "all fields are required" });
-      }
-    } catch (error) {
-      return res.status(400).json({ message: error.message });
-    }
-  };
-
+      const { name, email, password } = req.body;
+      try {
+        if (name && email && password) {
+          const isUser = await authModel.findOne({ email: email });
+          if (isUser) {
+            return res.status(400).json({ message: "user Already Exists" });
+          } else {
+            // Password HAshing
+            const genSalt = await bcryptjs.genSalt(10);
+            const hashedPassword = await bcryptjs.hash(password, genSalt);
   
+            // Generate Token
+  
+            const secretKey = "welcomeToCodeWithviju";
+  
+            const token = jwt.sign({ email: email }, secretKey, {
+              expiresIn: "10m",
+            });
+  
+             const link = `${process.env.BASE_URL}/api/auth/verify/${token}`;
+            
+  
+            sendEmailtoUser(link, email, name, password);
+            ;
+            // save the user
+            const newUser = authModel({
+              name,
+              email,
+              password: hashedPassword,
+              isVerified: false,
+            });
+  
+            const resUser = await newUser.save();
+            if (resUser) {
+              return res
+                .status(201)
+                .json({ message: "!Registered Successfully !we sent you email for verification! Please Verify it", user: resUser });
+            }
+          }
+        } else {
+          return res.status(400).json({ message: "all fields are required" });
+        }
+      } catch (error) {
+        return res.status(400).json({ message: error.message });
+      }
+    };
   static userLogin = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -130,7 +129,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://3.110.123.25:9000/user/reset/${isUser._id}/${token}`;
+          const link = `http://13.126.223.163:9000/user/reset/${isUser._id}/${token}`;
   
           // email sending
           const transport = nodemailer.createTransport({
@@ -253,39 +252,49 @@ class authController {
 
   static saveVerifiedEmail = async (req, res) => {
     const { token } = req.params;
+    console.log('Received token:', token);
     try {
-      if (token) {
-        // token verify
-        const secretKey = "welcomeToCodeWithviju";
-        const isEmailVerified = await jwt.verify(token, secretKey);
-        if (isEmailVerified) {
-          const getUser = await authModel.findOne({
-            email: isEmailVerified.email,
-          });
+        if (token) {
+            const secretKey = "welcomeToCodeWithviju";
+            console.log('Verifying token...');
+            const isEmailVerified = jwt.verify(token, secretKey);
+            console.log('Token verified:', isEmailVerified);
 
-          const saveEmail = await authModel.findByIdAndUpdate(getUser._id, {
-            $set: {
-              isVerified: true,
-            },
-          });
+            if (isEmailVerified) {
+                const getUser = await authModel.findOne({ email: isEmailVerified.email });
 
-          if (saveEmail) {
-            return res
-              .status(200)
-              .json({ message: "Email Verification Success" });
-          }
+                if (!getUser) {
+                    console.log('User not found');
+                    return res.redirect(`${process.env.FRONTEND_URL}/verification-failed`);
+                }
 
-          //
+                const saveEmail = await authModel.findByIdAndUpdate(getUser._id, {
+                    $set: { isVerified: true },
+                });
+
+                if (saveEmail) {
+                    console.log('Email verification successful');
+                   
+                    return res.redirect(`${process.env.FRONTEND_URL}/VerificationSuccess`);
+                    
+                } else {
+                    console.log('Failed to update user');
+                    return res.redirect(`${process.env.FRONTEND_URL}/VerificationFailed`);
+                }
+            } else {
+                console.log('Invalid token');
+                return res.redirect(`${process.env.FRONTEND_URL}/VerificationFailed`);
+            }
         } else {
-          return res.status(400).json({ message: "Link Expired" });
+            console.log('No token provided');
+            return res.redirect(`${process.env.FRONTEND_URL}/VerificationFailed`);
         }
-      } else {
-        return res.status(400).json({ message: "Invalid URL" });
-      }
     } catch (error) {
-      return res.status(400).json({ message: error.message });
+        console.error('Error in saveVerifiedEmail:', error);
+        return res.redirect(`${process.env.FRONTEND_URL}/VerificationFailed`);
     }
-  };
+};
+
   // start Course email send
   static courseEmail = async(req,res)=>{
     const { email } = req.body;
@@ -299,7 +308,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://3.110.123.25:9000/user/sendEmail/${isUser._id}/${token}`;
+          const link = `http://13.126.223.163:9000/user/sendEmail/${isUser._id}/${token}`;
           
   
           // email sending
@@ -385,7 +394,7 @@ class authController {
             expiresIn: "5m",
           });
   
-          const link = `http://3.110.123.25:9000/user/reset/${isUser._id}/${token}`;
+          const link = `http://13.126.223.163:9000/user/reset/${isUser._id}/${token}`;
   
           // email sending
           const transport = nodemailer.createTransport({
