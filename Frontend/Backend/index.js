@@ -18,6 +18,7 @@ import courseRoutes from "./routes/courseRoutes.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
+
 // __dirname replacement
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,11 +31,31 @@ mongoose.set("strictQuery", true);
 // Connect to Database
 connectDB();
 
+
+
+// Define allowed origins (you can include both localhost and public IP for production)
+const allowedOrigins = ['http://localhost:3000', 'http://13.232.95.214:9000','http://13.232.95.214','http://13.232.95.214:3000'];
+
+// CORS middleware with dynamic origin handling
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true); // Allow the request
+    } else {
+      callback(new Error('Not allowed by CORS')); // Reject the request
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
+  credentials: true // Allow cookies and credentials
+}));
+
+
 // Middleware
-app.use(cors());
+
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, "../build")));
 
 // Handle React routing
@@ -196,5 +217,5 @@ app.post("/api/users/save", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://13.126.223.163:${PORT}`);
+  console.log(`API is running on http://13.232.95.214:${PORT}`);
 });

@@ -13,7 +13,7 @@ const Sign_UP = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
   
-      const res = await axios.post("http://13.126.223.163:9000/api/users/save", {
+      const res = await axios.post("http://13.232.95.214:9000/api/users/save", {
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
