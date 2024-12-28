@@ -147,7 +147,7 @@ const TrendingCourses = () => {
             level: "Intermediate",
             rating: 4.7,
             reviews: 2000,
-            students: 3000,
+            students: 3001,
             duration: "8h 30m",
             lectures: 90,
             instructor: { name: "John Smith", image: "assets/images/avatar/05.jpg" },

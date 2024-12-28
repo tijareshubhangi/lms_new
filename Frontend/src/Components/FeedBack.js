@@ -36,7 +36,7 @@ export default function FeedbackSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbackData.length);
-    }, 3000); // Change slide every 3 seconds
+    }, 3001); // Change slide every 3 seconds
     return () => clearInterval(interval);
   }, [feedbackData.length]);
 
