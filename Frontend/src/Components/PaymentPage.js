@@ -34,7 +34,7 @@ const PaymentPage = ({ cart, onAdd, onRemove, onClearCart, setCart }) => {
 
   const fetchQRCode = async () => {
     try {
-      const response = await fetch("http://3.109.208.105:3000/generate-qr", {
+      const response = await fetch("http://3.110.27.127:3000/generate-qr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user: "PSK", amount: 1000 }),
