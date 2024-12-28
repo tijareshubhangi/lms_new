@@ -83,7 +83,7 @@ const CourseList1 = ({ onAddToCart,handlePurchase }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://3.110.27.127:3001/api/videos');
+        const response = await fetch('http://13.232.88.198:3001/api/videos');
         if (response.ok) {
           const data = await response.json();
           setProducts(data);
