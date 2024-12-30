@@ -34,7 +34,7 @@ connectDB();
 
 
 // Define allowed origins (you can include both localhost and public IP for production)
-const allowedOrigins = ['http://localhost:3001', 'http://13.232.88.198:3000','http://13.232.88.198 ','http://13.232.88.198:3001'];
+const allowedOrigins = ['http://localhost:3001', 'http://65.0.127.154:3000','http://65.0.127.154 ','http://65.0.127.154:3001'];
 
 // CORS middleware with dynamic origin handling
 app.use(cors({
@@ -217,5 +217,5 @@ app.post("/api/users/save", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`API is running on http://13.232.88.198:${PORT}`);
+  console.log(`API is running on http://65.0.127.154:${PORT}`);
 });
