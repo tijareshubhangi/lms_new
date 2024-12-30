@@ -132,7 +132,7 @@ const handleSaveName = async () => {
       });
 
       if (res.status === 200) {
-        const latestImageUrl = `http://65.0.127.154:3001/public/${res.data.imageFile}`;
+        const latestImageUrl = `http://43.204.107.127:3001/public/${res.data.imageFile}`;
         // Store the image URL in localStorage
         localStorage.setItem("profileImage", latestImageUrl);
         setProfileImage(latestImageUrl);  // Persist image in profileImage state

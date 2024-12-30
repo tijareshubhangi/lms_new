@@ -32,7 +32,7 @@ const Instructor_Login = () => {
     }
 
     try {
-      const response = await axios.post('http://65.0.127.154:3000/send-otp', { email });
+      const response = await axios.post('http://43.204.107.127:3000/send-otp', { email });
       setMessage(response.data.message);
       setIsOtpSent(true);
       setTimer(30); // Start countdown
@@ -44,7 +44,7 @@ const Instructor_Login = () => {
    // Function to verify OTP
   const verifyOtp = async () => {
     try {
-      const response = await axios.post('http://65.0.127.154:3000/verify-otp', { email, userOtp: otp });
+      const response = await axios.post('http://43.204.107.127:3000/verify-otp', { email, userOtp: otp });
       setMessage(response.data.message);
       if (response.data.message === 'OTP verified successfully') {
         alert('OTP verified successfully');
